@@ -29,10 +29,10 @@ while (!WindowShouldClose())		// run the loop untill the user presses ESCAPE or 
 	BeginDrawing();
 
 	// Setup the back buffer for drawing (clear color and depth buffers)
-	ClearBackground(BLACK);
+	ClearBackground(WHITE);
 
 	// draw some text using the default font
-	DrawText("Hello Raylib", 200, 200, 20, WHITE);
+	DrawText("Hello Raylib", 200, 200, 20, GREEN);
 
 	// draw our texture to the screen
 	DrawTexture(wabbit, 400, 200, WHITE);
