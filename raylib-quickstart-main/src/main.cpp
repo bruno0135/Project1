@@ -33,6 +33,7 @@ while (!WindowShouldClose())		// run the loop untill the user presses ESCAPE or 
 
 	// draw some text using the default font
 	DrawText("Hello Raylib", 200, 200, 20, GREEN);
+	DrawText("Hello as", 200, 200, 20, GREEN);
 
 	// draw our texture to the screen
 	DrawTexture(wabbit, 400, 200, WHITE);
