@@ -1,0 +1,34 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: El directorio intermedio (x64\Debug\) contiene archivos compartidos de otro proyecto (Vikings.vcxproj). Esto puede dar lugar a un comportamiento incorrecto de limpieza y recompilación.
+  Enemy.cpp
+C:\Users\marti\OneDrive\Documents\Project1\CITM-SinLuces-PENGO\src\ResourceManager.h(3,10): fatal error C1083: No se puede abrir el archivo incluir: 'raylib.h': No such file or directory
+  EnemyManager.cpp
+C:\Users\marti\OneDrive\Documents\Project1\CITM-SinLuces-PENGO\src\ResourceManager.h(3,10): fatal error C1083: No se puede abrir el archivo incluir: 'raylib.h': No such file or directory
+  Entity.cpp
+C:\Users\marti\OneDrive\Documents\Project1\CITM-SinLuces-PENGO\src\ResourceManager.h(3,10): fatal error C1083: No se puede abrir el archivo incluir: 'raylib.h': No such file or directory
+  Game.cpp
+C:\Users\marti\OneDrive\Documents\Project1\CITM-SinLuces-PENGO\src\Scene.h(2,10): fatal error C1083: No se puede abrir el archivo incluir: 'raylib.h': No such file or directory
+  Object.cpp
+C:\Users\marti\OneDrive\Documents\Project1\CITM-SinLuces-PENGO\src\ResourceManager.h(3,10): fatal error C1083: No se puede abrir el archivo incluir: 'raylib.h': No such file or directory
+  Player.cpp
+C:\Users\marti\OneDrive\Documents\Project1\CITM-SinLuces-PENGO\src\ResourceManager.h(3,10): fatal error C1083: No se puede abrir el archivo incluir: 'raylib.h': No such file or directory
+  RenderComponent.cpp
+C:\Users\marti\OneDrive\Documents\Project1\CITM-SinLuces-PENGO\src\RenderComponent.h(2,10): fatal error C1083: No se puede abrir el archivo incluir: 'raylib.h': No such file or directory
+  ResourceManager.cpp
+C:\Users\marti\OneDrive\Documents\Project1\CITM-SinLuces-PENGO\src\ResourceManager.h(3,10): fatal error C1083: No se puede abrir el archivo incluir: 'raylib.h': No such file or directory
+  Scene.cpp
+C:\Users\marti\OneDrive\Documents\Project1\CITM-SinLuces-PENGO\src\Scene.h(2,10): fatal error C1083: No se puede abrir el archivo incluir: 'raylib.h': No such file or directory
+  Shot.cpp
+C:\Users\marti\OneDrive\Documents\Project1\CITM-SinLuces-PENGO\src\ResourceManager.h(3,10): fatal error C1083: No se puede abrir el archivo incluir: 'raylib.h': No such file or directory
+  ShotManager.cpp
+C:\Users\marti\OneDrive\Documents\Project1\CITM-SinLuces-PENGO\src\ResourceManager.h(3,10): fatal error C1083: No se puede abrir el archivo incluir: 'raylib.h': No such file or directory
+  Slime.cpp
+C:\Users\marti\OneDrive\Documents\Project1\CITM-SinLuces-PENGO\src\ResourceManager.h(3,10): fatal error C1083: No se puede abrir el archivo incluir: 'raylib.h': No such file or directory
+  Sprite.cpp
+C:\Users\marti\OneDrive\Documents\Project1\CITM-SinLuces-PENGO\src\RenderComponent.h(2,10): fatal error C1083: No se puede abrir el archivo incluir: 'raylib.h': No such file or directory
+  StaticImage.cpp
+C:\Users\marti\OneDrive\Documents\Project1\CITM-SinLuces-PENGO\src\RenderComponent.h(2,10): fatal error C1083: No se puede abrir el archivo incluir: 'raylib.h': No such file or directory
+  TileMap.cpp
+C:\Users\marti\OneDrive\Documents\Project1\CITM-SinLuces-PENGO\src\TileMap.h(2,10): fatal error C1083: No se puede abrir el archivo incluir: 'raylib.h': No such file or directory
+  Turret.cpp
+C:\Users\marti\OneDrive\Documents\Project1\CITM-SinLuces-PENGO\src\ResourceManager.h(3,10): fatal error C1083: No se puede abrir el archivo incluir: 'raylib.h': No such file or directory
+  Generando código...
