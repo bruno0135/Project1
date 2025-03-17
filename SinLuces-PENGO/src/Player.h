@@ -11,6 +11,7 @@
 
 //Horizontal speed and vertical speed while falling down
 #define PLAYER_SPEED			2
+#define PLAYER_SPEEDY			2
 
 //Vertical speed while on a ladder
 #define PLAYER_LADDER_SPEED		1
@@ -68,6 +69,8 @@ private:
 	bool IsLookingLeft() const;
 
 	//Player mechanics
+	int moving;
+	bool isMoving();
 	void MoveX();
 	void MoveY();
 	void LogicJumping();

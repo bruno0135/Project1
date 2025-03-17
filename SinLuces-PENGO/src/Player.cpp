@@ -13,6 +13,7 @@ Player::Player(const Point& p, State s, Look view) :
 	jump_delay = PLAYER_JUMP_DELAY;
 	map = nullptr;
 	score = 0;
+	moving = false;
 }
 Player::~Player()
 {
@@ -203,111 +204,178 @@ void Player::ChangeAnimLeft()
 		case State::FALLING: SetAnimation((int)PlayerAnim::FALLING_LEFT); break;
 	}
 }
+
+bool Player::isMoving() 
+{
+	return moving;
+}
+
 void Player::Update()
 {
-	//Player doesn't use the "Entity::Update() { pos += dir; }" default behaviour.
-	//Instead, uses an independent behaviour for each axis.
-	MoveX();
-	MoveY();
-
+	if (!moving) {
+		MoveX();
+		MoveY();
+	}
 	Sprite* sprite = dynamic_cast<Sprite*>(render);
 	sprite->Update();
 }
+
 void Player::MoveX()
 {
-	AABB box;
 	int prev_x = pos.x;
-
-	//We can only go up and down while climbing
-	if (state == State::CLIMBING)	return;
-
-	if (IsKeyDown(KEY_LEFT) && !IsKeyDown(KEY_RIGHT))
-	{
-		pos.x += -PLAYER_SPEED;
-		if (state == State::IDLE) StartWalkingLeft();
-		else
-		{
-			if (IsLookingRight()) ChangeAnimLeft();
+	if (isMoving()) return;
+	else {
+		if (IsKeyDown(KEY_LEFT)) {
+			pos.x += -PLAYER_SPEED;
+			if (map->TestCollisionWallLeft(GetHitbox())) {
+				pos.x = prev_x;
+			}
+			else {
+				state == State::WALKING;
+			}
 		}
-
-		box = GetHitbox();
-		if (map->TestCollisionWallLeft(box))
-		{
-			pos.x = prev_x;
-			if (state == State::WALKING) Stop();
+		else if (IsKeyDown(KEY_RIGHT)) {
+			pos.x += PLAYER_SPEED;
+			if (map->TestCollisionWallRight(GetHitbox())) {
+				pos.x = prev_x;
+			}
+			else {
+				state == State::WALKING;
+			}
 		}
-	}
-	else if (IsKeyDown(KEY_RIGHT))
-	{
-		pos.x += PLAYER_SPEED;
-		if (state == State::IDLE) StartWalkingRight();
-		else
-		{
-			if (IsLookingLeft()) ChangeAnimRight();
-		}
-
-		box = GetHitbox();
-		if (map->TestCollisionWallRight(box))
-		{
-			pos.x = prev_x;
-			if (state == State::WALKING) Stop();
-		}
-	}
-	else
-	{
-		if (state == State::WALKING) Stop();
 	}
 }
 void Player::MoveY()
 {
-	AABB box;
-
-	if (state == State::JUMPING)
-	{
-		LogicJumping();
-	}
-	else if (state == State::CLIMBING)
-	{
-		LogicClimbing();
-	}
-	else //idle, walking, falling
-	{
-		pos.y += PLAYER_SPEED;
-		box = GetHitbox();
-		if (map->TestCollisionGround(box, &pos.y))
-		{
-			if (state == State::FALLING) Stop();
-
-			if (IsKeyDown(KEY_UP))
-			{
-				box = GetHitbox();
-				if (map->TestOnLadder(box, &pos.x))
-					StartClimbingUp();
+	int prev_y = pos.y;
+	if (isMoving()) return;
+	else {
+		if (IsKeyDown(KEY_UP)) {
+			pos.y += -PLAYER_SPEED;
+			if (map->TestCollisionWallLeft(GetHitbox())) {
+				pos.y = prev_y;
 			}
-			else if (IsKeyDown(KEY_DOWN))
-			{
-				//To climb up the ladder, we need to check the control point (x, y)
-				//To climb down the ladder, we need to check pixel below (x, y+1) instead
-				box = GetHitbox();
-				box.pos.y++;
-				if (map->TestOnLadderTop(box, &pos.x))
-				{
-					StartClimbingDown();
-					pos.y += PLAYER_LADDER_SPEED;
-				}
-					
-			}
-			else if (IsKeyPressed(KEY_SPACE))
-			{
-				StartJumping();
+			else {
+				state == State::WALKING;
 			}
 		}
-		else
-		{
-			if (state != State::FALLING) StartFalling();
+		else if (IsKeyDown(KEY_DOWN)) {
+			pos.y += PLAYER_SPEED;
+			if (map->TestCollisionWallLeft(GetHitbox())) {
+				pos.y = prev_y;
+			}
+			else {
+				state == State::WALKING;
+			}
 		}
 	}
 }
+
+//void Player::Update()
+//{
+//	//Player doesn't use the "Entity::Update() { pos += dir; }" default behaviour.
+//	//Instead, uses an independent behaviour for each axis.
+//	MoveX();
+//	MoveY();
+//
+//	Sprite* sprite = dynamic_cast<Sprite*>(render);
+//	sprite->Update();
+//}
+//void Player::MoveX()
+//{
+//	AABB box;
+//	int prev_x = pos.x;
+//
+//	//We can only go up and down while climbing
+//	if (state == State::CLIMBING)	return;
+//
+//	if (IsKeyDown(KEY_LEFT) && !IsKeyDown(KEY_RIGHT))
+//	{
+//		pos.x += -PLAYER_SPEED;
+//		if (state == State::IDLE) StartWalkingLeft();
+//		else
+//		{
+//			if (IsLookingRight()) ChangeAnimLeft();
+//		}
+//
+//		box = GetHitbox();
+//		if (map->TestCollisionWallLeft(box))
+//		{
+//			pos.x = prev_x;
+//			if (state == State::WALKING) Stop();
+//		}
+//	}
+//	else if (IsKeyDown(KEY_RIGHT))
+//	{
+//		pos.x += PLAYER_SPEED;
+//		if (state == State::IDLE) StartWalkingRight();
+//		else
+//		{
+//			if (IsLookingLeft()) ChangeAnimRight();
+//		}
+//
+//		box = GetHitbox();
+//		if (map->TestCollisionWallRight(box))
+//		{
+//			pos.x = prev_x;
+//			if (state == State::WALKING) Stop();
+//		}
+//	}
+//	else
+//	{
+//		if (state == State::WALKING) Stop();
+//	}
+//}
+//void Player::MoveY()
+//{
+//	AABB box;
+//
+//	if (state == State::JUMPING)
+//	{
+//		LogicJumping();
+//	}
+//	else if (state == State::CLIMBING)
+//	{
+//		LogicClimbing();
+//	}
+//	else //idle, walking, falling
+//	{
+//		pos.y += PLAYER_SPEED;
+//		box = GetHitbox();
+//		if (map->TestCollisionGround(box, &pos.y))
+//		{
+//			if (state == State::FALLING) Stop();
+//
+//			if (IsKeyDown(KEY_UP))
+//			{
+//				box = GetHitbox();
+//				if (map->TestOnLadder(box, &pos.x))
+//					StartClimbingUp();
+//			}
+//			else if (IsKeyDown(KEY_DOWN))
+//			{
+//				//To climb up the ladder, we need to check the control point (x, y)
+//				//To climb down the ladder, we need to check pixel below (x, y+1) instead
+//				box = GetHitbox();
+//				box.pos.y++;
+//				if (map->TestOnLadderTop(box, &pos.x))
+//				{
+//					StartClimbingDown();
+//					pos.y += PLAYER_LADDER_SPEED;
+//				}
+//					
+//			}
+//			else if (IsKeyPressed(KEY_SPACE))
+//			{
+//				StartJumping();
+//			}
+//		}
+//		else
+//		{
+//			if (state != State::FALLING) StartFalling();
+//		}
+//	}
+//}
 void Player::LogicJumping()
 {
 	AABB box, prev_box;
