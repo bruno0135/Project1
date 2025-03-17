@@ -1,0 +1,18 @@
+Project executed on 03-06-2024 at 17:36:53.
+Main.cpp(15): Application start
+NavMesh.cpp(79): Error: End position not walkable.
+NavMesh.cpp(79): Error: End position not walkable.
+NavMesh.cpp(205): Error: Index out of bounds on y. Tile map dimensions: 34x31. Given index: (26, 40)
+NavMesh.cpp(70): Error: Start or end position out of bounds.
+NavMesh.cpp(205): Error: Index out of bounds on y. Tile map dimensions: 34x31. Given index: (24, 39)
+NavMesh.cpp(70): Error: Start or end position out of bounds.
+NavMesh.cpp(205): Error: Index out of bounds on y. Tile map dimensions: 34x31. Given index: (23, 33)
+NavMesh.cpp(70): Error: Start or end position out of bounds.
+NavMesh.cpp(205): Error: Index out of bounds on y. Tile map dimensions: 34x31. Given index: (22, 31)
+NavMesh.cpp(70): Error: Start or end position out of bounds.
+NavMesh.cpp(201): Error: Index out of bounds on x. Tile map dimensions: 34x31. Given index: (35, 20)
+NavMesh.cpp(201): Error: Index out of bounds on x. Tile map dimensions: 34x31. Given index: (35, 20)
+NavMesh.cpp(201): Error: Index out of bounds on x. Tile map dimensions: 34x31. Given index: (36, 20)
+NavMesh.cpp(201): Error: Index out of bounds on x. Tile map dimensions: 34x31. Given index: (36, 20)
+Main.cpp(37): Application finish
+Main.cpp(40): Bye :)
