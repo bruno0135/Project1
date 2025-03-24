@@ -213,12 +213,27 @@ bool Player::isMoving()
 void Player::Update()
 {
 	if (!moving) {
-		MoveX();
-		MoveY();
+		// Si se está presionando izquierda o derecha, mové solo en X
+		if (IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_RIGHT)) {
+			MoveX();
+		}
+		// Si se está presionando arriba o abajo, mové solo en Y
+		else if (IsKeyDown(KEY_UP) || IsKeyDown(KEY_DOWN)) {
+			MoveY();
+		}
 	}
-	Sprite* sprite = dynamic_cast<Sprite*>(render);
-	sprite->Update();
 }
+
+
+//void Player::Update()
+//{
+//	if (!moving) {
+//		MoveX();
+//		MoveY();
+//	}
+//	Sprite* sprite = dynamic_cast<Sprite*>(render);
+//	sprite->Update();
+//}
 
 void Player::MoveX()
 {
