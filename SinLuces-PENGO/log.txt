@@ -1,14 +1,4 @@
-<<<<<<< Updated upstream
-Project executed on 24-03-2025 at 08:57:14.
+Project executed on 24-03-2025 at 09:33:43.
 main.cpp(13): Application start
-TileMap.cpp(132): Error: Index out of bounds. Tile map dimensions: 25x17. Given index: (4, -1)
-TileMap.cpp(132): Error: Index out of bounds. Tile map dimensions: 25x17. Given index: (4, -1)
-TileMap.cpp(132): Error: Index out of bounds. Tile map dimensions: 25x17. Given index: (4, -1)
-TileMap.cpp(132): Error: Index out of bounds. Tile map dimensions: 25x17. Given index: (4, -1)
-TileMap.cpp(132): Error: Index out of bounds. Tile map dimensions: 25x17. Given index: (4, -1)
-=======
-Project executed on 24-03-2025 at 08:56:06.
-main.cpp(13): Application start
->>>>>>> Stashed changes
 main.cpp(34): Application finish
 main.cpp(37): Bye :)

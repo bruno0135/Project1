@@ -10,8 +10,8 @@
 #define PLAYER_PHYSICAL_HEIGHT	16
 
 //Horizontal speed and vertical speed while falling down
-#define PLAYER_SPEED			2
-#define PLAYER_SPEEDY			2
+#define PLAYER_SPEED			1
+#define PLAYER_SPEEDY			1
 
 //Vertical speed while on a ladder
 #define PLAYER_LADDER_SPEED		1
@@ -39,7 +39,7 @@ enum class PlayerAnim {
 	IDLE,
 	WALKING_LEFT, WALKING_RIGHT, //Pengo
 	WALKING_UP, WALKING_DOWN, //Pengo
-	PUSH_DOWN, PUSH_LEFT, PUSH_UP, PUSH_DOWN, //Pengo
+	PUSH_DOWN, PUSH_LEFT, PUSH_UP, PUSH_RIGHT, //Pengo
 	SHOCK_LEFT, SHOCK_RIGHT, //vikings
 	TELEPORT_LEFT, TELEPORT_RIGHT, //vikings
 	NUM_ANIMATIONS //vikings
@@ -80,10 +80,10 @@ private:
 	void Stop();
 	void StartWalkingLeft();
 	void StartWalkingRight();
-	void StartFalling();
+	/*void StartFalling();
 	void StartJumping();
 	void StartClimbingUp();
-	void StartClimbingDown();
+	void StartClimbingDown();*/
 	void ChangeAnimRight();
 	void ChangeAnimLeft();
 
