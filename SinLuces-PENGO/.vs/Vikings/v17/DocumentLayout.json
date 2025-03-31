@@ -1,33 +1,37 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\",
+  "WorkspaceRootPath": "C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Globals.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\Globals.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\ResourceManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Globals.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\Globals.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\ResourceManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\ResourceManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\dependencies\\raylib\\include\\raylib.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\dependencies\\raylib\\include\\raylib.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:dependencies\\raylib\\include\\raylib.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -43,36 +47,48 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Scene.cpp",
+              "DocumentMoniker": "C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Scene.cpp",
+              "RelativeDocumentMoniker": "src\\Scene.cpp",
+              "ToolTip": "C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Scene.cpp",
+              "RelativeToolTip": "src\\Scene.cpp",
+              "ViewState": "AQIAAI0AAAAAAAAAAAAAAI8AAABUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-31T07:18:53.13Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Player.cpp",
-              "DocumentMoniker": "C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Player.cpp",
+              "DocumentMoniker": "C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Player.cpp",
               "RelativeDocumentMoniker": "src\\Player.cpp",
-              "ToolTip": "C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Player.cpp",
+              "ToolTip": "C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Player.cpp",
               "RelativeToolTip": "src\\Player.cpp",
-              "ViewState": "AQIAAOAAAAAAAAAAAAAAAPoAAAAXAAAA",
+              "ViewState": "AQIAAOAAAAAAAAAAAAAAAPoAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-17T08:14:32.613Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Player.h",
-              "DocumentMoniker": "C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Player.h",
+              "DocumentMoniker": "C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Player.h",
               "RelativeDocumentMoniker": "src\\Player.h",
-              "ToolTip": "C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Player.h",
+              "ToolTip": "C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Player.h",
               "RelativeToolTip": "src\\Player.h",
               "ViewState": "AQIAAEEAAAAAAAAAAAAiwE0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-17T08:05:42.43Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-17T08:05:42.43Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ResourceManager.h",
-              "DocumentMoniker": "C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\ResourceManager.h",
+              "DocumentMoniker": "C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\ResourceManager.h",
               "RelativeDocumentMoniker": "src\\ResourceManager.h",
-              "ToolTip": "C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\ResourceManager.h",
+              "ToolTip": "C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\ResourceManager.h",
               "RelativeToolTip": "src\\ResourceManager.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
@@ -80,23 +96,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Game.h",
-              "DocumentMoniker": "C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Game.h",
+              "DocumentMoniker": "C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Game.h",
               "RelativeDocumentMoniker": "src\\Game.h",
-              "ToolTip": "C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Game.h",
+              "ToolTip": "C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Game.h",
               "RelativeToolTip": "src\\Game.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-03T08:18:31.747Z"
+              "WhenOpened": "2025-03-03T08:18:31.747Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Globals.h",
-              "DocumentMoniker": "C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Globals.h",
+              "DocumentMoniker": "C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Globals.h",
               "RelativeDocumentMoniker": "src\\Globals.h",
-              "ToolTip": "C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Globals.h",
+              "ToolTip": "C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Globals.h",
               "RelativeToolTip": "src\\Globals.h",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAABIAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
@@ -104,23 +121,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Game.cpp",
-              "DocumentMoniker": "C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Game.cpp",
+              "DocumentMoniker": "C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Game.cpp",
               "RelativeDocumentMoniker": "src\\Game.cpp",
-              "ToolTip": "C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Game.cpp",
+              "ToolTip": "C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Game.cpp",
               "RelativeToolTip": "src\\Game.cpp",
-              "ViewState": "AQIAADEAAAAAAAAAAAAcwEMAAAAAAAAA",
+              "ViewState": "AQIAANsAAAAAAAAAAAAAAEMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-03T07:45:39.967Z"
+              "WhenOpened": "2025-03-03T07:45:39.967Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "raylib.h",
-              "DocumentMoniker": "C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\dependencies\\raylib\\include\\raylib.h",
+              "DocumentMoniker": "C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\dependencies\\raylib\\include\\raylib.h",
               "RelativeDocumentMoniker": "dependencies\\raylib\\include\\raylib.h",
-              "ToolTip": "C:\\Users\\manelml2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\dependencies\\raylib\\include\\raylib.h",
+              "ToolTip": "C:\\Users\\martimv2\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\dependencies\\raylib\\include\\raylib.h",
               "RelativeToolTip": "dependencies\\raylib\\include\\raylib.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
