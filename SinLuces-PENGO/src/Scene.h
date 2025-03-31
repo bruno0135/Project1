@@ -21,7 +21,7 @@ public:
 
 private:
     AppStatus LoadLevel(int stage);
-    
+
     void CheckObjectCollisions();
     void ClearLevel();
     void RenderObjects() const;
@@ -29,21 +29,20 @@ private:
 
     void RenderGUI() const;
 
-    Player *player;
-    
+    Player* player;
+
     //Level structure that contains all the static tiles
-    TileMap *level;
-    
+    TileMap* level;
+
     //Dynamic objects of the level: items and collectables
     std::vector<Object*> objects;
 
     //Enemies present in the level
-    EnemyManager *enemies;
+    EnemyManager* enemies;
 
     //Shots thrown by enemies
-    ShotManager *shots;
-    
+    ShotManager* shots;
+
     Camera2D camera;
     DebugMode debug;
 };
-
