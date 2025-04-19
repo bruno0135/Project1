@@ -1,3 +1,4 @@
 ﻿  Scene.cpp
+C:\Users\bruno\Documents\GitHub\Project1\SinLuces-PENGO\src\Scene.cpp(125,10): warning C4101: 'obj': variable local sin referencia
   Vikings.vcxproj -> C:\Users\bruno\Documents\GitHub\Project1\SinLuces-PENGO\x64\Debug\Pengo.exe
           1 archivo(s) copiado(s).
