@@ -1,5 +1,18 @@
-Project executed on 19-04-2025 at 12:00:34.
+Project executed on 19-04-2025 at 12:10:00.
 main.cpp(13): Application start
+Scene.cpp(206): Internal error loading scene: invalid entity or object tile id
+Scene.cpp(206): Internal error loading scene: invalid entity or object tile id
+Scene.cpp(206): Internal error loading scene: invalid entity or object tile id
+Scene.cpp(206): Internal error loading scene: invalid entity or object tile id
+Scene.cpp(206): Internal error loading scene: invalid entity or object tile id
+Scene.cpp(206): Internal error loading scene: invalid entity or object tile id
+Scene.cpp(206): Internal error loading scene: invalid entity or object tile id
+Scene.cpp(206): Internal error loading scene: invalid entity or object tile id
+Scene.cpp(206): Internal error loading scene: invalid entity or object tile id
+Scene.cpp(206): Internal error loading scene: invalid entity or object tile id
+Scene.cpp(206): Internal error loading scene: invalid entity or object tile id
+Scene.cpp(206): Internal error loading scene: invalid entity or object tile id
+Scene.cpp(206): Internal error loading scene: invalid entity or object tile id
 Scene.cpp(206): Internal error loading scene: invalid entity or object tile id
 Scene.cpp(206): Internal error loading scene: invalid entity or object tile id
 Scene.cpp(206): Internal error loading scene: invalid entity or object tile id
