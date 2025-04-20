@@ -1,6 +1,12 @@
-	#include "EnemyManager.h"
-#include "Slime.h"
-#include "Turret.h"
+#include "EnemyManager.h"
+#include "Snobee.h"
+
+
+void EnemyManager::SetTileMap(TileMap* m)
+{
+	this->map = m;
+}
+
 
 EnemyManager::EnemyManager()
 {
@@ -13,7 +19,7 @@ EnemyManager::~EnemyManager()
 AppStatus EnemyManager::Initialise()
 {
 	ResourceManager& data = ResourceManager::Instance();
-	if (data.LoadTexture(Resource::IMG_ENEMIES, "images/enemies.png") != AppStatus::OK)
+	if (data.LoadTexture(Resource::IMG_ENEMIES, "images/Sno-Bees/Sno-Bee 1.png") != AppStatus::OK)
 	{
 		LOG("Failed to load enemies sprite texture");
 		return AppStatus::ERROR;
@@ -27,38 +33,36 @@ void EnemyManager::SetShotManager(ShotManager* shots)
 }
 void EnemyManager::Add(const Point& pos, EnemyType type, const AABB& area, Look look)
 {
-	Enemy *enemy;
-	
-	if(type == EnemyType::SLIME)
+	Enemy* enemy;
+
+	if (type == EnemyType::SNOBEE)
 	{
-		enemy = new Slime(pos, SLIME_PHYSICAL_WIDTH, SLIME_PHYSICAL_HEIGHT, SLIME_FRAME_SIZE, SLIME_FRAME_SIZE);
+		enemy = new SNOBEE(pos, SNOBEE_PHYSICAL_WIDTH, SNOBEE_PHYSICAL_HEIGHT, SNOBEE_FRAME_SIZE, SNOBEE_FRAME_SIZE);
+
 	}
-	else if(type == EnemyType::TURRET)
-	{
-		enemy = new Turret(pos, TURRET_PHYSICAL_WIDTH, TURRET_PHYSICAL_HEIGHT, TURRET_FRAME_SIZE, TURRET_FRAME_SIZE);
-	}
+
 	else
 	{
 		LOG("Internal error: trying to add a new enemy with invalid type");
 		return;
 	}
-		
-	enemy->Initialise(look, area);
+
+	enemy->Initialise(pos, type, area, map);
+
+
+
+
 	enemies.push_back(enemy);
 }
 AABB EnemyManager::GetEnemyHitBox(const Point& pos, EnemyType type) const
 {
 	int width, height;
-	if (type == EnemyType::SLIME)
+	if (type == EnemyType::SNOBEE)
 	{
-		width = SLIME_PHYSICAL_WIDTH;
-		height = SLIME_PHYSICAL_HEIGHT;
+		width = SNOBEE_PHYSICAL_WIDTH;
+		height = SNOBEE_PHYSICAL_HEIGHT;
 	}
-	else if (type == EnemyType::TURRET)
-	{
-		width = TURRET_PHYSICAL_WIDTH;
-		height = TURRET_PHYSICAL_HEIGHT;
-	}
+
 	else
 	{
 		LOG("Internal error while computing hitbox for an invalid enemy type");
@@ -70,19 +74,13 @@ AABB EnemyManager::GetEnemyHitBox(const Point& pos, EnemyType type) const
 }
 void EnemyManager::Update(const AABB& player_hitbox)
 {
-	bool shoot;
-	Point p, d;
-
 	for (Enemy* enemy : enemies)
 	{
-		shoot = enemy->Update(player_hitbox);
-		if (shoot)
-		{
-			enemy->GetShootingPosDir(&p, &d);
-			shots->Add(p, d);
-		}
+		enemy->Update(player_hitbox);
 	}
 }
+
+
 void EnemyManager::Draw() const
 {
 	for (const Enemy* enemy : enemies)
@@ -91,7 +89,7 @@ void EnemyManager::Draw() const
 void EnemyManager::DrawDebug() const
 {
 	for (const Enemy* enemy : enemies)
-	{	
+	{
 		enemy->DrawVisibilityArea(DARKGRAY);
 		enemy->DrawHitbox(RED);
 	}
