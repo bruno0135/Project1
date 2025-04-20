@@ -4,116 +4,116 @@
 
 Scene::Scene()
 {
-    player = nullptr;
-    level = nullptr;
-    enemies = nullptr;
-    shots = nullptr;
+	player = nullptr;
+	level = nullptr;
+	enemies = nullptr;
+	shots = nullptr;
 
-    camera.target = { 0, 0 }; //Center of the screen
-    camera.offset = { 0, MARGIN_GUI_Y }; //Offset from the target (center of the screen)
-    camera.rotation = 0.0f; //No rotation
-    camera.zoom = 1.0f; //Default zoom
+	camera.target = { 0, 0 }; //Center of the screen
+	camera.offset = { 0, MARGIN_GUI_Y }; //Offset from the target (center of the screen)
+	camera.rotation = 0.0f; //No rotation
+	camera.zoom = 1.0f; //Default zoom
 
-    debug = DebugMode::OFF;
+	debug = DebugMode::OFF;
 }
 Scene::~Scene()
 {
-    if (player != nullptr)
-    {
-        player->Release();
-        delete player;
-        player = nullptr;
-    }
-    if (level != nullptr)
-    {
-        level->Release();
-        delete level;
-        level = nullptr;
-    }
-    for (Entity* obj : objects)
-    {
-        delete obj;
-    }
-    objects.clear();
-    if (enemies != nullptr)
-    {
-        enemies->Release();
-        delete enemies;
-        enemies = nullptr;
-    }
-    if (shots != nullptr)
-    {
-        delete shots;
-        shots = nullptr;
-    }
+	if (player != nullptr)
+	{
+		player->Release();
+		delete player;
+		player = nullptr;
+	}
+	if (level != nullptr)
+	{
+		level->Release();
+		delete level;
+		level = nullptr;
+	}
+	for (Entity* obj : objects)
+	{
+		delete obj;
+	}
+	objects.clear();
+	if (enemies != nullptr)
+	{
+		enemies->Release();
+		delete enemies;
+		enemies = nullptr;
+	}
+	if (shots != nullptr)
+	{
+		delete shots;
+		shots = nullptr;
+	}
 }
 AppStatus Scene::Init()
 {
-    //Create player
-    player = new Player({ 0,0 }, State::IDLE, Look::RIGHT);
-    if (player == nullptr)
-    {
-        LOG("Failed to allocate memory for Player");
-        return AppStatus::ERROR;
-    }
-    //Initialise player
-    if (player->Initialise() != AppStatus::OK)
-    {
-        LOG("Failed to initialise Player");
-        return AppStatus::ERROR;
-    }
+	//Create player
+	player = new Player({ 0,0 }, State::IDLE, Look::RIGHT);
+	if (player == nullptr)
+	{
+		LOG("Failed to allocate memory for Player");
+		return AppStatus::ERROR;
+	}
+	//Initialise player
+	if (player->Initialise() != AppStatus::OK)
+	{
+		LOG("Failed to initialise Player");
+		return AppStatus::ERROR;
+	}
 
-    //Create enemy manager
-    enemies = new EnemyManager();
-    if (enemies == nullptr)
-    {
-        LOG("Failed to allocate memory for Enemy Manager");
-        return AppStatus::ERROR;
-    }
-    //Initialise enemy manager
-    if (enemies->Initialise() != AppStatus::OK)
-    {
-        LOG("Failed to initialise Enemy Manager");
-        return AppStatus::ERROR;
-    }
+	//Create enemy manager
+	enemies = new EnemyManager();
+	if (enemies == nullptr)
+	{
+		LOG("Failed to allocate memory for Enemy Manager");
+		return AppStatus::ERROR;
+	}
+	//Initialise enemy manager
+	if (enemies->Initialise() != AppStatus::OK)
+	{
+		LOG("Failed to initialise Enemy Manager");
+		return AppStatus::ERROR;
+	}
 
-    //Create shot manager
-    shots = new ShotManager();
-    if (shots == nullptr)
-    {
-        LOG("Failed to allocate memory for Shot Manager");
-        return AppStatus::ERROR;
-    }
-    //Initialise shot manager
-    if (shots->Initialise() != AppStatus::OK)
-    {
-        LOG("Failed to initialise Shot Manager");
-        return AppStatus::ERROR;
-    }
+	//Create shot manager
+	shots = new ShotManager();
+	if (shots == nullptr)
+	{
+		LOG("Failed to allocate memory for Shot Manager");
+		return AppStatus::ERROR;
+	}
+	//Initialise shot manager
+	if (shots->Initialise() != AppStatus::OK)
+	{
+		LOG("Failed to initialise Shot Manager");
+		return AppStatus::ERROR;
+	}
 
-    //Create level
-    level = new TileMap();
-    if (level == nullptr)
-    {
-        LOG("Failed to allocate memory for Level");
-        return AppStatus::ERROR;
-    }
-    //Initialise level
-    if (level->Initialise() != AppStatus::OK)
-    {
-        LOG("Failed to initialise Level");
-        return AppStatus::ERROR;
-    }
-    //Load level
-    if (LoadLevel(1) != AppStatus::OK)
-    {
-        LOG("Failed to load Level 1");
-        return AppStatus::ERROR;
-    }
+	//Create level
+	level = new TileMap();
+	if (level == nullptr)
+	{
+		LOG("Failed to allocate memory for Level");
+		return AppStatus::ERROR;
+	}
+	//Initialise level
+	if (level->Initialise() != AppStatus::OK)
+	{
+		LOG("Failed to initialise Level");
+		return AppStatus::ERROR;
+	}
+	//Load level
+	if (LoadLevel(1) != AppStatus::OK)
+	{
+		LOG("Failed to load Level 1");
+		return AppStatus::ERROR;
+	}
 
-    //Assign the tile map reference to the player to check collisions while navigating
-    player->SetTileMap(level);
-    return AppStatus::OK;
+	//Assign the tile map reference to the player to check collisions while navigating
+	player->SetTileMap(level);
+	return AppStatus::OK;
 }
 AppStatus Scene::LoadLevel(int stage)
 {
@@ -132,23 +132,23 @@ AppStatus Scene::LoadLevel(int stage)
 	{
 		map = new int[size] {
 
-			1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-			1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 62, 0, 0, 63, 0, 0, 0, 0, 1,
-			1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-			1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-			1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1,
-			1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 17, 18, 17, 18, 22, 23, 0, 0, 0, 1,
-			1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-			1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-			1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 20, 21, 0, 0, 0, 1,
-			1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 22, 23, 9, 0, 20, 21, 0, 62, 0, 1,
-			1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 20, 21, 10, 0, 20, 21, 0, 0, 0, 1,
-			1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 20, 21, 9, 0, 20, 21, 0, 62, 0, 1,
-			1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 20, 21, 10, 0, 20, 21, 0, 0, 0, 1,
-			1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 20, 21, 9, 0, 20, 21, 0, 0, 0, 1,
-			1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+			0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+				0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+				0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 62, 0, 0, 63, 0, 0, 0, 0, 1,
+				0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+				0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+				0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1,
+				0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 17, 18, 17, 18, 22, 23, 0, 0, 0, 1,
+				0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+				0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+				0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 20, 21, 0, 0, 0, 1,
+				0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 22, 23, 9, 0, 20, 21, 0, 62, 0, 1,
+				0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 20, 21, 10, 0, 20, 21, 0, 0, 0, 1,
+				0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 20, 21, 9, 0, 20, 21, 0, 62, 0, 1,
+				0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 20, 21, 10, 0, 20, 21, 0, 0, 0, 1,
+				0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 20, 21, 9, 0, 20, 21, 0, 0, 0, 1,
+				0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 			};
 		player->InitScore();
 	}
@@ -156,22 +156,22 @@ AppStatus Scene::LoadLevel(int stage)
 	{
 		map = new int[size] {
 			1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
-			1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 10,
-			1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 9,
-			1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 200, -1, 0, 0, 0, 0, 0, 0, 0, 10,
-			1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 23, 13, 17, 18, 17, 18, 17, 18, 13, 0, 9,
-			1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10,
-			1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
-			1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 21, 0, 0, 0, 0, 0, 0, 0, 0, 13, 10,
-			1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 21, 0, 0, 0, 0, 0, 0, 0, -1, -1, 9,
-			1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 21, 0, 0, 0, 63, 0, 0, 0, 301, -1, 10,
-			1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 63, 0, 63, 0, 0, 11, 12, 9,
-			1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, -1, -1, 10,
-			1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 301, -1, 9,
-			1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 13, 0, 0, 0, 0, 13, 17, 18, 10,
-			1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+				1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
+				1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 10,
+				1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 9,
+				1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 200, -1, 0, 0, 0, 0, 0, 0, 0, 10,
+				1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 23, 13, 17, 18, 17, 18, 17, 18, 13, 0, 9,
+				1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10,
+				1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9,
+				1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 21, 0, 0, 0, 0, 0, 0, 0, 0, 13, 10,
+				1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 21, 0, 0, 0, 0, 0, 0, 0, -1, -1, 9,
+				1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 21, 0, 0, 0, 63, 0, 0, 0, 301, -1, 10,
+				1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 63, 0, 63, 0, 0, 11, 12, 9,
+				1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, -1, -1, 10,
+				1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 301, -1, 9,
+				1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 13, 0, 0, 0, 0, 13, 17, 18, 10,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 			};
 	}
 	else
@@ -200,7 +200,7 @@ AppStatus Scene::LoadLevel(int stage)
 				{
 					player->SetPos(pos);
 				}
-				
+
 				else
 				{
 					LOG("Internal error loading scene: invalid entity or object tile id")
@@ -209,9 +209,9 @@ AppStatus Scene::LoadLevel(int stage)
 			++i;
 		}
 	}
-	int middle_x = 8;	
-	int middle_y = 8;
-    pos = { middle_x * TILE_SIZE, (middle_y + 2) * TILE_SIZE };
+	int middle_x = 10;
+	int middle_y = 6;
+	pos = { middle_x * TILE_SIZE, (middle_y + 2) * TILE_SIZE };
 	player->SetPos(pos);
 
 
