@@ -135,7 +135,6 @@ Tile TileMap::GetTileIndex(int x, int y) const
 		LOG("Error: TileMap instance or map is null");
 		return Tile::AIR;
 	}
-
 	int idx = x + y * width;
 	if (idx < 0 || idx >= size)
 	{
