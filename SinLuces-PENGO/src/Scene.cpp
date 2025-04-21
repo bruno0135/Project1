@@ -219,8 +219,8 @@ AppStatus Scene::LoadLevel(int stage)
 				++i;
 			}
 		}
-		int middle_x = 10;
-		int middle_y = 6;
+		int middle_x = 8;
+		int middle_y = 8;
 		pos = { middle_x * TILE_SIZE, (middle_y + 2) * TILE_SIZE };
 		player->SetPos(pos);
 
