@@ -57,8 +57,8 @@ AppStatus SNOBEE::Initialise(const Point& pos, EnemyType type, const AABB& area,
 	sprite->AddKeyFrame((int)SNOBEEAnim::ATTACK_LEFT, { n, 3*n, -n, n });
 
 	this->look = look;
-	if(look == Look::LEFT)        sprite->SetAnimation((int)SNOBEEAnim::IDLE_LEFT);
-	else if (look == Look::RIGHT) sprite->SetAnimation((int)SNOBEEAnim::IDLE_RIGHT);
+	if(look == Look::LEFT)        SetAnimation((int)SNOBEEAnim::IDLE_LEFT);
+	else if (look == Look::RIGHT) SetAnimation((int)SNOBEEAnim::IDLE_RIGHT);
 	
 	visibility_area = area;
 
@@ -150,7 +150,7 @@ void SNOBEE::UpdateMovementAI(const AABB& playerBox)
 		{
 			movement = { 0, 0 };
 			stepsRemaining = 0;
-			sprite->SetAnimation((look == Look::LEFT) ? (int)SNOBEEAnim::IDLE_LEFT : (int)SNOBEEAnim::IDLE_RIGHT);
+			SetAnimation((look == Look::LEFT) ? (int)SNOBEEAnim::IDLE_LEFT : (int)SNOBEEAnim::IDLE_RIGHT);
 			return;
 		}
 
@@ -159,11 +159,11 @@ void SNOBEE::UpdateMovementAI(const AABB& playerBox)
 		stepsRemaining = tileSize / baseSpeed;
 		if (movement.x != 0)
 		{
-			sprite->SetAnimation((look == Look::LEFT) ? (int)SNOBEEAnim::WALKING_LEFT : (int)SNOBEEAnim::WALKING_RIGHT);
+			SetAnimation((look == Look::LEFT) ? (int)SNOBEEAnim::WALKING_LEFT : (int)SNOBEEAnim::WALKING_RIGHT);
 		}
 		else
 		{
-			sprite->SetAnimation((look == Look::LEFT) ? (int)SNOBEEAnim::WALKING_LEFT : (int)SNOBEEAnim::WALKING_RIGHT);
+			SetAnimation((look == Look::LEFT) ? (int)SNOBEEAnim::WALKING_LEFT : (int)SNOBEEAnim::WALKING_RIGHT);
 		}
 	}
 
@@ -172,7 +172,7 @@ void SNOBEE::UpdateMovementAI(const AABB& playerBox)
 
 	if (stepsRemaining == 0)
 	{
-		sprite->SetAnimation((look == Look::LEFT) ? (int)SNOBEEAnim::IDLE_LEFT : (int)SNOBEEAnim::IDLE_RIGHT);
+		SetAnimation((look == Look::LEFT) ? (int)SNOBEEAnim::IDLE_LEFT : (int)SNOBEEAnim::IDLE_RIGHT);
 	}
 
 	sprite->Update();
@@ -190,11 +190,11 @@ void SNOBEE::MoveOneTileInDirection(Look dir)
 		switch (dir) {
 		case Look::LEFT:
 			movement = { -baseSpeed, 0 };
-			sprite->SetAnimation((int)SNOBEEAnim::WALKING_LEFT);
+			SetAnimation((int)SNOBEEAnim::WALKING_LEFT);
 			break;
 		case Look::RIGHT:
 			movement = { baseSpeed, 0 };
-			sprite->SetAnimation((int)SNOBEEAnim::WALKING_RIGHT);
+			SetAnimation((int)SNOBEEAnim::WALKING_RIGHT);
 			break;
 		case Look::UP:
 			movement = { 0, -baseSpeed };
@@ -213,9 +213,9 @@ void SNOBEE::MoveOneTileInDirection(Look dir)
 
 	if (stepsRemaining == 0) {
 		if (look == Look::LEFT)
-			sprite->SetAnimation((int)SNOBEEAnim::IDLE_LEFT);
+			SetAnimation((int)SNOBEEAnim::IDLE_LEFT);
 		else if (look == Look::RIGHT)
-			sprite->SetAnimation((int)SNOBEEAnim::IDLE_RIGHT);
+			SetAnimation((int)SNOBEEAnim::IDLE_RIGHT);
 	}
 
 	sprite->Update();
@@ -266,7 +266,7 @@ bool SNOBEE::Update(const AABB& box)
 		{
 			state = SNOBEEState::ATTACK;
 			attack_delay = SNOBEE_ANIM_DELAY;
-			sprite->SetAnimation((look == Look::LEFT) ? (int)SNOBEEAnim::ATTACK_LEFT : (int)SNOBEEAnim::ATTACK_RIGHT);
+			SetAnimation((look == Look::LEFT) ? (int)SNOBEEAnim::ATTACK_LEFT : (int)SNOBEEAnim::ATTACK_RIGHT);
 		}
 	}
 

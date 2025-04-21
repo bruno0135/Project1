@@ -24,6 +24,8 @@ public:
 	void SetAlive(bool b);
 	bool IsAlive() const;
 
+	void SetAnimation(int anim_id);
+
 	//Draw representation model
 	void Draw() const;
 	void DrawTint(const Color& col) const;

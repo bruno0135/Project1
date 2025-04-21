@@ -1,5 +1,6 @@
 
 #include "Entity.h"
+#include "Sprite.h"
 #include <cmath>
 #include "Globals.h"
 
@@ -90,4 +91,10 @@ void Entity::DrawHitbox(int x, int y, int w, int h, const Color& col) const
 
 	render->DrawBox(x, y-(h-1), w, h, c);
 	render->DrawCorners(x, y-(h-1), w, h);
+}
+
+void Entity::SetAnimation(int anim_id)
+{
+	Sprite* sprite = dynamic_cast<Sprite*>(render);
+	if (sprite) sprite->SetAnimation(anim_id);
 }

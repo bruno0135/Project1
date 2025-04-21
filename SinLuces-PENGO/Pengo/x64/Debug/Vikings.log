@@ -1,23 +1,2 @@
-﻿  AABB.cpp
-  Enemy.cpp
-  EnemyManager.cpp
-  Entity.cpp
-  Game.cpp
-  Globals.cpp
-  main.cpp
-  Object.cpp
-  Player.cpp
-  RenderComponent.cpp
-  ResourceManager.cpp
-  Scene.cpp
-  Shot.cpp
-C:\Users\chus1\Documents\GitHub\Project1\SinLuces-PENGO\src\Scene.cpp(127,10): warning C4101: 'obj': variable local sin referencia
-  ShotManager.cpp
-  Snobee.cpp
-  Sprite.cpp
-  StaticImage.cpp
-  TileMap.cpp
-  Generando código...
-C:\Users\chus1\Documents\GitHub\Project1\SinLuces-PENGO\src\Scene.cpp(237,1): warning C4715: 'Scene::LoadLevel': no todas las rutas de acceso de control devuelven un valor
-  Vikings.vcxproj -> C:\Users\chus1\Documents\GitHub\Project1\SinLuces-PENGO\x64\Debug\Pengo.exe
+﻿  Vikings.vcxproj -> C:\Users\chus1\Documents\GitHub\Project1\SinLuces-PENGO\x64\Debug\Pengo.exe
           1 archivo(s) copiado(s).
