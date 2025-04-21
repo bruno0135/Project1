@@ -12,6 +12,7 @@ Object::Object(const Point& p, ObjectType t) :
 	{
 		case ObjectType::APPLE: rc = {4*n, 3*n, n, n}; break;
 		case ObjectType::CHILI: rc = {5*n, 3*n, n, n}; break;
+		case ObjectType::STAR:  rc = {5*n, 1*n, n, n}; break;
 
 		default: LOG("Internal error: object creation of invalid type");
 	}
@@ -30,6 +31,7 @@ int Object::Points() const
 {
 	if (type == ObjectType::APPLE)		return POINTS_APPLE;
 	else if (type == ObjectType::CHILI)	return POINTS_CHILI;
+	else if (type == ObjectType::STAR)	return 50;
 	else
 	{
 		LOG("Internal error: object type invalid when giving points");

@@ -49,7 +49,7 @@ void TileMap::InitTileDictionary()
 	dict_rect[(int)Tile::PINKB] =      { n, 7*n, n, n };
 	dict_rect[(int)Tile::GREENB] =    {2*n,   0, n, n };
 
-	dict_rect[(int)Tile::PURPLE_STAR] =		 { 5*n,   n, n, n };
+	dict_rect[(int)Tile::PURPLE_STAR] =		 {   n, 5*n, n, n };
 	dict_rect[(int)Tile::YELLOW_STAR] =		 { 5*n, 2*n, n, n };
 	dict_rect[(int)Tile::LIGHTYELLOW_STAR] = { 5*n, 3*n, n, n };
 	dict_rect[(int)Tile::ORANGE_STAR] =		 { 5*n, 4*n, n, n };

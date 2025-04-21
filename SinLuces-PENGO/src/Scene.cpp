@@ -147,7 +147,7 @@ AppStatus Scene::LoadLevel(int stage)
 				1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
 				1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
 				1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1,
-				1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 17, 18, 17, 18, 22, 23, 0, 0, 0, 1,
+				1, 0, 1, 0,60, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 17, 18, 17, 18, 22, 23, 0, 0, 0, 1,
 				1, 0, 1, 0,200, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
 				1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
 				1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 20, 21, 0, 0, 0, 1,
@@ -219,6 +219,13 @@ AppStatus Scene::LoadLevel(int stage)
 				Point area_pos = pos + Point(-48, -32);
 				AABB area(area_pos, 160, 96);
 				enemies->Add(pos, EnemyType::SNOBEE, area);
+			}
+			else if (tile == Tile::PURPLE_STAR)
+			{
+				LOG("🌟 Star encontrada en (%d, %d)", x, y);
+				obj = new Object(pos, ObjectType::STAR);
+				if (obj == nullptr) return AppStatus::ERROR;
+				objects.push_back(obj);
 			}
 			++i;
 		}
