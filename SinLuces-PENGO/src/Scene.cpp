@@ -210,18 +210,11 @@ AppStatus Scene::LoadLevel(int stage)
 					visionArea.width = 6 * TILE_SIZE;
 					visionArea.height = 4 * TILE_SIZE;
 
-					SNOBEE* enemy = new SNOBEE(pos, SNOBEE_PHYSICAL_WIDTH, SNOBEE_PHYSICAL_HEIGHT, SNOBEE_FRAME_SIZE, SNOBEE_FRAME_SIZE);
-					if (enemy->Initialise(pos, EnemyType::SNOBEE, visionArea, level) == AppStatus::OK)
-					{
-						// Ajusta esta línea si tu función Add espera múltiples parámetros:
-						enemies->Add(pos, EnemyType::SNOBEE, visionArea, Look::LEFT);
-					}
-					else
-					{
-						LOG("Failed to initialise Snobee");
-						delete enemy;
-						return AppStatus::ERROR;
-					}
+					enemies->Add(pos, EnemyType::SNOBEE, visionArea, Look::RIGHT);
+				}
+				else
+				{
+					LOG("Internal error loading scene: invalid entity or object tile id");
 				}
 				++i;
 			}

@@ -1,5 +1,7 @@
 ﻿  Scene.cpp
+  TileMap.cpp
 C:\Users\MANEL\Documents\GitHub\Project1\SinLuces-PENGO\src\Scene.cpp(127,10): warning C4101: 'obj': unreferenced local variable
-C:\Users\MANEL\Documents\GitHub\Project1\SinLuces-PENGO\src\Scene.cpp(242,1): warning C4715: 'Scene::LoadLevel': not all control paths return a value
+  Generating Code...
+C:\Users\MANEL\Documents\GitHub\Project1\SinLuces-PENGO\src\Scene.cpp(235,1): warning C4715: 'Scene::LoadLevel': not all control paths return a value
   Vikings.vcxproj -> C:\Users\MANEL\Documents\GitHub\Project1\SinLuces-PENGO\x64\Debug\Pengo.exe
           1 file(s) copied.
