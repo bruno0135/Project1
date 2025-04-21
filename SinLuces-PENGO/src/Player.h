@@ -1,6 +1,7 @@
 #pragma once
 #include "Entity.h"
 #include "TileMap.h"
+#include <unordered_map>
 
 //Representation model size: 32x32
 #define PLAYER_FRAME_SIZE		16
@@ -32,25 +33,22 @@
 #define GRAVITY_FORCE			1
 
 //Logic states
-enum class State { IDLE, WALKING, JUMPING, FALLING, CLIMBING, DEAD };
+enum class State { IDLE, WALKING, PUSH, DEAD };
 
 //Rendering states
 enum class PlayerAnim {
-	IDLE,
-	WALKING_LEFT, WALKING_RIGHT, //Pengo
-	WALKING_UP, WALKING_DOWN, //Pengo
-	PUSH_DOWN, PUSH_LEFT, PUSH_UP, PUSH_RIGHT, //Pengo
-	SHOCK_LEFT, SHOCK_RIGHT, //vikings
-	TELEPORT_LEFT, TELEPORT_RIGHT, //vikings
-	NUM_ANIMATIONS //vikings
+	IDLE_LEFT, IDLE_RIGHT, IDLE_UP, IDLE_DOWN,
+	WALK_LEFT, WALK_RIGHT, WALK_DOWN, WALK_UP,
+	PUSH_LEFT, PUSH_RIGHT, PUSH_DOWN, PUSH_UP,
+	NUM_ANIMATIONS
 };
 
-class Player: public Entity
+class Player : public Entity
 {
 public:
 	Player(const Point& p, State s, Look view);
 	~Player();
-	
+
 	AppStatus Initialise();
 	void SetTileMap(TileMap* tilemap);
 
@@ -62,48 +60,40 @@ public:
 	void DrawDebug(const Color& col) const;
 	void Release();
 
+	/*void FreezeAnimationFrame();*/
+	void RestoreAnimationFrame();
+	void Stop();
+	void ResumeMovement();
+
 private:
+
 	bool IsLookingRight() const;
 	bool IsLookingLeft() const;
+	bool IsLookingDown() const;
+	bool IsLookingUp() const;
 
 	//Player mechanics
-	int moving;
-	bool isMoving();
-	void MoveX();
-	void MoveY();
-	void LogicJumping();
-	void LogicClimbing();
+	void Move();
 
-	//Animation management
+
+	//Animations coordination
+	std::unordered_map<int, int> originalAnimationDelays;
 	void SetAnimation(int id);
 	PlayerAnim GetAnimation();
-	void Stop();
 	void StartWalkingLeft();
 	void StartWalkingRight();
-	/*void StartFalling();
-	void StartJumping();
-	void StartClimbingUp();
-	void StartClimbingDown();*/
+	void StartWalkingUp();
+	void StartWalkingDown();
 	void ChangeAnimRight();
 	void ChangeAnimLeft();
+	void ChangeAnimUp();
+	void ChangeAnimDown();
 
-	//Jump steps
-	bool IsAscending() const;
-	bool IsLevitating() const;
-	bool IsDescending() const;
 
-	//Ladder get in/out steps
-	bool IsInFirstHalfTile() const;
-	bool IsInSecondHalfTile() const;
 
 	State state;
 	Look look;
-	int jump_delay;
-
-	//Reference to the TileMap object
-	//This class does not own the object, it only holds a reference to it
-	TileMap *map;
-
+	TileMap* map;
 	int score;
 };
 
