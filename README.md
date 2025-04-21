@@ -22,6 +22,8 @@ This game is a recreation of the original game [Pengo](https://www.youtube.com/w
 - Change level function
 - Background music
 
+## 1 min video
+[VIDEO](https://www.youtube.com/watch?v=ud96en6W3ik&feature=youtu.be)
 
 ## Credits
 Sin Luces Team
