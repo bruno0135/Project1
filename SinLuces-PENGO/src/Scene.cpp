@@ -1,4 +1,5 @@
 #include "Scene.h"
+#include "Snobee.h"
 #include <stdio.h>
 #include "Globals.h"
 
@@ -113,6 +114,7 @@ AppStatus Scene::Init()
 
 	//Assign the tile map reference to the player to check collisions while navigating
 	player->SetTileMap(level);
+	enemies->SetTileMap(level);
 	return AppStatus::OK;
 }
 AppStatus Scene::LoadLevel(int stage)
@@ -142,7 +144,7 @@ AppStatus Scene::LoadLevel(int stage)
 				1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
 				1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
 				1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 20, 21, 0, 0, 0, 1,
-				1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 22, 23, 9, 0, 20, 21, 0, 62, 0, 1,
+				1, 200, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 22, 23, 9, 0, 20, 21, 0, 62, 0, 1,
 				1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 20, 21, 10, 0, 20, 21, 0, 0, 0, 1,
 				1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 20, 21, 9, 0, 20, 21, 0, 62, 0, 1,
 				1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 20, 21, 10, 0, 20, 21, 0, 0, 0, 1,
@@ -200,28 +202,45 @@ AppStatus Scene::LoadLevel(int stage)
 				{
 					player->SetPos(pos);
 				}
-
-				else
+				else if (tile == Tile::SNOBEE)
 				{
-					LOG("Internal error loading scene: invalid entity or object tile id")
+					AABB visionArea;
+					visionArea.pos.x = pos.x - 3 * TILE_SIZE;
+					visionArea.pos.y = pos.y - 2 * TILE_SIZE;
+					visionArea.width = 6 * TILE_SIZE;
+					visionArea.height = 4 * TILE_SIZE;
+
+					SNOBEE* enemy = new SNOBEE(pos, SNOBEE_PHYSICAL_WIDTH, SNOBEE_PHYSICAL_HEIGHT, SNOBEE_FRAME_SIZE, SNOBEE_FRAME_SIZE);
+					if (enemy->Initialise(pos, EnemyType::SNOBEE, visionArea, level) == AppStatus::OK)
+					{
+						// Ajusta esta línea si tu función Add espera múltiples parámetros:
+						enemies->Add(pos, EnemyType::SNOBEE, visionArea, Look::LEFT);
+					}
+					else
+					{
+						LOG("Failed to initialise Snobee");
+						delete enemy;
+						return AppStatus::ERROR;
+					}
 				}
+				++i;
 			}
-			++i;
 		}
+		int middle_x = 10;
+		int middle_y = 6;
+		pos = { middle_x * TILE_SIZE, (middle_y + 2) * TILE_SIZE };
+		player->SetPos(pos);
+
+
+		//Remove initial positions of objects and entities from the map
+		level->ClearObjectEntityPositions();
+
+		delete[] map;
+
+		return AppStatus::OK;
 	}
-	int middle_x = 10;
-	int middle_y = 6;
-	pos = { middle_x * TILE_SIZE, (middle_y + 2) * TILE_SIZE };
-	player->SetPos(pos);
-
-
-	//Remove initial positions of objects and entities from the map
-	level->ClearObjectEntityPositions();
-
-	delete[] map;
-
-	return AppStatus::OK;
 }
+
 void Scene::Update()
 {
 	Point p1, p2;

@@ -31,29 +31,32 @@ void TileMap::InitTileDictionary()
 {
 	const int n = TILE_SIZE;
 
-	dict_rect[(int)Tile::BLOCK_SQUARE1_TL] = { 0,  0, n, n };
-	dict_rect[(int)Tile::BLOCK_SQUARE1_TR] = { n,  0, n, n };
-	dict_rect[(int)Tile::BLOCK_SQUARE1_BL] = { 0, n, n, n };
-	dict_rect[(int)Tile::BLOCK_SQUARE1_BR] = { n, n, n, n };
-	dict_rect[(int)Tile::BLOCK_SQUARE2_TL] = { 2 * n,  0, n, n };
-	dict_rect[(int)Tile::BLOCK_SQUARE2_TR] = { 3 * n,  0, n, n };
-	dict_rect[(int)Tile::BLOCK_SQUARE2_BL] = { 2 * n, n, n, n };
-	dict_rect[(int)Tile::BLOCK_SQUARE2_BR] = { 3 * n, n, n, n };
-	dict_rect[(int)Tile::BLOCK_VERT2_T] = { 4 * n,  0, n, n };
-	dict_rect[(int)Tile::BLOCK_VERT2_B] = { 4 * n, n, n, n };
-	dict_rect[(int)Tile::BLOCK_HORIZ2_L] = { 5 * n, 0, n, n };
-	dict_rect[(int)Tile::BLOCK_HORIZ2_R] = { 6 * n, 0, n, n };
-	dict_rect[(int)Tile::BLOCK_BLUE] = { 7 * n, 0, n, n };
-	dict_rect[(int)Tile::BLOCK_HORIZ3_L] = { 5 * n, n, n, n };
-	dict_rect[(int)Tile::BLOCK_HORIZ3_M] = { 6 * n, n, n, n };
-	dict_rect[(int)Tile::BLOCK_HORIZ3_R] = { 7 * n, n, n, n };
-	dict_rect[(int)Tile::BLOCK_BEAM_L] = { 0, 2 * n, n, n };
-	dict_rect[(int)Tile::BLOCK_BEAM_R] = { n, 2 * n, n, n };
+	dict_rect[(int)Tile::YELLOWB] =    { 0,   0, n, n };
+	dict_rect[(int)Tile::YELLOWB_2] =  { 0,   n, n, n };
+	dict_rect[(int)Tile::YELLOWB_3] =  { 0, 2*n, n, n };
+	dict_rect[(int)Tile::BLUEB] =      { 0, 3*n, n, n };
+	dict_rect[(int)Tile::ICEBREAK_1] = { 0, 4*n, n, n };
+	dict_rect[(int)Tile::ICEBREAK_2] = { 0, 5*n, n, n };
+	dict_rect[(int)Tile::ICEBREAK_3] = { 0, 6*n, n, n };
+	dict_rect[(int)Tile::ICEBREAK_4] = { 0, 7*n, n, n };
+	dict_rect[(int)Tile::ICEBREAK_5] = { n,   0, n, n };
+	dict_rect[(int)Tile::ICEBREAK_6] = { n,   n, n, n };
+	dict_rect[(int)Tile::ICEBREAK_7] = { n, 2*n, n, n };
+	dict_rect[(int)Tile::ICEBREAK_8] = { n, 3*n, n, n };
+	dict_rect[(int)Tile::LIGHTBLUEB] = { n, 4*n, n, n };
+	dict_rect[(int)Tile::ORANGEB] =    { n, 5*n, n, n };
+	dict_rect[(int)Tile::REDB] =	   { n, 6*n, n, n };
+	dict_rect[(int)Tile::PINKB] =      { n, 7*n, n, n };
+	dict_rect[(int)Tile::GREENB] =    {2*n,   0, n, n };
 
-	dict_rect[(int)Tile::LADDER_L] = { 2 * n, 2 * n, n, n };
-	dict_rect[(int)Tile::LADDER_R] = { 3 * n, 2 * n, n, n };
-	dict_rect[(int)Tile::LADDER_TOP_L] = { 4 * n, 2 * n, n, n };
-	dict_rect[(int)Tile::LADDER_TOP_R] = { 5 * n, 2 * n, n, n };
+	dict_rect[(int)Tile::PURPLE_STAR] =		 { 5*n,   n, n, n };
+	dict_rect[(int)Tile::YELLOW_STAR] =		 { 5*n, 2*n, n, n };
+	dict_rect[(int)Tile::LIGHTYELLOW_STAR] = { 5*n, 3*n, n, n };
+	dict_rect[(int)Tile::ORANGE_STAR] =		 { 5*n, 4*n, n, n };
+	dict_rect[(int)Tile::PINK_STAR] =		 { 5*n, 5*n, n, n };
+	dict_rect[(int)Tile::GREEN_STAR] =		 { 5*n, 6*n, n, n };
+	dict_rect[(int)Tile::LIGHTBLUE_STAR] =   { 5*n, 7*n, n, n };
+	dict_rect[(int)Tile::RED_STAR] =		 { 6*n,   0, n, n };
 
 	dict_rect[(int)Tile::LOCK_RED] = { 6 * n, 2 * n, n, n };
 	dict_rect[(int)Tile::LOCK_YELLOW] = { 7 * n, 2 * n, n, n };

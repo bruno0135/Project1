@@ -1,5 +1,8 @@
 #pragma once
 #include <raylib.h>
+#include "Enemy.h"
+#include "AABB.h"
+#include "Snobee.h"
 #include "Player.h"
 #include "TileMap.h"
 #include "Object.h"
