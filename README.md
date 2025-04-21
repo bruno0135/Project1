@@ -18,6 +18,7 @@ Pengo is a recreation of the original game [Pengo](https://www.youtube.com/watch
 - Enemies
 - Debug mode
 - Change level function
+- Background music
 
 
 ## Credits
