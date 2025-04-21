@@ -1,4 +1,5 @@
 #include "Scene.h"
+#include "SimpleEnemy.h"
 #include "Snobee.h"
 #include <stdio.h>
 #include "Globals.h"
@@ -124,6 +125,7 @@ AppStatus Scene::LoadLevel(int stage)
 	Tile tile;
 	Point pos;
 	int* map = nullptr;
+	extern SimpleEnemy simpleEnemy;
 	Object* obj;
 	AABB hitbox, area;
 
@@ -202,7 +204,7 @@ AppStatus Scene::LoadLevel(int stage)
 				{
 					player->SetPos(pos);
 				}
-				if (tile == Tile::SNOBEE)
+				if ((int)tile == 200)
 				{
 					AABB visionArea;
 					visionArea.pos.x = pos.x - 3 * TILE_SIZE;
@@ -211,6 +213,10 @@ AppStatus Scene::LoadLevel(int stage)
 					visionArea.height = 4 * TILE_SIZE;
 
 					enemies->Add(pos, EnemyType::SNOBEE, visionArea, Look::RIGHT);
+				}
+				if ((int)tile == 300) // TILE DE ENEMIGO SIMPLE
+				{
+					InitSimpleEnemy(&simpleEnemy, { pos.x, pos.y });
 				}
 				else
 				{

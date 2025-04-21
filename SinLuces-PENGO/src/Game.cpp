@@ -83,7 +83,8 @@ AppStatus Game::Initialise(float scale)
     SetTargetFPS(60);
     //Set the target frame rate for the application
 
-
+    Vector2 enemy_pos = { 3 * TILE_SIZE, 10 * TILE_SIZE }; // posición temporal
+    InitSimpleEnemy(&simpleEnemy, enemy_pos);
 
     return AppStatus::OK;
 }
@@ -154,6 +155,7 @@ AppStatus Game::Update()
     {
         PlayMusicStream(musicStage1);
         UpdateMusicStream(musicStage1);
+        UpdateSimpleEnemy(&simpleEnemy);
     }
     else {
 
@@ -252,6 +254,7 @@ void Game::Render()
 
     case GameState::PLAYING:
         scene->Render();
+        DrawSimpleEnemy(&simpleEnemy);
         break;
     }
 

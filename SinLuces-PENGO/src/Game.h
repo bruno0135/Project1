@@ -1,5 +1,6 @@
 #pragma once
 #include "Globals.h"
+#include "SimpleEnemy.h"
 #include "Scene.h"
 
 enum class GameState { MAIN_MENU, PLAYING, SETTINGS, CREDITS };
@@ -35,6 +36,8 @@ private:
 
     int frameIndex;
     float frameTime;
+
+    SimpleEnemy simpleEnemy;
 
 
     //To work with original game units and then scale the result

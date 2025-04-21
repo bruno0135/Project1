@@ -1,2 +1,22 @@
-﻿  Vikings.vcxproj -> C:\Users\chus1\Documents\GitHub\Project1\SinLuces-PENGO\x64\Debug\Pengo.exe
-          1 archivo(s) copiado(s).
+﻿  SimpleEnemy.cpp
+\SimpleEnemy.cpp(1,1): error C1083: No se puede abrir el archivo origen: 'SimpleEnemy.cpp': No such file or directory
+  Enemy.cpp
+  (compilando archivo de origen "/SimpleEnemy.cpp")
+  
+  EnemyManager.cpp
+  Entity.cpp
+  Game.cpp
+  main.cpp
+  Object.cpp
+  Player.cpp
+  ResourceManager.cpp
+  Scene.cpp
+C:\Users\chus1\Documents\GitHub\Project1\SinLuces-PENGO\src\Scene.cpp(219,41): error C2397: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\chus1\Documents\GitHub\Project1\SinLuces-PENGO\src\Scene.cpp(219,41): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\chus1\Documents\GitHub\Project1\SinLuces-PENGO\src\Scene.cpp(219,48): error C2397: la conversión de 'int' en 'float' requiere una conversión de restricción
+C:\Users\chus1\Documents\GitHub\Project1\SinLuces-PENGO\src\Scene.cpp(219,48): warning C4244: 'inicializando': conversión de 'int' a 'float'; posible pérdida de datos
+  Shot.cpp
+  ShotManager.cpp
+  Snobee.cpp
+  TileMap.cpp
+  Generando código...

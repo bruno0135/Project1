@@ -55,6 +55,9 @@
     <ClCompile Include="src\ResourceManager.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleEnemy.cpp">
+      <Filter>Entidades</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Enemy.h">
@@ -119,6 +122,9 @@
     </ClInclude>
     <ClInclude Include="src\ResourceManager.h">
       <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleEnemy.h">
+      <Filter>Entidades</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

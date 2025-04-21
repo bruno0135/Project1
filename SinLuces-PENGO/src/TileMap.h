@@ -32,6 +32,7 @@ enum class Tile {
 	// id >= 100: entities' initial locations
 	PLAYER = 100,
 	SNOBEE = 200,
+	SIMPLE_ENEMY = 300,
 	TURRET_LEFT = 301, TURRET_RIGHT = 302,
 
 	//Intervals
