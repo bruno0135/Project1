@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\Enemy.cpp">
+      <Filter>Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Player.cpp">
+      <Filter>Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Object.cpp">
+      <Filter>Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Snobee.cpp">
+      <Filter>Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity.cpp">
+      <Filter>Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shot.cpp">
+      <Filter>Shoot</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ShotManager.cpp">
+      <Filter>Shoot</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StaticImage.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sprite.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderComponent.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game.cpp">
+      <Filter>Nucleo</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene.cpp">
+      <Filter>Nucleo</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TileMap.cpp">
+      <Filter>Nucleo</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AABB.cpp">
+      <Filter>Nucleo</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EnemyManager.cpp">
+      <Filter>Entidades</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Globals.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ResourceManager.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Enemy.h">
+      <Filter>Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Player.h">
+      <Filter>Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Object.h">
+      <Filter>Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Snobee.h">
+      <Filter>Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entity.h">
+      <Filter>Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ShotManager.h">
+      <Filter>Shoot</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Shot.h">
+      <Filter>Shoot</Filter>
+    </ClInclude>
+    <ClInclude Include="dependencies\raylib\include\raymath.h">
+      <Filter>Raylib</Filter>
+    </ClInclude>
+    <ClInclude Include="dependencies\raylib\include\raylib.h">
+      <Filter>Raylib</Filter>
+    </ClInclude>
+    <ClInclude Include="src\StaticImage.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sprite.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderComponent.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game.h">
+      <Filter>Nucleo</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene.h">
+      <Filter>Nucleo</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TileMap.h">
+      <Filter>Nucleo</Filter>
+    </ClInclude>
+    <ClInclude Include="src\AABB.h">
+      <Filter>Nucleo</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EnemyManager.h">
+      <Filter>Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Point.h">
+      <Filter>Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Globals.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MemLeaks.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ResourceManager.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Entidades">
+      <UniqueIdentifier>{aea116d8-e684-4865-87eb-64510b26d253}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shoot">
+      <UniqueIdentifier>{1ef62afe-3b03-4f04-b236-b8bb83e8453f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Raylib">
+      <UniqueIdentifier>{9299baed-57d9-4a7c-ab60-4518cfaf9fe8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render">
+      <UniqueIdentifier>{80329d77-e0b9-45a5-99a4-f097f120a764}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Nucleo">
+      <UniqueIdentifier>{48125008-d9d7-48a6-ad11-d3c4469e0993}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{8b716243-e3a0-4798-a1ae-e16377fab4ab}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="dependencies\raylib\lib\raylib.lib">
+      <Filter>Raylib</Filter>
+    </Library>
+  </ItemGroup>
+</Project>
