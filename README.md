@@ -25,15 +25,15 @@ Sin Luces Team
 
 Martí Mira Vázquez 
 
-- Design
+- Design/Code
 - Github: [algars15](https://github.com/algars15)
 
 Manel Montes Lucas 
-- Code
+- Design/Code
 - Github: [Cai128](https://github.com/Cai128)
 
 Diego Del Águila
-- Code/Design
+- Design/Code
 - Github: [Hask05](https://github.com/Hask05)
 
 Bruno Gómez
