@@ -130,13 +130,19 @@ void TileMap::Update()
 }
 Tile TileMap::GetTileIndex(int x, int y) const
 {
-	int idx = x + y*width;
-	if(idx < 0 || idx >= size)
+	if (this == nullptr || map == nullptr)
 	{
-		LOG("Error: Index out of bounds. Tile map dimensions: %dx%d. Given index: (%d, %d)", width, height, x, y)
+		LOG("Error: TileMap instance or map is null");
 		return Tile::AIR;
 	}
-	return map[x + y * width];
+
+	int idx = x + y * width;
+	if (idx < 0 || idx >= size)
+	{
+		LOG("Error: Index out of bounds. Tile map dimensions: %dx%d. Given index: (%d, %d)", width, height, x, y);
+		return Tile::AIR;
+	}
+	return map[idx];
 }
 bool TileMap::IsTileObject(Tile tile) const
 {

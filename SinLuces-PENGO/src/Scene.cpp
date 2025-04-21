@@ -1,4 +1,4 @@
-#include "Scene.h"
+Ôªø#include "Scene.h"
 #include "Snobee.h"
 #include <stdio.h>
 #include "Globals.h"
@@ -193,12 +193,23 @@ AppStatus Scene::LoadLevel(int stage)
 	//Tile map
 	level->Load(map, LEVEL_WIDTH, LEVEL_HEIGHT);
 
+	Point debug_pos = { 5 * TILE_SIZE, 5 * TILE_SIZE };
+	Point debug_area_pos = debug_pos + Point(-48, -32);
+	AABB debug_area(debug_area_pos, 160, 96);
+	enemies->Add(debug_pos, EnemyType::SNOBEE, debug_area);
+	LOG("Snobee a√±adido manualmente para test");
+
 	//Entities and objects
 	i = 0;
 	for (y = 0; y < LEVEL_HEIGHT; ++y)
 	{
 		for (x = 0; x < LEVEL_WIDTH; ++x)
 		{
+			if (i < size && map[i] == 200)
+			{
+				LOG("DEBUG: tile 200 detectado en (%d, %d)", x, y);
+			}
+
 			tile = (Tile)map[i];
 			if (level->IsTileEntity(tile) || level->IsTileObject(tile))
 			{
@@ -212,7 +223,7 @@ AppStatus Scene::LoadLevel(int stage)
 				else if (tile == Tile::SNOBEE)
 				{
 					LOG("DEBUG: Encontrado SNOBEE en el mapa en coordenadas (%d, %d)", x, y);
-					Point area_pos(pos.x - 48, pos.y - 32); // Ajust· tamaÒo de visibilidad si querÈs
+					Point area_pos(pos.x - 48, pos.y - 32); // Ajust√° tama√±o de visibilidad si quer√©s
 					AABB area(area_pos, 160, 96);
 					enemies->Add(pos, EnemyType::SNOBEE, area);
 				}
