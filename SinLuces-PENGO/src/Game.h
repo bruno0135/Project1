@@ -26,6 +26,7 @@ private:
 
     GameState state;
     Scene* scene;
+    const Texture2D* img_credits;
     const Texture2D* img_menu_up;
     const Texture2D* img_menu_down;
     const Texture2D* img_win;

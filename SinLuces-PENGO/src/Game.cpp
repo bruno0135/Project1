@@ -5,10 +5,11 @@
 
 Game::Game()
 {
-    state = GameState::MAIN_MENU;
+    state = GameState::CREDITS;
     scene = nullptr;
     img_menu_up = nullptr;
     img_menu_down = nullptr;
+    img_credits = nullptr;
     img_win = nullptr;
     img_lose = nullptr;
     musicLose = {};
@@ -90,6 +91,11 @@ AppStatus Game::Initialise(float scale)
 AppStatus Game::LoadResources()
 {
     ResourceManager& data = ResourceManager::Instance();
+    if (data.LoadTexture(Resource::IMG_CREDITS, "images/Credits.png") != AppStatus::OK)
+    {
+        return AppStatus::ERROR;
+    }
+
 
     if (data.LoadTexture(Resource::IMG_MENU_UP, "images/pantallas/spritesheet.png") != AppStatus::OK)
     {
@@ -107,6 +113,7 @@ AppStatus Game::LoadResources()
 
     img_menu_up = data.GetTexture(Resource::IMG_MENU_UP);
     img_menu_down = data.GetTexture(Resource::IMG_MENU_DOWN);
+    img_credits = data.GetTexture(Resource::IMG_CREDITS);
     frameRec = { 0.0f, 0.0f, (float)sheet.width / 16, (float)sheet.height };
 
 
@@ -182,6 +189,21 @@ AppStatus Game::Update()
 
     switch (state)
     {
+    case GameState::CREDITS: {
+        frameTime += GetFrameTime();
+        if (frameTime >= frameSpeed) {
+            frameTime = 0.0f;
+            frameIndex = (frameIndex + 1) % totalFrames;
+        }
+
+        if (IsKeyPressed(KEY_ESCAPE)) return AppStatus::QUIT;
+
+        if (IsKeyPressed(KEY_SPACE)) // Menu
+        {
+            state = GameState::MAIN_MENU;
+        }
+        break;
+    }
     case GameState::MAIN_MENU: {
         frameTime += GetFrameTime(); // Calcular el tiempo de animación
         if (frameTime >= frameSpeed) {
@@ -231,6 +253,14 @@ void Game::Render()
 
     switch (state)
     {
+    case GameState::CREDITS:
+    {
+        if (img_credits != nullptr) {
+            DrawTexture(*img_credits, 0, 0, WHITE);
+            break;
+        }
+        break;
+    }
     case GameState::MAIN_MENU:
     {
         DrawTexture(*img_menu_down, 0, 156, WHITE);
@@ -282,7 +312,10 @@ void Game::UnloadResources() {
         data.ReleaseTexture(Resource::IMG_MENU_DOWN);
         img_menu_down = nullptr;
     }
-
+    if (img_credits != nullptr) {
+        data.ReleaseTexture(Resource::IMG_CREDITS);
+        img_credits = nullptr;
+    }
     // Liberar la textura sheet si fue cargada
     if (sheet.id != 0) {
         UnloadTexture(sheet);
