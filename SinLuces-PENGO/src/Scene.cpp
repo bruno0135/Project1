@@ -148,7 +148,7 @@ AppStatus Scene::LoadLevel(int stage)
 				1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
 				1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1,
 				1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 17, 18, 17, 18, 22, 23, 0, 0, 0, 1,
-				1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+				1, 0, 1, 0,200, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
 				1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
 				1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 20, 21, 0, 0, 0, 1,
 				1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 22, 23, 9, 0, 20, 21, 0, 62, 0, 1,
@@ -209,30 +209,18 @@ AppStatus Scene::LoadLevel(int stage)
 				{
 					player->SetPos(pos);
 				}
+				else if (tile == Tile::SNOBEE)
+				{
+					LOG("DEBUG: Encontrado SNOBEE en el mapa en coordenadas (%d, %d)", x, y);
+					Point area_pos(pos.x - 48, pos.y - 32); // Ajustá tamaño de visibilidad si querés
+					AABB area(area_pos, 160, 96);
+					enemies->Add(pos, EnemyType::SNOBEE, area);
+				}
 				else
 				{
 					LOG("Internal error loading scene: invalid entity or object tile id");
 				}
 				++i;
-			}
-
-			const int numEnemies = 5;
-			for (int i = 0; i < numEnemies; ++i) {
-				int x = GetRandomValue(1, LEVEL_WIDTH - 2);
-				int y = GetRandomValue(1, LEVEL_HEIGHT - 2);
-
-				int idx = y * LEVEL_WIDTH + x;
-
-				// Solo colocar si hay aire (evita superponer con bloques/jugador)
-				if (map[idx] == (int)Tile::AIR) {
-						Point pos = { x * TILE_SIZE, y * TILE_SIZE };
-
-					// Área de visión: centrada horizontalmente, 6x2 tiles
-					Point areaPos = { pos.x - 3 * TILE_SIZE, pos.y };
-					AABB visionArea(areaPos, 6 * TILE_SIZE, 2 * TILE_SIZE);
-
-					enemies->Add(pos, EnemyType::SNOBEE, visionArea, Look::LEFT);
-				}
 			}
 		}
 
@@ -241,8 +229,7 @@ AppStatus Scene::LoadLevel(int stage)
 		pos = { middle_x * TILE_SIZE, (middle_y + 2) * TILE_SIZE };
 		player->SetPos(pos);
 
-
-		//Remove initial positions of objects and entities from the map
+		// Remove initial positions of objects and entities from the map
 		level->ClearObjectEntityPositions();
 
 		delete[] map;
