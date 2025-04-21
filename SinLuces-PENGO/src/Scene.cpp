@@ -117,8 +117,15 @@ AppStatus Scene::Init()
 	enemies->SetTileMap(level);
 	return AppStatus::OK;
 }
+
 AppStatus Scene::LoadLevel(int stage)
 {
+
+	if (level == nullptr) {
+		LOG("Error: level is null in LoadLevel()");
+		return AppStatus::ERROR;
+	}
+
 	int size;
 	int x, y, i;
 	Tile tile;
@@ -140,11 +147,11 @@ AppStatus Scene::LoadLevel(int stage)
 				1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
 				1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
 				1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1,
-				1, 0, 1,200, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 17, 18, 17, 18, 22, 23, 0, 0, 0, 1,
-				1, 0, 1,60, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+				1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 17, 18, 17, 18, 22, 23, 0, 0, 0, 1,
+				1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
 				1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
 				1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 20, 21, 0, 0, 0, 1,
-				1, 200, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 22, 23, 9, 0, 20, 21, 0, 62, 0, 1,
+				1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 22, 23, 9, 0, 20, 21, 0, 62, 0, 1,
 				1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 20, 21, 10, 0, 20, 21, 0, 0, 0, 1,
 				1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 20, 21, 9, 0, 20, 21, 0, 62, 0, 1,
 				1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 20, 21, 10, 0, 20, 21, 0, 0, 0, 1,
@@ -202,23 +209,33 @@ AppStatus Scene::LoadLevel(int stage)
 				{
 					player->SetPos(pos);
 				}
-				if (tile == Tile::SNOBEE)
-				{
-					AABB visionArea;
-					visionArea.pos.x = pos.x - 3 * TILE_SIZE;
-					visionArea.pos.y = pos.y - 2 * TILE_SIZE;
-					visionArea.width = 6 * TILE_SIZE;
-					visionArea.height = 4 * TILE_SIZE;
-
-					enemies->Add(pos, EnemyType::SNOBEE, visionArea, Look::RIGHT);
-				}
 				else
 				{
 					LOG("Internal error loading scene: invalid entity or object tile id");
 				}
 				++i;
 			}
+
+			const int numEnemies = 5;
+			for (int i = 0; i < numEnemies; ++i) {
+				int x = GetRandomValue(1, LEVEL_WIDTH - 2);
+				int y = GetRandomValue(1, LEVEL_HEIGHT - 2);
+
+				int idx = y * LEVEL_WIDTH + x;
+
+				// Solo colocar si hay aire (evita superponer con bloques/jugador)
+				if (map[idx] == (int)Tile::AIR) {
+						Point pos = { x * TILE_SIZE, y * TILE_SIZE };
+
+					// Área de visión: centrada horizontalmente, 6x2 tiles
+					Point areaPos = { pos.x - 3 * TILE_SIZE, pos.y };
+					AABB visionArea(areaPos, 6 * TILE_SIZE, 2 * TILE_SIZE);
+
+					enemies->Add(pos, EnemyType::SNOBEE, visionArea, Look::LEFT);
+				}
+			}
 		}
+
 		int middle_x = 8;
 		int middle_y = 8;
 		pos = { middle_x * TILE_SIZE, (middle_y + 2) * TILE_SIZE };
