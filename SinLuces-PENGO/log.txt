@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 Project executed on 21-04-2025 at 18:07:44.
+=======
+Project executed on 21-04-2025 at 18:01:28.
+>>>>>>> Stashed changes
 main.cpp(13): Application start
 main.cpp(34): Application finish
 main.cpp(37): Bye :)
