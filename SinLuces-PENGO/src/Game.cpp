@@ -69,9 +69,10 @@ AppStatus Game::Initialise(float scale)
         LOG("Failed to load resources");
         return AppStatus::ERROR;
     }
-    musicStage1 = LoadMusicStream("sound/music/Pengo (Arcade Music) 03 Main BGM [Alternate].ogg");
- /*   musicStage2 = LoadMusicStream("sound/music/stage2.ogg");
-    musicStart_Menu = LoadMusicStream("sound/music/Start_Menu.ogg");
+    musicStart_Menu = LoadMusicStream("Sounds/Act Clear.ogg");
+    musicStage1 = LoadMusicStream("Sounds/Main BGM (Alternate).ogg");
+
+   /* musicStage2 = LoadMusicStream("sound/music/stage2.ogg");
     musicWin = LoadMusicStream("sound/music/Win.ogg");
     musicLose = LoadMusicStream("sound/music/Lose.ogg");*/
 
@@ -152,12 +153,12 @@ AppStatus Game::Update()
     }
     if (state == GameState::PLAYING)
     {
-        PlayMusicStream(musicStart_Menu);
-        UpdateMusicStream(musicStart_Menu);
+        PlayMusicStream(musicStage1);
+        UpdateMusicStream(musicStage1);
     }
     else {
 
-        StopMusicStream(musicStart_Menu);
+        StopMusicStream(musicStage1);
     }
     /*if (state == GameState::YOU_WIN)
     {
