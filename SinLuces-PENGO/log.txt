@@ -1,12 +1,2 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-Project executed on 21-04-2025 at 13:26:42.
-=======
-Project executed on 21-04-2025 at 13:27:31.
->>>>>>> Stashed changes
-=======
-Project executed on 21-04-2025 at 13:27:31.
->>>>>>> Stashed changes
+Project executed on 21-04-2025 at 13:48:51.
 main.cpp(13): Application start
-main.cpp(34): Application finish
-main.cpp(37): Bye :)

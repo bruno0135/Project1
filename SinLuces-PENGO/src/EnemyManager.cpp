@@ -47,6 +47,7 @@ void EnemyManager::Add(const Point& pos, EnemyType type, const AABB& area, Look 
 		return;
 	}
 
+
 	enemy->Initialise(pos, type, area, map);
 
 

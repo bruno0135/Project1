@@ -105,14 +105,14 @@ AppStatus Scene::Init()
 		LOG("Failed to initialise Level");
 		return AppStatus::ERROR;
 	}
-	//Load level
+	// Cargar nivel
 	if (LoadLevel(1) != AppStatus::OK)
 	{
 		LOG("Failed to load Level 1");
 		return AppStatus::ERROR;
 	}
 
-	//Assign the tile map reference to the player to check collisions while navigating
+	// ¡Haz esto DESPUÉS de cargar el nivel!
 	player->SetTileMap(level);
 	enemies->SetTileMap(level);
 	return AppStatus::OK;
@@ -124,12 +124,11 @@ AppStatus Scene::LoadLevel(int stage)
 	Tile tile;
 	Point pos;
 	int* map = nullptr;
-	Object* obj;
-	AABB hitbox, area;
 
 	ClearLevel();
 
 	size = LEVEL_WIDTH * LEVEL_HEIGHT;
+
 	if (stage == 1)
 	{
 		map = new int[size] {
@@ -182,18 +181,17 @@ AppStatus Scene::LoadLevel(int stage)
 		LOG("Failed to load level, stage %d doesn't exist", stage);
 		return AppStatus::ERROR;
 	}
-
-	//Tile map
+	// Cargar mapa al sistema TileMap
 	level->Load(map, LEVEL_WIDTH, LEVEL_HEIGHT);
 
-	//Entities and objects
+	// Procesar entidades (PLAYER, SNOBEE, etc.)
 	i = 0;
 	for (y = 0; y < LEVEL_HEIGHT; ++y)
 	{
 		for (x = 0; x < LEVEL_WIDTH; ++x)
 		{
 			tile = (Tile)map[i];
-			if (level->IsTileEntity(tile) || level->IsTileObject(tile))
+			if (level->IsTileEntity(tile))
 			{
 				pos.x = x * TILE_SIZE;
 				pos.y = y * TILE_SIZE + TILE_SIZE - 1;
@@ -214,24 +212,21 @@ AppStatus Scene::LoadLevel(int stage)
 				}
 				else
 				{
-					LOG("Internal error loading scene: invalid entity or object tile id");
+					LOG("Unknown tile entity type: %d", (int)tile);
 				}
-				++i;
 			}
+			++i;
 		}
-		int middle_x = 10;
-		int middle_y = 6;
-		pos = { middle_x * TILE_SIZE, (middle_y + 2) * TILE_SIZE };
-		player->SetPos(pos);
-
-
-		//Remove initial positions of objects and entities from the map
-		level->ClearObjectEntityPositions();
-
-		delete[] map;
-
-		return AppStatus::OK;
 	}
+
+	// Posición inicial opcional del jugador (si no fue colocada)
+	// pos = { 10 * TILE_SIZE, 8 * TILE_SIZE };
+	// player->SetPos(pos);
+
+	level->ClearObjectEntityPositions();  // Evita que los SNOBEE y el jugador se dibujen como tiles
+	delete[] map;
+
+	return AppStatus::OK;
 }
 
 void Scene::Update()
