@@ -91,6 +91,16 @@ AppStatus Game::Initialise(float scale)
 AppStatus Game::LoadResources()
 {
     ResourceManager& data = ResourceManager::Instance();
+
+    if (data.LoadTexture(Resource::IMG_WIN, "images/Winscreen.png") != AppStatus::OK)
+    {
+        return AppStatus::ERROR;
+    }
+    if (data.LoadTexture(Resource::IMG_LOSE, "images/Losescreen.png") != AppStatus::OK)
+    {
+        return AppStatus::ERROR;
+    }
+
     if (data.LoadTexture(Resource::IMG_CREDITS, "images/Credits.png") != AppStatus::OK)
     {
         return AppStatus::ERROR;

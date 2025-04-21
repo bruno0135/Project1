@@ -1,4 +1,17 @@
-﻿  Scene.cpp
-C:\Users\MANEL\Documents\GitHub\Project1\SinLuces-PENGO\src\Scene.cpp(225,5): warning C4566: character represented by universal-character-name '\U0001F31F' cannot be represented in the current code page (1252)
+﻿  Enemy.cpp
+  EnemyManager.cpp
+  Entity.cpp
+  Game.cpp
+  main.cpp
+  Object.cpp
+  Player.cpp
+  ResourceManager.cpp
+  Scene.cpp
+C:\Users\MANEL\Documents\GitHub\Project1\SinLuces-PENGO\src\Scene.cpp(228,5): warning C4566: character represented by universal-character-name '\U0001F31F' cannot be represented in the current code page (1252)
+  Shot.cpp
+  ShotManager.cpp
+  Snobee.cpp
+  TileMap.cpp
+  Generating Code...
   Vikings.vcxproj -> C:\Users\MANEL\Documents\GitHub\Project1\SinLuces-PENGO\x64\Debug\Pengo.exe
           1 file(s) copied.

@@ -1,5 +1,6 @@
 ﻿#include "Scene.h"
 #include "Snobee.h"
+#include "ResourceManager.h"
 #include <stdio.h>
 #include "Globals.h"
 
@@ -111,6 +112,8 @@ AppStatus Scene::Init()
 		LOG("Failed to load Level 1");
 		return AppStatus::ERROR;
 	}
+
+
 
 	//Assign the tile map reference to the player to check collisions while navigating
 	player->SetTileMap(level);
@@ -266,9 +269,40 @@ void Scene::Update()
 	hitbox = player->GetHitbox();
 	enemies->Update(hitbox);
 	shots->Update(hitbox);
+
+	if (IsKeyPressed(KEY_F3)) {
+		scene_state = SceneState::WIN;
+	}
+	else if (IsKeyPressed(KEY_F4)) {
+		scene_state = SceneState::LOSE;
+	}
+	else if ((scene_state == SceneState::WIN || scene_state == SceneState::LOSE) && IsKeyPressed(KEY_ENTER)) {
+		LoadLevel(1);  // o volver al menú
+		scene_state = SceneState::PLAYING;
+		return;
+	}
+
+	if (scene_state != SceneState::PLAYING) return;
+
 }
 void Scene::Render()
 {
+
+	if (scene_state == SceneState::WIN || scene_state == SceneState::LOSE)
+	{
+		const Texture2D* img = nullptr;
+		ResourceManager& data = ResourceManager::Instance();
+
+		if (scene_state == SceneState::WIN)  img = data.GetTexture(Resource::IMG_WIN);
+		else                                 img = data.GetTexture(Resource::IMG_LOSE);
+
+		if (img != nullptr)
+		{
+			DrawTexture(*img, 0, 0, WHITE);
+		}
+		return;
+	}
+
 	BeginMode2D(camera);
 
 	level->Render();

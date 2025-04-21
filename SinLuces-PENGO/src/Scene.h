@@ -11,9 +11,14 @@
 
 enum class DebugMode { OFF, SPRITES_AND_HITBOXES, ONLY_HITBOXES, SIZE };
 
+enum class SceneState { PLAYING, WIN, LOSE };
+
 class Scene
 {
 public:
+
+    SceneState scene_state = SceneState::PLAYING;
+
     Scene();
     ~Scene();
 

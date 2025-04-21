@@ -1,8 +1,8 @@
-Project executed on 21-04-2025 at 20:50:13.
+Project executed on 21-04-2025 at 22:07:01.
 main.cpp(13): Application start
-Scene.cpp(200): Snobee añadido manualmente para test
-Scene.cpp(225): ?? Star encontrada en (4, 6)
-Scene.cpp(218): SNOBEE detectado en el mapa en (4, 7)
+Scene.cpp(203): Snobee añadido manualmente para test
+Scene.cpp(228): ?? Star encontrada en (4, 6)
+Scene.cpp(221): SNOBEE detectado en el mapa en (4, 7)
 TileMap.cpp(135): Error: TileMap instance or map is null
 TileMap.cpp(135): Error: TileMap instance or map is null
 TileMap.cpp(135): Error: TileMap instance or map is null
@@ -45,28 +45,19 @@ TileMap.cpp(135): Error: TileMap instance or map is null
 TileMap.cpp(135): Error: TileMap instance or map is null
 TileMap.cpp(135): Error: TileMap instance or map is null
 TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
-TileMap.cpp(135): Error: TileMap instance or map is null
+Scene.cpp(203): Snobee añadido manualmente para test
+Scene.cpp(228): ?? Star encontrada en (4, 6)
+Scene.cpp(221): SNOBEE detectado en el mapa en (4, 7)
+Scene.cpp(203): Snobee añadido manualmente para test
+Scene.cpp(228): ?? Star encontrada en (4, 6)
+Scene.cpp(221): SNOBEE detectado en el mapa en (4, 7)
+Scene.cpp(203): Snobee añadido manualmente para test
+Scene.cpp(228): ?? Star encontrada en (4, 6)
+Scene.cpp(221): SNOBEE detectado en el mapa en (4, 7)
+Scene.cpp(203): Snobee añadido manualmente para test
+Scene.cpp(221): SNOBEE detectado en el mapa en (15, 4)
+Scene.cpp(203): Snobee añadido manualmente para test
+Scene.cpp(228): ?? Star encontrada en (4, 6)
+Scene.cpp(221): SNOBEE detectado en el mapa en (4, 7)
 main.cpp(34): Application finish
 main.cpp(37): Bye :)
