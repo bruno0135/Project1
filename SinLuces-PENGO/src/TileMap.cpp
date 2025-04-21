@@ -108,7 +108,8 @@ AppStatus TileMap::Load(int data[], int w, int h)
 		LOG("Failed to allocate memory for tile map");
 		return AppStatus::ERROR;
 	}
-	memcpy(map, data, size * sizeof(int));
+	for (int i = 0; i < size; ++i)
+		map[i] = static_cast<Tile>(data[i]);
 
 	return AppStatus::OK;
 }

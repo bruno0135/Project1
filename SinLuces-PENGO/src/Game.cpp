@@ -9,6 +9,15 @@ Game::Game()
     scene = nullptr;
     img_menu_up = nullptr;
     img_menu_down = nullptr;
+    img_win = nullptr;
+    img_lose = nullptr;
+    musicLose = {};
+    musicWin = {};
+    musicStart_Menu = {};
+    musicStage1 = {};
+    musicStage2 = {};
+
+    InitAudioDevice();
 
     target = {};
     src = {};
@@ -21,6 +30,12 @@ Game::Game()
 }
 Game::~Game()
 {
+    UnloadMusicStream(musicStage1);
+    UnloadMusicStream(musicStage2);
+    UnloadMusicStream(musicStart_Menu);
+    UnloadMusicStream(musicWin);
+    UnloadMusicStream(musicLose);
+    CloseAudioDevice();
     if (scene != nullptr)
     {
         scene->Release();
@@ -54,6 +69,14 @@ AppStatus Game::Initialise(float scale)
         LOG("Failed to load resources");
         return AppStatus::ERROR;
     }
+    musicStage1 = LoadMusicStream("sound/music/Pengo (Arcade Music) 03 Main BGM [Alternate].ogg");
+ /*   musicStage2 = LoadMusicStream("sound/music/stage2.ogg");
+    musicStart_Menu = LoadMusicStream("sound/music/Start_Menu.ogg");
+    musicWin = LoadMusicStream("sound/music/Win.ogg");
+    musicLose = LoadMusicStream("sound/music/Lose.ogg");*/
+
+    PlayMusicStream(musicStart_Menu);
+
 
     int framesCounter = 0;
     int framesSpeed = 8;            // Number of spritesheet frames shown by second
@@ -118,6 +141,40 @@ void Game::FinishPlay()
 }
 AppStatus Game::Update()
 {
+    if (state == GameState::MAIN_MENU)
+    {
+        PlayMusicStream(musicStart_Menu);
+        UpdateMusicStream(musicStart_Menu);
+    }
+    else {
+
+        StopMusicStream(musicStart_Menu);
+    }
+    if (state == GameState::PLAYING)
+    {
+        PlayMusicStream(musicStart_Menu);
+        UpdateMusicStream(musicStart_Menu);
+    }
+    else {
+
+        StopMusicStream(musicStart_Menu);
+    }
+    /*if (state == GameState::YOU_WIN)
+    {
+        PlayMusicStream(musicWin);
+        UpdateMusicStream(musicWin);
+    }
+    else {
+        StopMusicStream(musicWin);
+    }
+    if (state == GameState::YOU_LOSE)
+    {
+        PlayMusicStream(musicLose);
+        UpdateMusicStream(musicLose);
+    }
+    else {
+        StopMusicStream(musicLose);
+    }*/
     if (WindowShouldClose()) return AppStatus::QUIT;
 
     const int totalFrames = 16;

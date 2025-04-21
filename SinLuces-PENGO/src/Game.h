@@ -15,6 +15,8 @@ public:
     void Render();
     void Cleanup();
 
+    Music musicStage1, musicStage2, musicStart_Menu, musicWin, musicLose;
+
 private:
     AppStatus BeginPlay();
     void FinishPlay();
@@ -26,6 +28,8 @@ private:
     Scene* scene;
     const Texture2D* img_menu_up;
     const Texture2D* img_menu_down;
+    const Texture2D* img_win;
+    const Texture2D* img_lose;
     Texture2D sheet;
     Rectangle frameRec;
 
