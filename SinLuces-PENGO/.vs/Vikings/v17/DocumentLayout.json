@@ -1,26 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\",
+  "WorkspaceRootPath": "C:\\Users\\chus1\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\chus1\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Snobee.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\Snobee.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\chus1\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\EnemyManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\EnemyManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\chus1\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\TileMap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\TileMap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\TileMap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\chus1\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\TileMap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\TileMap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\EnemyManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\EnemyManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\chus1\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\TileMap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\TileMap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,31 +30,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TileMap.cpp",
-              "DocumentMoniker": "C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\TileMap.cpp",
-              "RelativeDocumentMoniker": "src\\TileMap.cpp",
-              "ToolTip": "C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\TileMap.cpp",
-              "RelativeToolTip": "src\\TileMap.cpp",
-              "ViewState": "AgIAAG4AAAAAAAAAAAApwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Snobee.cpp",
+              "DocumentMoniker": "C:\\Users\\chus1\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Snobee.cpp",
+              "RelativeDocumentMoniker": "src\\Snobee.cpp",
+              "ToolTip": "C:\\Users\\chus1\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Snobee.cpp*",
+              "RelativeToolTip": "src\\Snobee.cpp*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-21T11:12:32.083Z",
-              "IsPinned": true,
+              "WhenOpened": "2025-04-21T15:58:06.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Scene.cpp",
+              "DocumentMoniker": "C:\\Users\\chus1\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Scene.cpp",
+              "RelativeDocumentMoniker": "src\\Scene.cpp",
+              "ToolTip": "C:\\Users\\chus1\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Scene.cpp*",
+              "RelativeToolTip": "src\\Scene.cpp*",
+              "ViewState": "AgIAADYBAAAAAAAAAAAuwM4AAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-21T15:49:50.322Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "TileMap.cpp",
+              "DocumentMoniker": "C:\\Users\\chus1\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\TileMap.cpp",
+              "RelativeDocumentMoniker": "src\\TileMap.cpp",
+              "ToolTip": "C:\\Users\\chus1\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\TileMap.cpp",
+              "RelativeToolTip": "src\\TileMap.cpp",
+              "ViewState": "AgIAAG4AAAAAAAAAAAApwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-21T11:12:32.083Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "EnemyManager.cpp",
-              "DocumentMoniker": "C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\EnemyManager.cpp",
+              "DocumentMoniker": "C:\\Users\\chus1\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\EnemyManager.cpp",
               "RelativeDocumentMoniker": "src\\EnemyManager.cpp",
-              "ToolTip": "C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\EnemyManager.cpp",
-              "RelativeToolTip": "src\\EnemyManager.cpp",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAADcAAAABAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\chus1\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\EnemyManager.cpp*",
+              "RelativeToolTip": "src\\EnemyManager.cpp*",
+              "ViewState": "AgIAACgAAAAAAAAAAAAAADkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-21T11:27:06.373Z",
               "EditorCaption": ""
@@ -63,39 +88,13 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "TileMap.h",
-              "DocumentMoniker": "C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\TileMap.h",
+              "DocumentMoniker": "C:\\Users\\chus1\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\TileMap.h",
               "RelativeDocumentMoniker": "src\\TileMap.h",
-              "ToolTip": "C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\TileMap.h",
+              "ToolTip": "C:\\Users\\chus1\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\TileMap.h",
               "RelativeToolTip": "src\\TileMap.h",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-04-21T11:15:29.38Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Scene.h",
-              "DocumentMoniker": "C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Scene.h",
-              "RelativeDocumentMoniker": "src\\Scene.h",
-              "ToolTip": "C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Scene.h",
-              "RelativeToolTip": "src\\Scene.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-21T09:44:48.505Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Scene.cpp",
-              "DocumentMoniker": "C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Scene.cpp",
-              "RelativeDocumentMoniker": "src\\Scene.cpp",
-              "ToolTip": "C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Scene.cpp",
-              "RelativeToolTip": "src\\Scene.cpp",
-              "ViewState": "AgIAAMMAAAAAAAAAAAAAwNkAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-21T10:08:27.171Z",
               "EditorCaption": ""
             }
           ]

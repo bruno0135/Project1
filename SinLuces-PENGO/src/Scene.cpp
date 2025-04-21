@@ -202,8 +202,10 @@ AppStatus Scene::LoadLevel(int stage)
 				{
 					player->SetPos(pos);
 				}
-				else if (tile == Tile::SNOBEE)
+				if (tile == Tile::SNOBEE)
 				{
+					Point enemy_pos = { x * TILE_SIZE, y * TILE_SIZE + TILE_SIZE - 1 };
+
 					AABB visionArea;
 					visionArea.pos.x = pos.x - 3 * TILE_SIZE;
 					visionArea.pos.y = pos.y - 2 * TILE_SIZE;

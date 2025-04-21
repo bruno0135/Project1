@@ -33,27 +33,29 @@ void EnemyManager::SetShotManager(ShotManager* shots)
 }
 void EnemyManager::Add(const Point& pos, EnemyType type, const AABB& area, Look look)
 {
-	Enemy* enemy;
-
-	if (type == EnemyType::SNOBEE)
+	Enemy* enemy = nullptr;
+	switch (type)
 	{
+	case EnemyType::SNOBEE:
 		enemy = new SNOBEE(pos, SNOBEE_PHYSICAL_WIDTH, SNOBEE_PHYSICAL_HEIGHT, SNOBEE_FRAME_SIZE, SNOBEE_FRAME_SIZE);
+		break;
 
+	default:
+		LOG("Unknown enemy type");
+		break;
 	}
 
-	else
+	if (enemy->Initialise(pos, type, area, map) != AppStatus::OK)
 	{
-		LOG("Internal error: trying to add a new enemy with invalid type");
+		LOG("Failed to initialisse the enemy");
+		delete enemy;
 		return;
 	}
 
-	enemy->Initialise(pos, type, area, map);
-
-
-
-
 	enemies.push_back(enemy);
 }
+
+
 AABB EnemyManager::GetEnemyHitBox(const Point& pos, EnemyType type) const
 {
 	int width, height;

@@ -15,6 +15,7 @@ SNOBEE::SNOBEE(const Point& p, int width, int height, int frame_width, int frame
 }
 AppStatus SNOBEE::Initialise(const Point& pos, EnemyType type, const AABB& area, TileMap* map)
 {
+	this->pos = pos;
 	this->map = map;
 	this->visibility_area = area;
 	this->look = Look::RIGHT; // o LEFT, o según `type` si quieres variarlo
