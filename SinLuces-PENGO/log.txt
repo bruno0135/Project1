@@ -1,6 +1,7 @@
-Project executed on 21-04-2025 at 20:13:56.
+Project executed on 21-04-2025 at 20:22:48.
 main.cpp(13): Application start
 Scene.cpp(200): Snobee añadido manualmente para test
+Scene.cpp(218): SNOBEE detectado en el mapa en (4, 7)
 TileMap.cpp(135): Error: TileMap instance or map is null
 TileMap.cpp(135): Error: TileMap instance or map is null
 TileMap.cpp(135): Error: TileMap instance or map is null
@@ -172,5 +173,159 @@ TileMap.cpp(135): Error: TileMap instance or map is null
 TileMap.cpp(135): Error: TileMap instance or map is null
 TileMap.cpp(135): Error: TileMap instance or map is null
 TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+TileMap.cpp(135): Error: TileMap instance or map is null
+Scene.cpp(200): Snobee añadido manualmente para test
+Scene.cpp(218): SNOBEE detectado en el mapa en (15, 4)
+Scene.cpp(200): Snobee añadido manualmente para test
+Scene.cpp(218): SNOBEE detectado en el mapa en (4, 7)
+Scene.cpp(200): Snobee añadido manualmente para test
+Scene.cpp(218): SNOBEE detectado en el mapa en (15, 4)
+Scene.cpp(200): Snobee añadido manualmente para test
+Scene.cpp(218): SNOBEE detectado en el mapa en (4, 7)
+Scene.cpp(200): Snobee añadido manualmente para test
+Scene.cpp(218): SNOBEE detectado en el mapa en (4, 7)
+Scene.cpp(200): Snobee añadido manualmente para test
+Scene.cpp(218): SNOBEE detectado en el mapa en (4, 7)
+Scene.cpp(200): Snobee añadido manualmente para test
+Scene.cpp(218): SNOBEE detectado en el mapa en (15, 4)
 main.cpp(34): Application finish
 main.cpp(37): Bye :)

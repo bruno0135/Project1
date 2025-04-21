@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\TileMap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\TileMap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\TileMap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3977A628-DA9D-4402-8F7A-65D0FDE48107}|Vikings.vcxproj|solutionrelative:src\\TileMap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,30 +18,29 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "TileMap.cpp",
               "DocumentMoniker": "C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\TileMap.cpp",
               "RelativeDocumentMoniker": "src\\TileMap.cpp",
               "ToolTip": "C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\TileMap.cpp",
               "RelativeToolTip": "src\\TileMap.cpp",
-              "ViewState": "AgIAAMYAAAAAAAAAAAAEwJEAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAEwIgAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-21T18:09:34.924Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-21T18:09:34.924Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Scene.cpp",
               "DocumentMoniker": "C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Scene.cpp",
               "RelativeDocumentMoniker": "src\\Scene.cpp",
-              "ToolTip": "C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Scene.cpp",
-              "RelativeToolTip": "src\\Scene.cpp",
-              "ViewState": "AgIAAK0AAAAAAAAAAAArwMcAAAAGAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\MANEL\\Documents\\GitHub\\Project1\\SinLuces-PENGO\\src\\Scene.cpp*",
+              "RelativeToolTip": "src\\Scene.cpp*",
+              "ViewState": "AgIAAMgAAAAAAAAAAAArwO4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-21T17:30:26.381Z",
               "EditorCaption": ""

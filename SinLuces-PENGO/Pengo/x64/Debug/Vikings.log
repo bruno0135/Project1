@@ -1,2 +1,4 @@
-﻿  Vikings.vcxproj -> C:\Users\MANEL\Documents\GitHub\Project1\SinLuces-PENGO\x64\Debug\Pengo.exe
+﻿  Scene.cpp
+C:\Users\MANEL\Documents\GitHub\Project1\SinLuces-PENGO\src\Scene.cpp(134,10): warning C4101: 'obj': unreferenced local variable
+  Vikings.vcxproj -> C:\Users\MANEL\Documents\GitHub\Project1\SinLuces-PENGO\x64\Debug\Pengo.exe
           1 file(s) copied.

@@ -205,49 +205,38 @@ AppStatus Scene::LoadLevel(int stage)
 	{
 		for (x = 0; x < LEVEL_WIDTH; ++x)
 		{
-			if (i < size && map[i] == 200)
-			{
-				LOG("DEBUG: tile 200 detectado en (%d, %d)", x, y);
-			}
-
 			tile = (Tile)map[i];
-			if (level->IsTileEntity(tile) || level->IsTileObject(tile))
+			pos.x = x * TILE_SIZE;
+			pos.y = y * TILE_SIZE + TILE_SIZE - 1;
+
+			if (tile == Tile::PLAYER)
 			{
-				pos.x = x * TILE_SIZE;
-				pos.y = y * TILE_SIZE + TILE_SIZE - 1;
-
-				if (tile == Tile::PLAYER)
-				{
-					player->SetPos(pos);
-				}
-				else if (tile == Tile::SNOBEE)
-				{
-					LOG("DEBUG: Encontrado SNOBEE en el mapa en coordenadas (%d, %d)", x, y);
-					Point area_pos(pos.x - 48, pos.y - 32); // Ajustá tamaño de visibilidad si querés
-					AABB area(area_pos, 160, 96);
-					enemies->Add(pos, EnemyType::SNOBEE, area);
-				}
-				else
-				{
-					LOG("Internal error loading scene: invalid entity or object tile id");
-				}
-				++i;
+				player->SetPos(pos);
 			}
+			else if (tile == Tile::SNOBEE)
+			{
+				LOG("SNOBEE detectado en el mapa en (%d, %d)", x, y);
+				Point area_pos = pos + Point(-48, -32);
+				AABB area(area_pos, 160, 96);
+				enemies->Add(pos, EnemyType::SNOBEE, area);
+			}
+			++i;
 		}
-
-		int middle_x = 8;
-		int middle_y = 8;
-		pos = { middle_x * TILE_SIZE, (middle_y + 2) * TILE_SIZE };
-		player->SetPos(pos);
-
-		// Remove initial positions of objects and entities from the map
-		level->ClearObjectEntityPositions();
-
-		delete[] map;
-
-		return AppStatus::OK;
 	}
-}
+
+	// Posición inicial por si acaso (opcional si ya se hace arriba)
+	int middle_x = 8;
+	int middle_y = 8;
+	pos = { middle_x * TILE_SIZE, (middle_y + 2) * TILE_SIZE };
+	player->SetPos(pos);
+
+	// Limpiar marcadores del mapa
+	level->ClearObjectEntityPositions();
+	delete[] map;
+
+	return AppStatus::OK;
+	}
+
 
 void Scene::Update()
 {
