@@ -13,14 +13,15 @@ This game is a recreation of the original game [Pengo](https://www.youtube.com/w
 - F1 Debug mode
 - Press 1 to play level 1
 - Press 2 to play level 2
-- F2 Win Screen
-- F3 Lose Screen
+- F3 Win Screen
+- F4 Lose Screen
 
 ## Implemented Features
 - Enemies
 - Debug mode
 - Change level function
 - Background music
+- Score system
 
 ## 1 min video
 [VIDEO](https://www.youtube.com/watch?v=ud96en6W3ik&feature=youtu.be)
