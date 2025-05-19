@@ -40,8 +40,9 @@ enum class PlayerAnim {
 	IDLE_LEFT, IDLE_RIGHT, IDLE_UP, IDLE_DOWN,
 	WALK_LEFT, WALK_RIGHT, WALK_DOWN, WALK_UP,
 	PUSH_LEFT, PUSH_RIGHT, PUSH_DOWN, PUSH_UP,
-	NUM_ANIMATIONS
+	NUM_ANIMATIONS, NONE
 };
+
 
 class Player : public Entity
 {
@@ -74,7 +75,7 @@ private:
 
 	//Player mechanics
 	void Move();
-
+	PlayerAnim currentDirection = PlayerAnim::NONE;
 
 	//Animations coordination
 	std::unordered_map<int, int> originalAnimationDelays;

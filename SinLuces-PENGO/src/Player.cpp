@@ -150,23 +150,39 @@ void Player::RestoreAnimationFrame() {
 
 // Función Stop que congela la animación sin cambiar a la animación idle
 void Player::Stop() {
-	dir = { 0, 0 };
-	state = State::IDLE;
+	//dir = { 0, 0 };
+	//state = State::IDLE;
 
-	// En lugar de congelar la animación, cambiar a la animación IDLE correspondiente
-	switch (look) {
-	case Look::LEFT:
-		SetAnimation((int)PlayerAnim::IDLE_LEFT);
-		break;
-	case Look::RIGHT:
-		SetAnimation((int)PlayerAnim::IDLE_RIGHT);
-		break;
-	case Look::UP:
-		SetAnimation((int)PlayerAnim::IDLE_UP);
-		break;
-	case Look::DOWN:
-		SetAnimation((int)PlayerAnim::IDLE_DOWN);
-		break;
+	//// En lugar de congelar la animación, cambiar a la animación IDLE correspondiente
+	//switch (look) {
+	//case Look::LEFT:
+	//	SetAnimation((int)PlayerAnim::IDLE_LEFT);
+	//	break;
+	//case Look::RIGHT:
+	//	SetAnimation((int)PlayerAnim::IDLE_RIGHT);
+	//	break;
+	//case Look::UP:
+	//	SetAnimation((int)PlayerAnim::IDLE_UP);
+	//	break;
+	//case Look::DOWN:
+	//	SetAnimation((int)PlayerAnim::IDLE_DOWN);
+	//	break;
+	//}
+	dir = { 0, 0 }; // Detener movimiento
+
+	Sprite* sprite = dynamic_cast<Sprite*>(render);
+	if (sprite != nullptr)
+	{
+		if (look == Look::LEFT)
+			sprite->SetAnimation((int)PlayerAnim::IDLE_LEFT);
+		else if (look == Look::RIGHT)
+			sprite->SetAnimation((int)PlayerAnim::IDLE_RIGHT);
+		else if (look == Look::UP)
+			sprite->SetAnimation((int)PlayerAnim::IDLE_UP);
+		else if (look == Look::DOWN)
+			sprite->SetAnimation((int)PlayerAnim::IDLE_DOWN);
+
+		sprite->FreezeAnimationFrame(); // Detener animación
 	}
 }
 
@@ -280,93 +296,97 @@ void Player::Move()
 	int prev_x = pos.x;
 	int prev_y = pos.y;
 
-	// Handle X movement
-	if (IsKeyDown(KEY_LEFT) && !IsKeyDown(KEY_RIGHT))
-	{
-		pos.x += -PLAYER_SPEED;
-		if (state == State::IDLE) StartWalkingLeft();
-		else
-		{
-			if (IsLookingRight()) ChangeAnimLeft();
-			else if (IsLookingDown()) ChangeAnimLeft();
-			else if (IsLookingUp()) ChangeAnimLeft();
-		}
-		box = GetHitbox();
-		if (map->TestCollisionWallLeft(box))
-		{
-			pos.x = prev_x;
-			if (state == State::IDLE) Stop();
-		}
-	}
-	else if (IsKeyDown(KEY_RIGHT))
-	{
-		pos.x += PLAYER_SPEED;
-		if (state == State::IDLE) StartWalkingRight();
-		else
-		{
-			if (IsLookingLeft()) ChangeAnimRight();
-			else if (IsLookingDown()) ChangeAnimRight();
-			else if (IsLookingUp()) ChangeAnimRight();
-		}
-		box = GetHitbox();
-		if (map->TestCollisionWallRight(box))
-		{
-			pos.x = prev_x;
-			if (state == State::IDLE) Stop();
-		}
+	// Actualitza currentDirection si no hi ha direcció activa
+	if (currentDirection == PlayerAnim::NONE) {
+		if (IsKeyPressed(KEY_LEFT)) currentDirection = PlayerAnim::WALK_LEFT;
+		else if (IsKeyPressed(KEY_RIGHT)) currentDirection = PlayerAnim::WALK_RIGHT;
+		else if (IsKeyPressed(KEY_UP)) currentDirection = PlayerAnim::WALK_UP;
+		else if (IsKeyPressed(KEY_DOWN)) currentDirection = PlayerAnim::WALK_DOWN;
 	}
 
-	// Handle Y movement
-	if (IsKeyDown(KEY_UP) && !IsKeyDown(KEY_DOWN))
+	// Si la tecla activa s'ha deixat de prémer, netegem la direcció activa
+	switch (currentDirection)
 	{
-		pos.y += -PLAYER_SPEED;
-		if (state == State::IDLE) StartWalkingUp();
-		else
-		{
-			if (IsLookingLeft()) ChangeAnimUp();
-			else if (IsLookingRight()) ChangeAnimUp();
-			else if (IsLookingDown()) ChangeAnimUp();
-		}
+	case PlayerAnim::WALK_LEFT:
+		if (!IsKeyDown(KEY_LEFT)) currentDirection = PlayerAnim::NONE;
+		break;
+	case PlayerAnim::WALK_RIGHT:
+		if (!IsKeyDown(KEY_RIGHT)) currentDirection = PlayerAnim::NONE;
+		break;
+	case PlayerAnim::WALK_UP:
+		if (!IsKeyDown(KEY_UP)) currentDirection = PlayerAnim::NONE;
+		break;
+	case PlayerAnim::WALK_DOWN:
+		if (!IsKeyDown(KEY_DOWN)) currentDirection = PlayerAnim::NONE;
+		break;
+	default: break;
+	}
+
+	// Executa moviment segons la direcció activa
+	switch (currentDirection)
+	{
+	case PlayerAnim::WALK_LEFT:
+		pos.x -= PLAYER_SPEED;
+		if (state == State::IDLE) StartWalkingLeft();
+		else if (!IsLookingLeft()) ChangeAnimLeft();
 		box = GetHitbox();
-		if (map->TestCollisionWallLeft(box))
-		{
+		if (map->TestCollisionWallLeft(box)) {
+			pos.x = prev_x;
+			if (state == State::IDLE) Stop();
+		}
+		break;
+
+	case PlayerAnim::WALK_RIGHT:
+		pos.x += PLAYER_SPEED;
+		if (state == State::IDLE) StartWalkingRight();
+		else if (!IsLookingRight()) ChangeAnimRight();
+		box = GetHitbox();
+		if (map->TestCollisionWallRight(box)) {
+			pos.x = prev_x;
+			if (state == State::IDLE) Stop();
+		}
+		break;
+
+	case PlayerAnim::WALK_UP:
+		pos.y -= PLAYER_SPEED;
+		if (state == State::IDLE) StartWalkingUp();
+		else if (!IsLookingUp()) ChangeAnimUp();
+		box = GetHitbox();
+		if (map->TestCollisionWallLeft(box)) {  // potser hauria de ser WallTop
 			pos.y = prev_y;
 			if (state == State::PUSH) Stop();
 		}
-	}
-	else if (IsKeyDown(KEY_DOWN))
-	{
+		break;
+
+	case PlayerAnim::WALK_DOWN:
 		pos.y += PLAYER_SPEED;
 		if (state == State::IDLE) StartWalkingDown();
-		else
-		{
-			if (IsLookingLeft()) ChangeAnimDown();
-			else if (IsLookingRight()) ChangeAnimDown();
-			else if (IsLookingUp()) ChangeAnimDown();
-		}
+		else if (!IsLookingDown()) ChangeAnimDown();
 		box = GetHitbox();
-		if (map->TestCollisionWallRight(box))
-		{
+		if (map->TestCollisionWallRight(box)) {  // potser hauria de ser WallBottom
 			pos.y = prev_y;
 			if (state == State::IDLE) Stop();
 		}
+		break;
+
+	default:
+		break;
 	}
 
-	// Check for ground collision
+	// Comprovació de col·lisions amb el terra
 	box = GetHitbox();
-	if (map->TestCollisionGround(box, &pos.y))
-	{
+	if (map->TestCollisionGround(box, &pos.y)) {
 		if (state == State::PUSH) Stop();
 	}
 
-	// Handle the case when no movement keys are pressed
+	// Si no es prem cap tecla, atura el jugador
 	if (!IsKeyDown(KEY_LEFT) && !IsKeyDown(KEY_RIGHT) && !IsKeyDown(KEY_UP) && !IsKeyDown(KEY_DOWN))
 	{
-		// Llamar a Stop solo si no estamos ya en estado IDLE o si la animación actual no es la correcta
+		currentDirection = PlayerAnim::NONE;
+
 		Sprite* sprite = dynamic_cast<Sprite*>(render);
 		bool isIdleAnimation = false;
 
-		// Verificar si ya estamos en una animación IDLE correcta
 		if (look == Look::LEFT && sprite->GetAnimation() == (int)PlayerAnim::IDLE_LEFT)
 			isIdleAnimation = true;
 		else if (look == Look::RIGHT && sprite->GetAnimation() == (int)PlayerAnim::IDLE_RIGHT)
@@ -380,6 +400,7 @@ void Player::Move()
 			Stop();
 	}
 }
+
 
 
 void Player::DrawDebug(const Color& col) const
