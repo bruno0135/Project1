@@ -270,10 +270,10 @@ void Scene::Update()
 	enemies->Update(hitbox);
 	shots->Update(hitbox);
 
-	if (IsKeyPressed(KEY_F3)) {
+	if (IsKeyPressed(KEY_F2)) {
 		scene_state = SceneState::WIN;
 	}
-	else if (IsKeyPressed(KEY_F4)) {
+	else if (IsKeyPressed(KEY_F3)) {
 		scene_state = SceneState::LOSE;
 	}
 	else if ((scene_state == SceneState::WIN || scene_state == SceneState::LOSE) && IsKeyPressed(KEY_ENTER)) {

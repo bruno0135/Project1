@@ -66,6 +66,9 @@ public:
 	void Stop();
 	void ResumeMovement();
 
+	/*Take Damage*/
+	void TakeDamage(int amount);
+
 private:
 
 	bool IsLookingRight() const;
@@ -96,5 +99,7 @@ private:
 	Look look;
 	TileMap* map;
 	int score;
+	/*Vida*/
+	int health = 10;
 };
 

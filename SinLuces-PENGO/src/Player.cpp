@@ -193,9 +193,13 @@ void Player::ResumeMovement() {
 	SetAnimation((int)PlayerAnim::WALK_RIGHT);
 	// Se deben actualizar posición, dirección, etc.
 }
+void Player::TakeDamage(int amount)
+{
+	health -= amount;
+	if (health < 0) health = 0;
 
-
-
+	// Pots afegir aquí efectes com sons, animacions, etc.
+}
 
 void Player::StartWalkingLeft()
 {
