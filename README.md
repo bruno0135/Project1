@@ -13,8 +13,8 @@ This game is a recreation of the original game [Pengo](https://www.youtube.com/w
 - F1 Debug mode
 - Press 1 to play level 1
 - Press 2 to play level 2
-- F3 Win Screen
-- F4 Lose Screen
+- F2 Win Screen
+- F3 Lose Screen
 
 ## Implemented Features
 - Enemies
