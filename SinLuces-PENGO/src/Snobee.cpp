@@ -271,15 +271,18 @@
 //			anim == SNOBEEAnim::ATTACK_LEFT) ? Look::LEFT : Look::RIGHT;
 //}
 //------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------
+
 #include "Snobee.h"
 #include "Sprite.h"
-#include "Player.h"  // Incloem la classe Jugador per poder atacar
+#include "Player.h"
 
-#include <cmath>  // per std::abs i std::sqrt
+#include <cmath>
 
 #define DETECTION_RADIUS 100
+#define MIN_DISTANCE_TO_PLAYER 10
 
-// Funció auxiliar per calcular la distància entre dos punts
 static float Distance(const Point& a, const Point& b)
 {
     float dx = float(a.x - b.x);
@@ -289,7 +292,7 @@ static float Distance(const Point& a, const Point& b)
 
 SNOBEE::~SNOBEE() = default;
 
-SNOBEE::SNOBEE(const Point & p, int width, int height, int frame_width, int frame_height) :
+SNOBEE::SNOBEE(const Point& p, int width, int height, int frame_width, int frame_height) :
     Enemy(p, width, height, frame_width, frame_height)
 {
     attack_delay = 0;
@@ -301,7 +304,7 @@ SNOBEE::SNOBEE(const Point & p, int width, int height, int frame_width, int fram
     movement = { 0, 0 };
 }
 
-AppStatus SNOBEE::Initialise(const Point & pos, EnemyType type, const AABB & area, TileMap * map)
+AppStatus SNOBEE::Initialise(const Point& pos, EnemyType type, const AABB& area, TileMap* map)
 {
     this->pos = pos;
     this->map = map;
@@ -358,107 +361,154 @@ void SNOBEE::InitPattern()
     // (mantinc el teu codi original de InitPattern sense canvis)
 }
 
-void SNOBEE::UpdateMovementAI(const AABB & playerBox)
+bool SNOBEE::Update(const AABB& playerBox)
 {
-    const int tileSize = 16;
-    int baseSpeed = std::max(1, SNOBEE_SPEED / 2);
-
     Sprite* sprite = dynamic_cast<Sprite*>(render);
 
-    // Calculem la distància al jugador
-    float dist = Distance(pos, playerBox.pos);
+    int baseSpeed = std::max(1, SNOBEE_SPEED / 2);
 
-    if (dist <= DETECTION_RADIUS)
+    Point enemyCenter = { pos.x + width / 2, pos.y + height / 2 };
+    Point playerCenter = { playerBox.pos.x + playerBox.width / 2, playerBox.pos.y + playerBox.height / 2 };
+    float dist = Distance(enemyCenter, playerCenter);
+
+    movement = { 0, 0 };
+
+    if (dist < MIN_DISTANCE_TO_PLAYER)
     {
-        // Moure cap al jugador
-        Point direction = { 0, 0 };
-        if (std::abs(playerBox.pos.x - pos.x) > std::abs(playerBox.pos.y - pos.y))
+        Point retreat = {
+            (playerCenter.x < enemyCenter.x) ? baseSpeed : -baseSpeed,
+            (playerCenter.y < enemyCenter.y) ? baseSpeed : -baseSpeed
+        };
+
+        bool canMoveX = true, canMoveY = true;
+
+        AABB projectedX = GetHitbox();
+        projectedX.pos.x += retreat.x;
+        if (retreat.x < 0)
+            canMoveX = !map->TestCollisionWallLeft(projectedX);
+        else
+            canMoveX = !map->TestCollisionWallRight(projectedX);
+
+        AABB projectedY = GetHitbox();
+        projectedY.pos.y += retreat.y;
+        if (retreat.y < 0)
+            canMoveY = !map->TestCollisionWallUp(projectedY);
+        else
+            canMoveY = !map->TestCollisionWallDown(projectedY);
+
+        movement.x = canMoveX ? retreat.x : 0;
+        movement.y = canMoveY ? retreat.y : 0;
+
+        if (movement.x == 0 && movement.y == 0)
         {
-            direction.x = (playerBox.pos.x < pos.x) ? -baseSpeed : baseSpeed;
+            SetAnimation((look == Look::LEFT) ? (int)SNOBEEAnim::IDLE_LEFT : (int)SNOBEEAnim::IDLE_RIGHT);
+            return false;
+        }
+        else
+        {
+            SetAnimation((movement.x < 0) ? (int)SNOBEEAnim::WALKING_LEFT : (int)SNOBEEAnim::WALKING_RIGHT);
+        }
+    }
+    else if (dist <= DETECTION_RADIUS)
+    {
+        Point direction = { 0, 0 };
+        if (std::abs(playerCenter.x - enemyCenter.x) > std::abs(playerCenter.y - enemyCenter.y))
+        {
+            direction.x = (playerCenter.x < enemyCenter.x) ? -baseSpeed : baseSpeed;
             look = (direction.x < 0) ? Look::LEFT : Look::RIGHT;
         }
         else
         {
-            direction.y = (playerBox.pos.y < pos.y) ? -baseSpeed : baseSpeed;
+            direction.y = (playerCenter.y < enemyCenter.y) ? -baseSpeed : baseSpeed;
         }
 
-        // Comprovar col·lisions
-        AABB projected = GetHitbox();
-        projected.pos += direction;
+        bool canMoveX = true, canMoveY = true;
 
-        bool blocked = false;
-        if (direction.x < 0) blocked = map->TestCollisionWallLeft(projected);
-        else if (direction.x > 0) blocked = map->TestCollisionWallRight(projected);
-        else if (direction.y < 0)
-        {
-            AABB adjusted = projected;
-            adjusted.pos.y -= 1;
-            blocked = map->TestCollisionWallUp(adjusted);
-        }
-        else if (direction.y > 0) blocked = map->TestCollisionWallDown(projected);
+        AABB projectedX = GetHitbox();
+        projectedX.pos.x += direction.x;
+        if (direction.x < 0)
+            canMoveX = !map->TestCollisionWallLeft(projectedX);
+        else if (direction.x > 0)
+            canMoveX = !map->TestCollisionWallRight(projectedX);
 
-        if (blocked)
-        {
-            movement = { 0, 0 };
-            SetAnimation((look == Look::LEFT) ? (int)SNOBEEAnim::IDLE_LEFT : (int)SNOBEEAnim::IDLE_RIGHT);
-            return;
-        }
-
-        movement = direction;
-        if (movement.x != 0)
-            SetAnimation((look == Look::LEFT) ? (int)SNOBEEAnim::WALKING_LEFT : (int)SNOBEEAnim::WALKING_RIGHT);
+        AABB projectedY = GetHitbox();
+        projectedY.pos.y += direction.y;
+        if (direction.y < 0)
+            canMoveY = !map->TestCollisionWallUp(projectedY);
         else
-            SetAnimation((look == Look::LEFT) ? (int)SNOBEEAnim::WALKING_LEFT : (int)SNOBEEAnim::WALKING_RIGHT);
+            canMoveY = !map->TestCollisionWallDown(projectedY);
+
+        movement.x = canMoveX ? direction.x : 0;
+        movement.y = canMoveY ? direction.y : 0;
+
+        if (movement.x == 0 && movement.y == 0)
+        {
+            SetAnimation((look == Look::LEFT) ? (int)SNOBEEAnim::IDLE_LEFT : (int)SNOBEEAnim::IDLE_RIGHT);
+            return false;
+        }
+        else
+        {
+            SetAnimation((movement.x < 0) ? (int)SNOBEEAnim::WALKING_LEFT : (int)SNOBEEAnim::WALKING_RIGHT);
+        }
     }
     else
     {
-        // Moviment aleatori quan el jugador no està a prop
         int dir = GetRandomValue(0, 3);
-        Point direction = { 0,0 };
+        Point direction = { 0, 0 };
         switch (dir)
         {
         case 0: direction = { -baseSpeed, 0 }; look = Look::LEFT; break;
-        case 1: direction = { baseSpeed, 0 };  look = Look::RIGHT; break;
+        case 1: direction = { baseSpeed, 0 }; look = Look::RIGHT; break;
         case 2: direction = { 0, -baseSpeed }; break;
-        case 3: direction = { 0, baseSpeed };  break;
+        case 3: direction = { 0, baseSpeed }; break;
         }
-        movement = direction;
-        SetAnimation((look == Look::LEFT) ? (int)SNOBEEAnim::WALKING_LEFT : (int)SNOBEEAnim::WALKING_RIGHT);
-    }
-}
 
-bool SNOBEE::TryAttack(const AABB& playerBox, Player& player)
-{
-    if (IsVisible(playerBox))
-    {
-        if (attack_delay <= 0)
+        AABB projected = GetHitbox();
+        projected.pos.x += direction.x;
+        projected.pos.y += direction.y;
+
+        bool canMove = true;
+        if (direction.x < 0)
+            canMove = !map->TestCollisionWallLeft(projected);
+        else if (direction.x > 0)
+            canMove = !map->TestCollisionWallRight(projected);
+
+        if (canMove && direction.y != 0)
         {
-            attack_delay = 2 * SNOBEE_ANIM_DELAY;
-            player.TakeDamage(1);  // Crides la funció de fer mal al player
-            return true;
+            if (direction.y < 0)
+                canMove = !map->TestCollisionWallUp(projected);
+            else
+                canMove = !map->TestCollisionWallDown(projected);
+        }
+
+        if (canMove)
+        {
+            movement = direction;
+            SetAnimation((look == Look::LEFT) ? (int)SNOBEEAnim::WALKING_LEFT : (int)SNOBEEAnim::WALKING_RIGHT);
         }
         else
         {
-            attack_delay--;
+            movement = { 0, 0 };
+            SetAnimation((look == Look::LEFT) ? (int)SNOBEEAnim::IDLE_LEFT : (int)SNOBEEAnim::IDLE_RIGHT);
         }
     }
-    return false;
-}
 
-bool SNOBEE::Update(const AABB & playerBox)
-{
-    Sprite* sprite = dynamic_cast<Sprite*>(render);
+    AABB nextPosHitbox = GetHitbox();
+    nextPosHitbox.pos.x += movement.x;
+    nextPosHitbox.pos.y += movement.y;
 
-    // Actualitza la IA i calcula el moviment cap al jugador o aleatori
-    UpdateMovementAI(playerBox);
-
-    // Actualitza la posició segons el movement calculat
-    pos += movement;
+    if (nextPosHitbox.TestAABB(playerBox))
+    {
+        movement = { 0, 0 };
+        SetAnimation((look == Look::LEFT) ? (int)SNOBEEAnim::IDLE_LEFT : (int)SNOBEEAnim::IDLE_RIGHT);
+    }
+    else
+    {
+        pos.x += movement.x;
+        pos.y += movement.y;
+    }
 
     sprite->Update();
 
-    return false; // Si vols indicar que ha atacat, has de cridar TryAttack des de fora o modificar aquí
+    return false;
 }
-//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------
-
