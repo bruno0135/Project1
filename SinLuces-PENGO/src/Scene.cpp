@@ -384,4 +384,5 @@ void Scene::RenderGUI() const
 {
 	//Temporal approach
 	DrawText(TextFormat("SCORE : %d", player->GetScore()), 10, 10, 8, LIGHTGRAY);
+	DrawText(TextFormat("HEALTH : %d", player->GetHealth()), 10, 20, 8, LIGHTGRAY);
 }

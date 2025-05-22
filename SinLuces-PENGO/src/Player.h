@@ -69,6 +69,8 @@ public:
 	/*Take Damage*/
 	void TakeDamage(int amount);
 
+	int GetHealth() const { return health; }
+
 private:
 
 	bool IsLookingRight() const;
@@ -100,6 +102,6 @@ private:
 	TileMap* map;
 	int score;
 	/*Vida*/
-	int health = 10;
+	int health = 3; //Aqui se cambian las vidas 
 };
 

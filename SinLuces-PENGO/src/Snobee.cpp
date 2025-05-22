@@ -270,6 +270,7 @@
 //			anim == SNOBEEAnim::WALKING_LEFT ||
 //			anim == SNOBEEAnim::ATTACK_LEFT) ? Look::LEFT : Look::RIGHT;
 //}
+//------------------------------------------------------------------------------------
 #include "Snobee.h"
 #include "Sprite.h"
 #include "Player.h"  // Incloem la classe Jugador per poder atacar
@@ -458,3 +459,6 @@ bool SNOBEE::Update(const AABB & playerBox)
 
     return false; // Si vols indicar que ha atacat, has de cridar TryAttack des de fora o modificar aquí
 }
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------
+
