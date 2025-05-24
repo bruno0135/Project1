@@ -124,19 +124,6 @@ PlayerAnim Player::GetAnimation()
 }
 
 
-//void Player::FreezeAnimationFrame() {
-//	Sprite* sprite = dynamic_cast<Sprite*>(render);
-//	int currentAnim = sprite->GetAnimation();
-//
-//	// Almacenar el delay original solo si no se ha guardado previamente
-//	if (originalAnimationDelays.find(currentAnim) == originalAnimationDelays.end()) {
-//		originalAnimationDelays[currentAnim] = sprite->GetAnimationDelay(currentAnim);
-//	}
-//
-//	// Establecer un delay muy alto para "congelar" la animación
-//	sprite->SetAnimationDelay(currentAnim, 20);
-//}
-
 // Función para restaurar el delay original de la animación actual
 void Player::RestoreAnimationFrame() {
 	Sprite* sprite = dynamic_cast<Sprite*>(render);
@@ -150,24 +137,7 @@ void Player::RestoreAnimationFrame() {
 
 // Función Stop que congela la animación sin cambiar a la animación idle
 void Player::Stop() {
-	//dir = { 0, 0 };
-	//state = State::IDLE;
-
-	//// En lugar de congelar la animación, cambiar a la animación IDLE correspondiente
-	//switch (look) {
-	//case Look::LEFT:
-	//	SetAnimation((int)PlayerAnim::IDLE_LEFT);
-	//	break;
-	//case Look::RIGHT:
-	//	SetAnimation((int)PlayerAnim::IDLE_RIGHT);
-	//	break;
-	//case Look::UP:
-	//	SetAnimation((int)PlayerAnim::IDLE_UP);
-	//	break;
-	//case Look::DOWN:
-	//	SetAnimation((int)PlayerAnim::IDLE_DOWN);
-	//	break;
-	//}
+	
 	dir = { 0, 0 }; // Detener movimiento
 
 	Sprite* sprite = dynamic_cast<Sprite*>(render);
@@ -236,172 +206,124 @@ void Player::StartWalkingUp()
 
 }
 
-//Cambio de animaciones 
-void Player::ChangeAnimRight()
-{
-	look = Look::RIGHT;
-	switch (state)
-	{
-	case State::IDLE:	 SetAnimation((int)PlayerAnim::IDLE_RIGHT);    break;
-	case State::WALKING: SetAnimation((int)PlayerAnim::WALK_RIGHT); break;
-	case State::PUSH: SetAnimation((int)PlayerAnim::PUSH_RIGHT); break;
-
-	}
-}
-void Player::ChangeAnimLeft()
-{
-	look = Look::LEFT;
-	switch (state)
-	{
-	case State::IDLE:	 SetAnimation((int)PlayerAnim::IDLE_LEFT);    break;
-	case State::WALKING: SetAnimation((int)PlayerAnim::WALK_LEFT); break;
-	case State::PUSH: SetAnimation((int)PlayerAnim::PUSH_LEFT); break;
-
-	}
-}
-void Player::ChangeAnimUp()
-{
-	look = Look::UP;
-	switch (state)
-	{
-	case State::IDLE:	 SetAnimation((int)PlayerAnim::IDLE_UP);    break;
-	case State::WALKING: SetAnimation((int)PlayerAnim::WALK_UP); break;
-	case State::PUSH: SetAnimation((int)PlayerAnim::PUSH_UP); break;
-
-	}
-}
-void Player::ChangeAnimDown()
-{
-	look = Look::DOWN;
-	switch (state)
-	{
-	case State::IDLE:	 SetAnimation((int)PlayerAnim::IDLE_DOWN);    break;
-	case State::WALKING: SetAnimation((int)PlayerAnim::WALK_DOWN); break;
-	case State::PUSH: SetAnimation((int)PlayerAnim::PUSH_DOWN); break;
-
-	}
-}
-
-
 void Player::Update()
 {
-	//Player doesn't use the "Entity::Update() { pos += dir; }" default behaviour.
-	//Instead, uses an independent behaviour for each axis.
-	Move();
+	Move();  // Actualitza posició, estat i direcció
 
+	// Escollim animació segons estat i direcció
+	switch (state)
+	{
+	case State::IDLE:
+		switch (look)
+		{
+		case Look::LEFT:   SetAnimation((int)PlayerAnim::IDLE_LEFT); break;
+		case Look::RIGHT:  SetAnimation((int)PlayerAnim::IDLE_RIGHT); break;
+		case Look::UP:     SetAnimation((int)PlayerAnim::IDLE_UP); break;
+		case Look::DOWN:   SetAnimation((int)PlayerAnim::IDLE_DOWN); break;
+		}
+		break;
 
-	Sprite* sprite = dynamic_cast<Sprite*>(render);
-	sprite->Update();
+	case State::WALKING:
+		switch (look)
+		{
+		case Look::LEFT:   SetAnimation((int)PlayerAnim::WALK_LEFT); break;
+		case Look::RIGHT:  SetAnimation((int)PlayerAnim::WALK_RIGHT); break;
+		case Look::UP:     SetAnimation((int)PlayerAnim::WALK_UP); break;
+		case Look::DOWN:   SetAnimation((int)PlayerAnim::WALK_DOWN); break;
+		}
+		break;
+
+	case State::PUSH:
+		switch (look)
+		{
+		case Look::LEFT:   SetAnimation((int)PlayerAnim::PUSH_LEFT); break;
+		case Look::RIGHT:  SetAnimation((int)PlayerAnim::PUSH_RIGHT); break;
+		case Look::UP:     SetAnimation((int)PlayerAnim::PUSH_UP); break;
+		case Look::DOWN:   SetAnimation((int)PlayerAnim::PUSH_DOWN); break;
+		}
+		break;
+
+	case State::DEAD:
+		// Aquí podries posar una animació de mort si tens
+		break;
+	}
+
+	// Important: crida a la funció base perquè l'animació es processi
+	Entity::Update();
 }
+Point Player::GetFrontTilePos(int dx, int dy) const
+{
+	// Obtenim la hitbox actual del jugador
+	AABB box = GetHitbox();
 
+	// Calculem la posició (en píxels) davant segons la direcció
+	float frontX = box.pos.x + dx * TILE_SIZE;
+	float frontY = box.pos.y + dy * TILE_SIZE;
+
+	// Convertim la posició en píxels a posició en tile (coordenades enters)
+	int tileX = static_cast<int>(frontX) / TILE_SIZE;
+	int tileY = static_cast<int>(frontY) / TILE_SIZE;
+
+	return Point(tileX, tileY);
+}
 void Player::Move()
 {
-	AABB box;
-	int prev_x = pos.x;
-	int prev_y = pos.y;
+	AABB box = GetHitbox();
 
-	// Actualitza currentDirection si no hi ha direcció activa
-	if (currentDirection == PlayerAnim::NONE) {
-		if (IsKeyPressed(KEY_LEFT)) currentDirection = PlayerAnim::WALK_LEFT;
-		else if (IsKeyPressed(KEY_RIGHT)) currentDirection = PlayerAnim::WALK_RIGHT;
-		else if (IsKeyPressed(KEY_UP)) currentDirection = PlayerAnim::WALK_UP;
-		else if (IsKeyPressed(KEY_DOWN)) currentDirection = PlayerAnim::WALK_DOWN;
-	}
+	// Variables auxiliars
+	int dx = 0, dy = 0;
+	bool isMoving = false;
+	bool pushing = IsKeyDown(KEY_SPACE);
 
-	// Si la tecla activa s'ha deixat de prémer, netegem la direcció activa
-	switch (currentDirection)
-	{
-	case PlayerAnim::WALK_LEFT:
-		if (!IsKeyDown(KEY_LEFT)) currentDirection = PlayerAnim::NONE;
-		break;
-	case PlayerAnim::WALK_RIGHT:
-		if (!IsKeyDown(KEY_RIGHT)) currentDirection = PlayerAnim::NONE;
-		break;
-	case PlayerAnim::WALK_UP:
-		if (!IsKeyDown(KEY_UP)) currentDirection = PlayerAnim::NONE;
-		break;
-	case PlayerAnim::WALK_DOWN:
-		if (!IsKeyDown(KEY_DOWN)) currentDirection = PlayerAnim::NONE;
-		break;
-	default: break;
-	}
+	// Detectar direcció
+	if (IsKeyDown(KEY_LEFT)) { dx = -1; look = Look::LEFT;  currentDirection = PlayerAnim::WALK_LEFT;  isMoving = true; }
+	else if (IsKeyDown(KEY_RIGHT)) { dx = 1;  look = Look::RIGHT; currentDirection = PlayerAnim::WALK_RIGHT; isMoving = true; }
+	else if (IsKeyDown(KEY_UP)) { dy = -1; look = Look::UP;    currentDirection = PlayerAnim::WALK_UP;    isMoving = true; }
+	else if (IsKeyDown(KEY_DOWN)) { dy = 1;  look = Look::DOWN;  currentDirection = PlayerAnim::WALK_DOWN;  isMoving = true; }
 
-	// Executa moviment segons la direcció activa
-	switch (currentDirection)
-	{
-	case PlayerAnim::WALK_LEFT:
-		pos.x -= PLAYER_SPEED;
-		if (state == State::IDLE) StartWalkingLeft();
-		else if (!IsLookingLeft()) ChangeAnimLeft();
-		box = GetHitbox();
-		if (map->TestCollisionWallLeft(box)) {
-			pos.x = prev_x;
-			if (state == State::IDLE) Stop();
-		}
-		break;
-
-	case PlayerAnim::WALK_RIGHT:
-		pos.x += PLAYER_SPEED;
-		if (state == State::IDLE) StartWalkingRight();
-		else if (!IsLookingRight()) ChangeAnimRight();
-		box = GetHitbox();
-		if (map->TestCollisionWallRight(box)) {
-			pos.x = prev_x;
-			if (state == State::IDLE) Stop();
-		}
-		break;
-
-	case PlayerAnim::WALK_UP:
-		pos.y -= PLAYER_SPEED;
-		if (state == State::IDLE) StartWalkingUp();
-		else if (!IsLookingUp()) ChangeAnimUp();
-		box = GetHitbox();
-		if (map->TestCollisionWallLeft(box)) {  // potser hauria de ser WallTop
-			pos.y = prev_y;
-			if (state == State::PUSH) Stop();
-		}
-		break;
-
-	case PlayerAnim::WALK_DOWN:
-		pos.y += PLAYER_SPEED;
-		if (state == State::IDLE) StartWalkingDown();
-		else if (!IsLookingDown()) ChangeAnimDown();
-		box = GetHitbox();
-		if (map->TestCollisionWallRight(box)) {  // potser hauria de ser WallBottom
-			pos.y = prev_y;
-			if (state == State::IDLE) Stop();
-		}
-		break;
-
-	default:
-		break;
-	}
-
-	// Comprovació de col·lisions amb el terra
-	box = GetHitbox();
-	if (map->TestCollisionGround(box, &pos.y)) {
-		if (state == State::PUSH) Stop();
-	}
-
-	// Si no es prem cap tecla, atura el jugador
-	if (!IsKeyDown(KEY_LEFT) && !IsKeyDown(KEY_RIGHT) && !IsKeyDown(KEY_UP) && !IsKeyDown(KEY_DOWN))
-	{
+	// Si no ens estem movent
+	if (!isMoving) {
 		currentDirection = PlayerAnim::NONE;
+		state = State::IDLE;
+		return;
+	}
 
-		Sprite* sprite = dynamic_cast<Sprite*>(render);
-		bool isIdleAnimation = false;
+	// Obtenim tile davant i el seu AABB
+	Point frontTile = GetFrontTilePos(dx, dy);
+	AABB blockBox(Point(frontTile.x * TILE_SIZE, frontTile.y * TILE_SIZE), TILE_SIZE, TILE_SIZE);
 
-		if (look == Look::LEFT && sprite->GetAnimation() == (int)PlayerAnim::IDLE_LEFT)
-			isIdleAnimation = true;
-		else if (look == Look::RIGHT && sprite->GetAnimation() == (int)PlayerAnim::IDLE_RIGHT)
-			isIdleAnimation = true;
-		else if (look == Look::UP && sprite->GetAnimation() == (int)PlayerAnim::IDLE_UP)
-			isIdleAnimation = true;
-		else if (look == Look::DOWN && sprite->GetAnimation() == (int)PlayerAnim::IDLE_DOWN)
-			isIdleAnimation = true;
+	// Calculem hitbox simulat
+	AABB newBox = box;
+	newBox.pos.x += dx * PLAYER_SPEED;
+	newBox.pos.y += dy * PLAYER_SPEED;
 
-		if (state != State::IDLE || !isIdleAnimation)
-			Stop();
+	// Si no hi ha col·lisió
+	bool noCollision = true;
+	if (dx == -1) noCollision = !map->TestCollisionWallLeft(newBox);
+	else if (dx == 1) noCollision = !map->TestCollisionWallRight(newBox);
+	else if (dy == -1) noCollision = !map->TestCollisionWallUp(newBox);
+	else if (dy == 1) noCollision = !map->TestCollisionWallDown(newBox);
+
+	if (noCollision) {
+		// Moure sense empènyer
+		pos.x += dx * PLAYER_SPEED;
+		pos.y += dy * PLAYER_SPEED;
+		state = State::WALKING;
+	}
+	else if (pushing) {
+		// Si volem empènyer i es pot moure el bloc
+		if (map->TryPushBlock(blockBox, dx, dy)) {
+			pos.x += dx * PLAYER_SPEED;
+			pos.y += dy * PLAYER_SPEED;
+			state = State::PUSH;
+		}
+		else {
+			state = State::IDLE;
+		}
+	}
+	else {
+		// No podem moure ni empènyer
+		state = State::IDLE;
 	}
 }
 

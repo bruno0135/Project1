@@ -13,6 +13,10 @@ public:
     bool TestAABB(const AABB& box) const;
     bool TestPoint(const Point& q) const;
     bool TestCircle(const Point& center, float radius) const;
+
+    void MoveTo(const Point& newPos);              // Moure bloc nova posició
+    void MoveTo(int x, int y);                      // Sobrecàrrega per x,y
+
 };
 
 

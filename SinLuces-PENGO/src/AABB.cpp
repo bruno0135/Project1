@@ -25,3 +25,13 @@ bool AABB::TestCircle(const Point& center, float radius) const
     int distance_y = center.y - closest_y;
     return (distance_x * distance_x + distance_y * distance_y) <= (radius * radius);
 }
+void AABB::MoveTo(const Point& newPos)
+{
+    pos = newPos;
+}
+
+void AABB::MoveTo(int x, int y)
+{
+    pos.x = x;
+    pos.y = y;
+}

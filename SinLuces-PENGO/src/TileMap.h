@@ -14,9 +14,9 @@ enum class Tile {
 	AIR = 0,
 
 	// 0 < id < 50: static tiles
-	YELLOWB = 1, YELLOWB_2, YELLOWB_3, BLUEB,
-	ICEBREAK_1, ICEBREAK_2, ICEBREAK_3, ICEBREAK_4, ICEBREAK_5, ICEBREAK_6, ICEBREAK_7, ICEBREAK_8,
-	LIGHTBLUEB, ORANGEB, REDB, PINKB, GREENB,
+	BLUEB = 1, YELLOWB_2, YELLOWB_3, YELLOWB, //4
+	ICEBREAK_1, ICEBREAK_2, ICEBREAK_3, ICEBREAK_4, ICEBREAK_5, ICEBREAK_6, ICEBREAK_7, ICEBREAK_8, //12
+	LIGHTBLUEB, ORANGEB, REDB, PINKB, GREENB, DIAMONDBLUE, //18
 	BLOCK_HORIZ3_L, BLOCK_HORIZ3_M, BLOCK_HORIZ3_R,
 	BLOCK_BEAM_L, BLOCK_BEAM_R,
 
@@ -25,8 +25,7 @@ enum class Tile {
 	LASER_L = 40, LASER_R,
 
 	// 50 <= id < 100: special tiles
-	DOOR = 50,
-	PURPLE_STAR = 60, YELLOW_STAR, LIGHTYELLOW_STAR, ORANGE_STAR, PINK_STAR, GREEN_STAR, LIGHTBLUE_STAR, RED_STAR,
+	DOOR = 50, PURPLE_STAR , YELLOW_STAR, LIGHTYELLOW_STAR, ORANGE_STAR, PINK_STAR, GREEN_STAR, LIGHTBLUE_STAR,
 	LASER = 70, LASER_FRAME0, LASER_FRAME1, LASER_FRAME2,
 
 	// id >= 100: entities' initial locations
@@ -35,10 +34,10 @@ enum class Tile {
 	TURRET_LEFT = 301, TURRET_RIGHT = 302,
 
 	//Intervals
-	SOLID_FIRST = YELLOWB,
-	SOLID_LAST = BLOCK_BEAM_R,
+	SOLID_FIRST = BLUEB,
+	SOLID_LAST = BLOCK_BEAM_R,  //23
 	OBJECT_FIRST = PURPLE_STAR,
-	OBJECT_LAST = RED_STAR,
+	OBJECT_LAST = LIGHTBLUE_STAR,
 	ENTITY_FIRST = PLAYER,
 	ENTITY_LAST = TURRET_RIGHT
 };
@@ -83,6 +82,9 @@ public:
 
 	//Given a hitbox, computes the maximum swept box model along the X-axis without solid tiles
 	AABB GetSweptAreaX(const AABB& hitboxbox) const;
+	bool MoveSolidBlockInPixels(AABB& box, const Point& new_pixel_pos);
+	bool TryPushBlock(AABB blockBox, int directionX, int directionY);
+
 
 private:
 	void InitTileDictionary();
@@ -95,6 +97,7 @@ private:
 	bool CollisionX(const Point& p, int distance) const;
 	bool CollisionY(const Point& p, int distance) const;
 	int GetLadderCenterPos(int pixel_x, int pixel_y) const;
+
 
 	//Tile map
 	Tile* map;

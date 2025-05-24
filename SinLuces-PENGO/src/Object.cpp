@@ -13,6 +13,7 @@ Object::Object(const Point& p, ObjectType t) :
 		case ObjectType::APPLE: rc = {4*n, 3*n, n, n}; break;
 		case ObjectType::CHILI: rc = {5*n, 3*n, n, n}; break;
 		case ObjectType::STAR:  rc = {5*n, 1*n, n, n}; break;
+		case ObjectType::PUSHABLE_BLOCK:  rc = { 0, 0, n, n }; break;
 
 		default: LOG("Internal error: object creation of invalid type");
 	}

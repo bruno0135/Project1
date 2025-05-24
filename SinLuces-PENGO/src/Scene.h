@@ -30,12 +30,14 @@ public:
 private:
     AppStatus LoadLevel(int stage);
 
+
     void CheckObjectCollisions();
     void ClearLevel();
     void RenderObjects() const;
     void RenderObjectsDebug(const Color& col) const;
 
     void RenderGUI() const;
+
 
     Player* player;
 
@@ -53,4 +55,7 @@ private:
 
     Camera2D camera;
     DebugMode debug;
+
+  
+
 };

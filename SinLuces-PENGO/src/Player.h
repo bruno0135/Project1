@@ -82,6 +82,9 @@ private:
 	void Move();
 	PlayerAnim currentDirection = PlayerAnim::NONE;
 
+	// Funció per obtenir la posició del tile davant segons direcció
+	Point GetFrontTilePos(int dx, int dy) const;
+
 	//Animations coordination
 	std::unordered_map<int, int> originalAnimationDelays;
 	void SetAnimation(int id);
@@ -94,6 +97,7 @@ private:
 	void ChangeAnimLeft();
 	void ChangeAnimUp();
 	void ChangeAnimDown();
+
 
 
 

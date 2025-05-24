@@ -31,32 +31,32 @@ void TileMap::InitTileDictionary()
 {
 	const int n = TILE_SIZE;
 
-	dict_rect[(int)Tile::YELLOWB] =    { 0,   0, n, n };
-	dict_rect[(int)Tile::YELLOWB_2] =  { 0,   n, n, n };
-	dict_rect[(int)Tile::YELLOWB_3] =  { 0, 2*n, n, n };
-	dict_rect[(int)Tile::BLUEB] =      { 0, 3*n, n, n };
-	dict_rect[(int)Tile::ICEBREAK_1] = { 0, 4*n, n, n };
-	dict_rect[(int)Tile::ICEBREAK_2] = { 0, 5*n, n, n };
-	dict_rect[(int)Tile::ICEBREAK_3] = { 0, 6*n, n, n };
-	dict_rect[(int)Tile::ICEBREAK_4] = { 0, 7*n, n, n };
-	dict_rect[(int)Tile::ICEBREAK_5] = { n,   0, n, n };
-	dict_rect[(int)Tile::ICEBREAK_6] = { n,   n, n, n };
-	dict_rect[(int)Tile::ICEBREAK_7] = { n, 2*n, n, n };
-	dict_rect[(int)Tile::ICEBREAK_8] = { n, 3*n, n, n };
-	dict_rect[(int)Tile::LIGHTBLUEB] = { n, 4*n, n, n };
-	dict_rect[(int)Tile::ORANGEB] =    { n, 5*n, n, n };
-	dict_rect[(int)Tile::REDB] =	   { n, 6*n, n, n };
-	dict_rect[(int)Tile::PINKB] =      { n, 7*n, n, n };
-	dict_rect[(int)Tile::GREENB] =    {2*n,   0, n, n };
-
-	dict_rect[(int)Tile::PURPLE_STAR] =		 {   n, 5*n, n, n };
-	dict_rect[(int)Tile::YELLOW_STAR] =		 { 5*n, 2*n, n, n };
-	dict_rect[(int)Tile::LIGHTYELLOW_STAR] = { 5*n, 3*n, n, n };
-	dict_rect[(int)Tile::ORANGE_STAR] =		 { 5*n, 4*n, n, n };
-	dict_rect[(int)Tile::PINK_STAR] =		 { 5*n, 5*n, n, n };
-	dict_rect[(int)Tile::GREEN_STAR] =		 { 5*n, 6*n, n, n };
-	dict_rect[(int)Tile::LIGHTBLUE_STAR] =   { 5*n, 7*n, n, n };
-	dict_rect[(int)Tile::RED_STAR] =		 { 6*n,   0, n, n };
+	dict_rect[(int)Tile::YELLOWB] =    { 0, 0, n, n   };
+	dict_rect[(int)Tile::YELLOWB_2] =  { n, 0, n, n   };
+	dict_rect[(int)Tile::YELLOWB_3] =  { 2*n, 0, n, n };
+	dict_rect[(int)Tile::BLUEB] =      { 3*n, 0, n, n };
+	dict_rect[(int)Tile::ICEBREAK_2] = { 4*n, 0, n, n };
+	dict_rect[(int)Tile::ICEBREAK_1] = { 5*n, 0, n, n };
+	dict_rect[(int)Tile::ICEBREAK_3] = { 6*n, 0, n, n };
+	dict_rect[(int)Tile::ICEBREAK_4] = { 7*n, 0, n, n };
+	dict_rect[(int)Tile::ICEBREAK_5] = { 0, n, n, n   };
+	dict_rect[(int)Tile::ICEBREAK_6] = { n, n, n, n   };
+	dict_rect[(int)Tile::ICEBREAK_7] = { 2*n, n, n, n };
+	dict_rect[(int)Tile::ICEBREAK_8] = { 3*n, n, n, n };
+	dict_rect[(int)Tile::LIGHTBLUEB] = { 4*n, n, n, n };
+	dict_rect[(int)Tile::ORANGEB] =    { 5*n, n, n, n };
+	dict_rect[(int)Tile::REDB] =	   { 6*n, n, n, n };
+	dict_rect[(int)Tile::PINKB] =      { 7*n, n, n, n };
+	dict_rect[(int)Tile::GREENB] =			{ 0, 2*n, n, n   };
+	dict_rect[(int)Tile::DIAMONDBLUE] =     { 7*n, 2*n, n, n };
+	dict_rect[(int)Tile::PURPLE_STAR] =		{ n,  5*n, n, n  };
+	dict_rect[(int)Tile::YELLOW_STAR] =		{ 2*n, 5*n, n, n };
+	dict_rect[(int)Tile::LIGHTYELLOW_STAR]= { 3*n, 5*n, n, n };
+	dict_rect[(int)Tile::ORANGE_STAR] =		{ 4*n, 5*n, n, n };
+	dict_rect[(int)Tile::PINK_STAR] =		{ 5*n, 5*n, n, n };
+	dict_rect[(int)Tile::GREEN_STAR] =		{ 6*n, 5*n, n, n };
+	dict_rect[(int)Tile::LIGHTBLUE_STAR] =  { 7*n, 5*n, n, n };
+	
 
 	dict_rect[(int)Tile::LOCK_RED] = { 6 * n, 2 * n, n, n };
 	dict_rect[(int)Tile::LOCK_YELLOW] = { 7 * n, 2 * n, n, n };
@@ -169,20 +169,22 @@ bool TileMap::IsTileLaser(Tile tile) const
 }
 bool TileMap::TestCollisionWallLeft(const AABB& box) const
 {
-	return CollisionX(box.pos, box.height);
+	return CollisionX(Point(box.pos.x - 1, box.pos.y), box.height);
 }
+
 bool TileMap::TestCollisionWallRight(const AABB& box) const
 {
-	return CollisionX(box.pos + Point(box.width - 1, 0), box.height);
+	return CollisionX(Point(box.pos.x + box.width, box.pos.y), box.height);
 }
+
 bool TileMap::TestCollisionWallUp(const AABB& box) const
 {
-	return CollisionY(box.pos, box.width);
+	return CollisionY(Point(box.pos.x, box.pos.y - 1), box.width);
 }
 
 bool TileMap::TestCollisionWallDown(const AABB& box) const
 {
-	return CollisionY(box.pos + Point(0, box.height - 1), box.width);
+	return CollisionY(Point(box.pos.x, box.pos.y + box.height), box.width);
 }
 
 bool TileMap::TestCollisionGround(const AABB& box, int *py) const
@@ -205,17 +207,12 @@ bool TileMap::TestFalling(const AABB& box) const
 }
 bool TileMap::CollisionX(const Point& p, int distance) const
 {
-	int x, y, y0, y1;
+	int x = p.x / TILE_SIZE;
+	int y0 = p.y / TILE_SIZE;
+	int y1 = (p.y + distance - 1) / TILE_SIZE;
 
-	//Calculate the tile coordinates and the range of tiles to check for collision
-	x = p.x / TILE_SIZE;
-	y0 = p.y / TILE_SIZE;
-	y1 = (p.y + distance - 1) / TILE_SIZE;
-	
-	//Iterate over the tiles within the vertical range
-	for (y = y0; y <= y1; ++y)
+	for (int y = y0; y <= y1; ++y)
 	{
-		//One solid tile is sufficient
 		if (IsTileSolid(GetTileIndex(x, y)))
 			return true;
 	}
@@ -223,25 +220,95 @@ bool TileMap::CollisionX(const Point& p, int distance) const
 }
 bool TileMap::CollisionY(const Point& p, int distance) const
 {
-	int x, y, x0, x1;
-	Tile tile;
+	int y = p.y / TILE_SIZE;
+	int x0 = p.x / TILE_SIZE;
+	int x1 = (p.x + distance - 1) / TILE_SIZE;
 
-	//Calculate the tile coordinates and the range of tiles to check for collision
-	y = p.y / TILE_SIZE;
-	x0 = p.x / TILE_SIZE;
-	x1 = (p.x + distance - 1) / TILE_SIZE;
-
-	//Iterate over the tiles within the horizontal range
-	for (x = x0; x <= x1; ++x)
+	for (int x = x0; x <= x1; ++x)
 	{
-		tile = GetTileIndex(x, y);
-
-		//One solid or laddertop tile is sufficient
+		Tile tile = GetTileIndex(x, y);
 		if (IsTileSolid(tile) || IsTileLadderTop(tile))
 			return true;
 	}
 	return false;
 }
+
+//moure un bloc solid
+bool TileMap::MoveSolidBlockInPixels(AABB& box, const Point& new_pixel_pos)
+{
+	int old_tile_x = box.pos.x / TILE_SIZE;
+	int old_tile_y = box.pos.y / TILE_SIZE;
+
+	int new_tile_x = new_pixel_pos.x / TILE_SIZE;
+	int new_tile_y = new_pixel_pos.y / TILE_SIZE;
+
+	if (old_tile_x < 0 || old_tile_x >= width || old_tile_y < 0 || old_tile_y >= height)
+	{
+		LOG("Origin position out of bounds");
+		return false;
+	}
+	if (new_tile_x < 0 || new_tile_x >= width || new_tile_y < 0 || new_tile_y >= height)
+	{
+		LOG("Destination position out of bounds");
+		return false;
+	}
+
+	Tile old_tile = GetTileIndex(old_tile_x, old_tile_y);
+	if (!IsTileSolid(old_tile))
+	{
+		LOG("No solid tile at origin position");
+		return false;
+	}
+
+	Tile new_tile = GetTileIndex(new_tile_x, new_tile_y);
+	if (IsTileSolid(new_tile))
+	{
+		LOG("Destination tile is solid, cannot move");
+		return false;
+	}
+
+	map[new_tile_y * width + new_tile_x] = old_tile;
+	map[old_tile_y * width + old_tile_x] = Tile::AIR;
+
+	box.pos = Point(new_tile_x * TILE_SIZE, new_tile_y * TILE_SIZE);
+
+	return true;
+}
+bool TileMap::TryPushBlock(AABB blockBox, int directionX, int directionY)
+{
+	bool pushed = false; // Per saber si hem mogut el bloc almenys un cop
+
+	while (true) {
+		int blockX = blockBox.pos.x / TILE_SIZE;
+		int blockY = blockBox.pos.y / TILE_SIZE;
+		int nextBlockX = blockX + directionX;
+		int nextBlockY = blockY + directionY;
+
+		// Si estem fora dels límits, parem i retornem
+		if (nextBlockX < 0 || nextBlockX >= width || nextBlockY < 0 || nextBlockY >= height) {
+			break; // Aturem el bucle, no podem moure més
+		}
+
+		// Si la següent tile és sòlida, parem
+		if (IsTileSolid(GetTileIndex(nextBlockX, nextBlockY))) {
+			break; // Aturem el bucle, no podem moure més
+		}
+
+		// Intentem moure el bloc a la següent posició
+		if (!MoveSolidBlockInPixels(blockBox, Point(nextBlockX * TILE_SIZE, nextBlockY * TILE_SIZE))) {
+			break; // Si no podem moure, parem
+		}
+
+		// Hem mogut el bloc almenys un cop
+		pushed = true;
+
+		// Actualitzem la posició de la caixa per a la següent iteració
+		blockBox.MoveTo(nextBlockX * TILE_SIZE, nextBlockY * TILE_SIZE);
+	}
+
+	return pushed; // Retornem si s'ha mogut o no
+}
+
 bool TileMap::TestOnLadder(const AABB& box, int* px) const
 {
 	int left, right, bottom;
@@ -310,6 +377,8 @@ int TileMap::GetLadderCenterPos(int pixel_x, int pixel_y) const
 		return 0;
 	}
 }
+
+
 AABB TileMap::GetSweptAreaX(const AABB& hitbox) const
 {
 	AABB box;
