@@ -84,6 +84,7 @@ public:
 	AABB GetSweptAreaX(const AABB& hitboxbox) const;
 	bool MoveSolidBlockInPixels(AABB& box, const Point& new_pixel_pos);
 	bool TryPushBlock(AABB blockBox, int directionX, int directionY);
+	bool CheckDiamondLines() const;
 
 
 private:

@@ -201,9 +201,9 @@ AppStatus Scene::LoadLevel(int stage)
 				1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 0, 0, 0, 0,18, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+				1,18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+				1,18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-				1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-				1, 0, 0, 0,18,18, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 		};
@@ -292,6 +292,24 @@ void Scene::Update()
 	hitbox = player->GetHitbox();
 	enemies->Update(hitbox);
 	shots->Update(hitbox);
+
+	if (scene_state == SceneState::PLAYING) {
+		// Comprova si hi ha línia de diamants
+		if (!diamondLineDetected) {
+			if (level->CheckDiamondLines()) {
+				diamondLineDetected = true;
+				diamondTimer = 0.0f;  // Reset timer quan es detecta
+			}
+		}
+		else {
+			// Incrementa el timer amb el temps de frame (suposant que tens una variable deltaTime)
+			diamondTimer += GetFrameTime(); // GetFrameTime() de raylib retorna el temps entre frames
+
+			if (diamondTimer >= diamondCooldown) {
+				scene_state = SceneState::WIN;
+			}
+		}
+	}
 
 	if (IsKeyPressed(KEY_F2)) {
 		scene_state = SceneState::WIN;

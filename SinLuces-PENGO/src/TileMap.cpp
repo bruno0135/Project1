@@ -309,6 +309,7 @@ bool TileMap::TryPushBlock(AABB blockBox, int directionX, int directionY)
 	return pushed; // Retornem si s'ha mogut o no
 }
 
+
 bool TileMap::TestOnLadder(const AABB& box, int* px) const
 {
 	int left, right, bottom;
@@ -376,6 +377,59 @@ int TileMap::GetLadderCenterPos(int pixel_x, int pixel_y) const
 		LOG("Internal error, tile should be a LADDER, coord: (%d,%d), tile type: %d", pixel_x, pixel_y, (int)tile);
 		return 0;
 	}
+}
+
+bool TileMap::CheckDiamondLines() const
+{
+	const int needed = 3;
+
+	// Comprova files
+	for (int y = 0; y < height; ++y)
+	{
+		int count = 0;
+		for (int x = 0; x < width; ++x)
+		{
+			Tile tile = GetTileIndex(x, y);
+			if (tile == Tile::DIAMONDBLUE) {
+				count++;
+				LOG("Diamond at (%d,%d), count = %d", x, y, count);
+				if (count >= needed) {
+					LOG("Found diamond line horizontally at row %d", y);
+					return true;
+				}
+			}
+			else {
+				if (count > 0)
+					LOG("Diamond line broken at (%d,%d), count reset", x, y);
+				count = 0;
+			}
+		}
+	}
+
+	// Comprova columnes
+	for (int x = 0; x < width; ++x)
+	{
+		int count = 0;
+		for (int y = 0; y < height; ++y)
+		{
+			Tile tile = GetTileIndex(x, y);
+			if (tile == Tile::DIAMONDBLUE) {
+				count++;
+				LOG("Diamond at (%d,%d), count = %d", x, y, count);
+				if (count >= needed) {
+					LOG("Found diamond line vertically at column %d", x);
+					return true;
+				}
+			}
+			else {
+				if (count > 0)
+					LOG("Diamond line broken at (%d,%d), count reset", x, y);
+				count = 0;
+			}
+		}
+	}
+
+	return false;
 }
 
 

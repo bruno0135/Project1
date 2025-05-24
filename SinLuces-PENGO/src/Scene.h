@@ -56,6 +56,8 @@ private:
     Camera2D camera;
     DebugMode debug;
 
-  
+    bool diamondLineDetected = false;   // Si s'ha detectat línia de diamants
+    float diamondCooldown = 0.5f;       // Temps de cooldown en segons (per exemple 2 segons)
+    float diamondTimer = 0.0f;          // Temporitzador acumulat
 
 };

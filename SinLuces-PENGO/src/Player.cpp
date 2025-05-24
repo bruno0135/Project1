@@ -208,8 +208,7 @@ void Player::StartWalkingUp()
 
 void Player::Update()
 {
-	Move();  // Actualitza posició, estat i direcció
-
+	Move();
 	// Escollim animació segons estat i direcció
 	switch (state)
 	{
@@ -247,10 +246,18 @@ void Player::Update()
 		// Aquí podries posar una animació de mort si tens
 		break;
 	}
-
+	
 	// Important: crida a la funció base perquè l'animació es processi
 	Entity::Update();
+	if (map && !hasWon && map->CheckDiamondLines()) {
+		hasWon = true;
+		state = State::IDLE;  // Aturem el jugador
+		Stop();               // Congela animació i moviment
+
+		LOG("HAS GUANYAT");
+	}
 }
+
 Point Player::GetFrontTilePos(int dx, int dy) const
 {
 	// Obtenim la hitbox actual del jugador

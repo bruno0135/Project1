@@ -71,6 +71,9 @@ public:
 
 	int GetHealth() const { return health; }
 
+	// NEW: afegir la funció per saber si hem guanyat
+	bool HasWon() const { return hasWon; }
+
 private:
 
 	bool IsLookingRight() const;
@@ -98,8 +101,8 @@ private:
 	void ChangeAnimUp();
 	void ChangeAnimDown();
 
-
-
+	// NEW: Funció per cridar quan es guanya
+	void OnPlayerWin();
 
 	State state;
 	Look look;
@@ -107,5 +110,7 @@ private:
 	int score;
 	/*Vida*/
 	int health = 3; //Aqui se cambian las vidas 
-};
 
+	// NEW: flag que indica que el jugador ha guanyat
+	bool hasWon = false;
+};
