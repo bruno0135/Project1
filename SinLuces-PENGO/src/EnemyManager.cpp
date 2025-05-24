@@ -74,6 +74,26 @@ AABB EnemyManager::GetEnemyHitBox(const Point& pos, EnemyType type) const
 	AABB hitbox(p, width, height);
 	return hitbox;
 }
+bool EnemyManager::CheckCollisionWithPlayer(AABB& playerHitbox, int& playerHealth)
+{
+	for (Enemy* enemy : enemies)
+	{
+		// Suposem que Enemy té funció GetHitbox() que retorna AABB
+		if (playerHitbox.TestAABB(enemy->GetHitbox()))
+		{
+			// Resta una vida al jugador si en té encara
+			if (playerHealth > 0)
+			{
+				playerHealth--;
+				LOG("Jugador ha perdut una vida. Vides restants: %d", playerHealth);
+			}
+			return true; // Col·lisió detectada
+		}
+	}
+	return false; // No hi ha col·lisió
+}
+
+
 void EnemyManager::Update(const AABB& player_hitbox)
 {
 	for (Enemy* enemy : enemies)
@@ -81,7 +101,9 @@ void EnemyManager::Update(const AABB& player_hitbox)
 		enemy->Update(player_hitbox);
 	}
 }
-
+std::vector<Enemy*>& EnemyManager::GetAll() {
+	return enemies;
+}
 
 void EnemyManager::Draw() const
 {

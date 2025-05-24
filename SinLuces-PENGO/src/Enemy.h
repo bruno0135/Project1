@@ -34,8 +34,7 @@ public:
 	//Update the enemy according to its logic, return true if the enemy must shoot
 	virtual bool Update(const AABB& box) = 0;
 
-	//Retrieve the position and direction of the shot to be thrown
-
+	AABB GetHitbox() const { return AABB(pos, width, height); }
 
 protected:
 	//Return true if the given hitbox is within the visibility area and the enemy is facing it

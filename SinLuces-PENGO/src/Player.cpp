@@ -166,10 +166,38 @@ void Player::ResumeMovement() {
 void Player::TakeDamage(int amount)
 {
 	health -= amount;
-	if (health < 0) health = 0;
+	if (health < 0) 
+		health = 0;
 
 	// Pots afegir aquí efectes com sons, animacions, etc.
 }
+bool Player::CanTakeDamage() const {
+	return !isDamageCooldownActive;
+}
+void Player::StartDamageCooldown() {
+	damageCooldownTimer = damageCooldownTime;
+}
+void Player::UpdateDamageCooldown(float deltaTime) {
+	if (isDamageCooldownActive) {
+		damageCooldownTimer += deltaTime;
+		if (damageCooldownTimer >= damageCooldownTime) {
+			isDamageCooldownActive = false;
+			damageCooldownTimer = 0.0f;
+		}
+	}
+}
+int Player::GetHealth() const
+{
+	return health;
+}
+AABB Player::GetHitbox() const {
+	int hitboxHeight = height; // alçada de la hitbox
+	Point hitboxPos(pos.x, pos.y - hitboxHeight + 1);	
+	return AABB(hitboxPos, width, hitboxHeight);
+}
+
+
+
 
 void Player::StartWalkingLeft()
 {
@@ -180,6 +208,7 @@ void Player::StartWalkingLeft()
 		SetAnimation((int)PlayerAnim::WALK_LEFT);
 
 }
+
 void Player::StartWalkingRight()
 {
 	state = State::WALKING;
@@ -188,6 +217,7 @@ void Player::StartWalkingRight()
 	if (sprite && sprite->GetAnimation() != (int)PlayerAnim::WALK_RIGHT)
 		SetAnimation((int)PlayerAnim::WALK_RIGHT);
 }
+
 void Player::StartWalkingDown()
 {
 	state = State::WALKING;
@@ -196,6 +226,7 @@ void Player::StartWalkingDown()
 	if (sprite && sprite->GetAnimation() != (int)PlayerAnim::WALK_DOWN)
 		SetAnimation((int)PlayerAnim::WALK_DOWN);
 }
+
 void Player::StartWalkingUp()
 {
 	state = State::WALKING;
@@ -273,6 +304,7 @@ Point Player::GetFrontTilePos(int dx, int dy) const
 
 	return Point(tileX, tileY);
 }
+
 void Player::Move()
 {
 	AABB box = GetHitbox();
@@ -334,11 +366,9 @@ void Player::Move()
 	}
 }
 
-
-
 void Player::DrawDebug(const Color& col) const
 {
-	Entity::DrawHitbox(pos.x, pos.y, width, height, col);
+	Entity::DrawHitbox(pos.x, pos.y, PLAYER_FRAME_SIZE, PLAYER_FRAME_SIZE, col);
 
 	DrawText(TextFormat("Position: (%d,%d)\nSize: %dx%d\nFrame: %dx%d", pos.x, pos.y, width, height, frame_width, frame_height), 18 * 16, 0, 8, LIGHTGRAY);
 	DrawPixel(pos.x, pos.y, WHITE);

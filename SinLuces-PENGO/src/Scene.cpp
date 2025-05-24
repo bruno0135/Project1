@@ -270,62 +270,101 @@ AppStatus Scene::LoadLevel(int stage)
 	}
 
 
-void Scene::Update()
-{
-	Point p1, p2;
-	AABB hitbox;
-
-	//Switch between the different debug modes: off, on (sprites & hitboxes), on (hitboxes) 
-	if (IsKeyPressed(KEY_F1))
+	void Scene::Update()
 	{
-		debug = (DebugMode)(((int)debug + 1) % (int)DebugMode::SIZE);
-	}
-	//Debug levels instantly
-	if (IsKeyPressed(KEY_ONE))		LoadLevel(1);
-	else if (IsKeyPressed(KEY_TWO))	LoadLevel(2);
-	else if (IsKeyPressed(KEY_THREE))	LoadLevel(3);
+		Point p1, p2;
+		AABB playerHitbox = player->GetHitbox();
 
-	level->Update();
-	player->Update();
-	CheckObjectCollisions();
+		// Switch between debug modes
+		if (IsKeyPressed(KEY_F1))
+		{
+			debug = (DebugMode)(((int)debug + 1) % (int)DebugMode::SIZE);
+		}
+		if (IsKeyPressed(KEY_F10)) {
+			godMode = !godMode; // activa/desactiva
+			if (godMode) {
+				LOG("God Mode ACTIVAT");
+			}
+			else 
+			{
+				LOG("God Mode DESACTIVAT");
 
-	hitbox = player->GetHitbox();
-	enemies->Update(hitbox);
-	shots->Update(hitbox);
-
-	if (scene_state == SceneState::PLAYING) {
-		// Comprova si hi ha línia de diamants
-		if (!diamondLineDetected) {
-			if (level->CheckDiamondLines()) {
-				diamondLineDetected = true;
-				diamondTimer = 0.0f;  // Reset timer quan es detecta
 			}
 		}
-		else {
-			// Incrementa el timer amb el temps de frame (suposant que tens una variable deltaTime)
-			diamondTimer += GetFrameTime(); // GetFrameTime() de raylib retorna el temps entre frames
+		if (!godMode) {
+			CheckPlayerEnemyCollisions();
+		}
+		
+		player->Update();
 
-			if (diamondTimer >= diamondCooldown) {
-				scene_state = SceneState::WIN;
+		// Actualitza altres coses (nivell, enemics, etc.)
+		level->Update();
+		enemies->Update(player->GetHitbox());
+		shots->Update(player->GetHitbox());
+
+		// Debug levels instantly
+		if (IsKeyPressed(KEY_ONE))      LoadLevel(1);
+		else if (IsKeyPressed(KEY_TWO)) LoadLevel(2);
+		else if (IsKeyPressed(KEY_THREE)) LoadLevel(3);
+
+		CheckObjectCollisions();
+
+		
+
+		// Check collisions between player and enemies
+		int currentHealth = player->GetHealth();
+		if (enemies->CheckCollisionWithPlayer(playerHitbox, currentHealth))
+		{
+			player->SetHealth(currentHealth);
+			if (currentHealth <= 0)
+			{
+				scene_state = SceneState::LOSE;
 			}
 		}
+
+		shots->Update(playerHitbox);
+
+		if (scene_state == SceneState::PLAYING)
+		{
+			// Check diamond line condition
+			if (!diamondLineDetected)
+			{
+				if (level->CheckDiamondLines())
+				{
+					diamondLineDetected = true;
+					diamondTimer = 0.0f;  // Reset timer
+				}
+			}
+			else
+			{
+				diamondTimer += GetFrameTime();
+				if (diamondTimer >= diamondCooldown)
+				{
+					scene_state = SceneState::WIN;
+				}
+			}
+		}
+
+		if (IsKeyPressed(KEY_F2))
+		{
+			scene_state = SceneState::WIN;
+		}
+		else if (IsKeyPressed(KEY_F3))
+		{
+			scene_state = SceneState::LOSE;
+		}
+		else if ((scene_state == SceneState::WIN || scene_state == SceneState::LOSE) && IsKeyPressed(KEY_ENTER))
+		{
+			LoadLevel(1);
+			scene_state = SceneState::PLAYING;
+			return;
+		}
+
+		if (scene_state != SceneState::PLAYING) return;
+		
 	}
 
-	if (IsKeyPressed(KEY_F2)) {
-		scene_state = SceneState::WIN;
-	}
-	else if (IsKeyPressed(KEY_F3)) {
-		scene_state = SceneState::LOSE;
-	}
-	else if ((scene_state == SceneState::WIN || scene_state == SceneState::LOSE) && IsKeyPressed(KEY_ENTER)) {
-		LoadLevel(1);  // o volver al menú
-		scene_state = SceneState::PLAYING;
-		return;
-	}
 
-	if (scene_state != SceneState::PLAYING) return;
-
-}
 void Scene::Render()
 {
 
@@ -374,26 +413,35 @@ void Scene::Release()
 }
 void Scene::CheckObjectCollisions()
 {
-	AABB player_box, obj_box;
+	AABB playerHitbox = player->GetHitbox();
 
-	player_box = player->GetHitbox();
-	auto it = objects.begin();
-	while (it != objects.end())
+	for (Enemy* enemy : enemies->GetAll())
 	{
-		obj_box = (*it)->GetHitbox();
-		if (player_box.TestAABB(obj_box))
+		if (playerHitbox.TestAABB(enemy->GetHitbox()))
 		{
-			player->IncrScore((*it)->Points());
-
-			//Delete the object
-			delete* it;
-			//Erase the object from the vector and get the iterator to the next valid element
-			it = objects.erase(it);
+			if (player->CanTakeDamage()) {
+				player->TakeDamage(1);
+				player->StartDamageCooldown();
+			}
+			break;
 		}
-		else
+	}
+}
+void Scene::CheckPlayerEnemyCollisions()
+{
+	AABB playerHitbox = player->GetHitbox();
+
+	for (Enemy* enemy : enemies->GetAll())  
+	{
+		AABB enemyHitbox = enemy->GetHitbox();
+
+		if (playerHitbox.TestAABB(enemyHitbox))
 		{
-			//Move to the next object
-			++it;
+			if (!godMode)  // només fer mal si no estem en God Mode
+				player->TakeDamage(1);
+
+			player->TakeDamage(1); // El jugador perd 1 vida
+			break; 
 		}
 	}
 }
@@ -421,9 +469,10 @@ void Scene::RenderObjectsDebug(const Color& col) const
 		obj->DrawDebug(col);
 	}
 }
+
 void Scene::RenderGUI() const
 {
 	//Temporal approach
 	DrawText(TextFormat("SCORE : %d", player->GetScore()), 10, 10, 8, LIGHTGRAY);
-	DrawText(TextFormat("HEALTH : %d", player->GetHealth()), 10, 20, 8, LIGHTGRAY);
+	DrawText(TextFormat("HEALTH : %d", player->GetHealth()), 10, 20, 8, RED);
 }

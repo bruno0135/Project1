@@ -32,12 +32,13 @@ private:
 
 
     void CheckObjectCollisions();
+    void CheckPlayerEnemyCollisions();
+
     void ClearLevel();
     void RenderObjects() const;
     void RenderObjectsDebug(const Color& col) const;
 
     void RenderGUI() const;
-
 
     Player* player;
 
@@ -55,6 +56,8 @@ private:
 
     Camera2D camera;
     DebugMode debug;
+
+    bool godMode = false;
 
     bool diamondLineDetected = false;   // Si s'ha detectat línia de diamants
     float diamondCooldown = 0.5f;       // Temps de cooldown en segons (per exemple 2 segons)

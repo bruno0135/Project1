@@ -68,11 +68,18 @@ public:
 
 	/*Take Damage*/
 	void TakeDamage(int amount);
-
-	int GetHealth() const { return health; }
+	bool CanTakeDamage() const;
+	void StartDamageCooldown();
+	void UpdateDamageCooldown(float deltaTime);
+	int GetHealth() const;	
+	void SetHealth(int newHealth) { health = newHealth; }
 
 	// NEW: afegir la funció per saber si hem guanyat
 	bool HasWon() const { return hasWon; }
+	AABB GetHitbox() const;
+
+
+
 
 private:
 
@@ -109,8 +116,11 @@ private:
 	TileMap* map;
 	int score;
 	/*Vida*/
-	int health = 3; //Aqui se cambian las vidas 
+	int health = 4; //Aqui se cambian las vidas 
+	float damageCooldownTimer = 0.0f;
+	float damageCooldownTime = 1.0f; // 1 segon de cooldown
+	bool isDamageCooldownActive = false;
 
-	// NEW: flag que indica que el jugador ha guanyat
+	// indica que el jugador ha guanyat
 	bool hasWon = false;
 };

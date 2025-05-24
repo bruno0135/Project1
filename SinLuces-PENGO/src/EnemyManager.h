@@ -33,7 +33,13 @@ public:
 	void Release();
 
 	TileMap* map = nullptr;
+
 	void SetTileMap(TileMap* m);
+	bool CheckCollisionWithPlayer(AABB& playerHitbox, int& playerHealth);
+
+	std::vector<Enemy*>& GetAll();
+
+
 
 private:
 	std::vector<Enemy*> enemies;
