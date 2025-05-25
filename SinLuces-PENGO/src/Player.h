@@ -36,7 +36,7 @@ class EnemyManager;
 #define GRAVITY_FORCE			1
 
 //Logic states
-enum class State { IDLE, WALKING, PUSH, DEAD };
+enum class State { IDLE, WALKING, PUSH, DESTROYING, DEAD };
 
 //Rendering states
 enum class PlayerAnim {
@@ -106,8 +106,11 @@ private:
 	void ChangeAnimUp();
 	void ChangeAnimDown();
 
-	// NEW: Funció per cridar quan es guanya
+	//Funció per cridar quan es guanya
 	void OnPlayerWin();
+
+	void TryDestroyBlock();
+
 
 	EnemyManager* enemyManager = nullptr;
 	State state;
@@ -118,6 +121,11 @@ private:
 	float damageCooldownTimer = 0.0f;
 	float damageCooldownTime = 1.0f; // 1 segon de cooldown
 	bool isDamageCooldownActive = false;
+
+	bool isDestroying = false;
+	Point blockToDestroyTile;
+	int destroyFrameCounter = 0;
+	const int destroyAnimDurationFrames = 48;
 
 	// indica que el jugador ha guanyat
 	bool hasWon = false;

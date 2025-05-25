@@ -55,7 +55,7 @@ public:
 	AppStatus Load(int data[], int w, int h);
 	void ClearObjectEntityPositions();
 
-	void Update();
+	void Update(float deltaTime);
 	void Render();
 	void Release();
 
@@ -89,6 +89,8 @@ public:
 	bool TryPushBlock(AABB blockBox, int directionX, int directionY, EnemyManager* enemyManager);
 	bool CheckDiamondLines() const;
 
+	Tile GetTile(int x, int y) const;// retorna l'ID del tile a la posició
+void SetTile(int x, int y, Tile tile);
 
 private:
 	void InitTileDictionary();
@@ -114,6 +116,8 @@ private:
 
 	Sprite* laser;
 
+	int Width, Height;
+	std::vector<Tile> tiles;
 	//Tile sheet
 	const Texture2D* img_tiles;
 };

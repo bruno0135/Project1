@@ -249,8 +249,39 @@ void Player::StartWalkingUp()
 
 void Player::Update()
 {
+	// Intentem començar a destruir un bloc si es prem la tecla corresponent
+	TryDestroyBlock();
+
+	// Si estem en procés de destruir un bloc, actualitzem l'animació de destrucció
+	if (isDestroying)
+	{
+		const int totalFrames = 8;
+		int frameDuration = destroyAnimDurationFrames / totalFrames;
+
+		int frameIndex = destroyFrameCounter / frameDuration;
+		if (frameIndex >= totalFrames) frameIndex = totalFrames - 1;
+
+		// Posem el tile d'animació segons el frame actual
+		Tile tileFrame = static_cast<Tile>(static_cast<int>(Tile::ICEBREAK_1) + frameIndex);
+		map->SetTile(blockToDestroyTile.x, blockToDestroyTile.y, tileFrame);
+		destroyFrameCounter++;
+
+		// Quan acaba l'animació, fem desaparèixer el bloc i tornem a l'estat IDLE
+		if (destroyFrameCounter >= destroyAnimDurationFrames)
+		{
+			map->SetTile(blockToDestroyTile.x, blockToDestroyTile.y, Tile::EMPTY);
+			isDestroying = false;
+			state = State::IDLE;
+		}
+
+		// No fer res més mentre es trenca el bloc
+		return;
+	}
+
+	// Moviment i animacions normals quan no estem destruint
 	Move();
-	// Escollim animació segons estat i direcció
+
+	// Selecció d'animació segons estat i direcció
 	switch (state)
 	{
 	case State::IDLE:
@@ -284,31 +315,57 @@ void Player::Update()
 		break;
 
 	case State::DEAD:
-		// Aquí podries posar una animació de mort si tens
+		// Opcional: animació de mort
 		break;
 	}
-	
-	// Important: crida a la funció base perquè l'animació es processi
-	Entity::Update();
-	if (map && !hasWon && map->CheckDiamondLines()) {
-		hasWon = true;
-		state = State::IDLE;  // Aturem el jugador
-		Stop();               // Congela animació i moviment
 
+	// Actualitza l'animació de l'entity base
+	Entity::Update();
+
+	// Comprovació si s'ha complert condició de victòria
+	if (map && !hasWon && map->CheckDiamondLines())
+	{
+		hasWon = true;
+		state = State::IDLE;
+		Stop(); // Atura moviment i animació
 		LOG("HAS GUANYAT");
 	}
 }
 
 Point Player::GetFrontTilePos(int dx, int dy) const
 {
-	// Obtenim la hitbox actual del jugador
 	AABB box = GetHitbox();
 
-	// Calculem la posició (en píxels) davant segons la direcció
-	float frontX = box.pos.x + dx * TILE_SIZE;
-	float frontY = box.pos.y + dy * TILE_SIZE;
+	float frontX = 0.0f;
+	float frontY = 0.0f;
 
-	// Convertim la posició en píxels a posició en tile (coordenades enters)
+	if (dx > 0) // dreta
+	{
+		frontX = box.pos.x + PLAYER_PHYSICAL_WIDTH + dx * TILE_SIZE;
+		frontY = box.pos.y + PLAYER_PHYSICAL_HEIGHT / 2;
+	}
+	else if (dx < 0) // esquerra
+	{
+		frontX = box.pos.x - TILE_SIZE;
+		frontY = box.pos.y + PLAYER_PHYSICAL_HEIGHT / 2;
+	}
+	else if (dy > 0) // baix
+	{
+		frontX = box.pos.x + PLAYER_PHYSICAL_WIDTH / 2;
+		frontY = box.pos.y + PLAYER_PHYSICAL_HEIGHT + dy * TILE_SIZE;
+	}
+	else if (dy < 0) // amunt
+	{
+		frontX = box.pos.x + PLAYER_PHYSICAL_WIDTH / 2;
+		frontY = box.pos.y - TILE_SIZE;
+	}
+	else
+	{
+		// Si no hi ha direcció, centre del jugador
+		frontX = box.pos.x + PLAYER_PHYSICAL_WIDTH / 2;
+		frontY = box.pos.y + PLAYER_PHYSICAL_HEIGHT / 2;
+	}
+
 	int tileX = static_cast<int>(frontX) / TILE_SIZE;
 	int tileY = static_cast<int>(frontY) / TILE_SIZE;
 
@@ -373,6 +430,46 @@ void Player::Move()
 	else {
 		// No podem moure ni empènyer
 		state = State::IDLE;
+	}
+}
+void Player::TryDestroyBlock()
+{
+	if (!map) return;
+
+	// No fer res si ja estem destruint, estem morts o hem guanyat
+	if (isDestroying || state == State::DEAD || hasWon)
+		return;
+
+	// Comprova si la tecla per trencar (E) està pressionada
+	if (IsKeyPressed(KEY_E))
+	{
+		// Determina la direcció que mira el jugador
+		int dx = 0, dy = 0;
+		switch (look)
+		{
+		case Look::RIGHT: dx = 1; dy = 0; break;
+		case Look::LEFT:  dx = -1; dy = 0; break;
+		case Look::UP:    dx = 0; dy = -1; break;
+		case Look::DOWN:  dx = 0; dy = 1; break;
+		}
+
+		// Obté la posició del tile davant el jugador
+		Point frontTile = GetFrontTilePos(dx, dy);
+
+		// Obté el tipus de tile que hi ha davant
+		Tile tileType = map->GetTile(frontTile.x, frontTile.y);
+
+		// Si és un bloc BLUEB, comença la destrucció
+		if (tileType == Tile::BLUEB)
+		{
+			// Canvia el tile a ICEBREAK_1 per iniciar l'animació
+			map->SetTile(frontTile.x, frontTile.y, Tile::ICEBREAK_1);
+
+			isDestroying = true;
+			blockToDestroyTile = frontTile;
+			destroyFrameCounter = 0.5;  // Reinicia el comptador d'animació
+			state = State::DESTROYING;
+		}
 	}
 }
 

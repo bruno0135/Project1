@@ -36,20 +36,23 @@ void TileMap::InitTileDictionary()
 	dict_rect[(int)Tile::YELLOWB_2] =  { n, 0, n, n   };
 	dict_rect[(int)Tile::YELLOWB_3] =  { 2*n, 0, n, n };
 	dict_rect[(int)Tile::BLUEB] =      { 3*n, 0, n, n };
-	dict_rect[(int)Tile::ICEBREAK_2] = { 4*n, 0, n, n };
+
 	dict_rect[(int)Tile::ICEBREAK_1] = { 5*n, 0, n, n };
+	dict_rect[(int)Tile::ICEBREAK_2] = { 4*n, 0, n, n };
 	dict_rect[(int)Tile::ICEBREAK_3] = { 6*n, 0, n, n };
 	dict_rect[(int)Tile::ICEBREAK_4] = { 7*n, 0, n, n };
 	dict_rect[(int)Tile::ICEBREAK_5] = { 0, n, n, n   };
 	dict_rect[(int)Tile::ICEBREAK_6] = { n, n, n, n   };
 	dict_rect[(int)Tile::ICEBREAK_7] = { 2*n, n, n, n };
 	dict_rect[(int)Tile::ICEBREAK_8] = { 3*n, n, n, n };
+
 	dict_rect[(int)Tile::LIGHTBLUEB] = { 4*n, n, n, n };
 	dict_rect[(int)Tile::ORANGEB] =    { 5*n, n, n, n };
 	dict_rect[(int)Tile::REDB] =	   { 6*n, n, n, n };
 	dict_rect[(int)Tile::PINKB] =      { 7*n, n, n, n };
 	dict_rect[(int)Tile::GREENB] =			{ 0, 2*n, n, n   };
 	dict_rect[(int)Tile::DIAMONDBLUE] =     { 7*n, 2*n, n, n };
+
 	dict_rect[(int)Tile::PURPLE_STAR] =		{ n,  5*n, n, n  };
 	dict_rect[(int)Tile::YELLOW_STAR] =		{ 2*n, 5*n, n, n };
 	dict_rect[(int)Tile::LIGHTYELLOW_STAR]= { 3*n, 5*n, n, n };
@@ -125,9 +128,19 @@ void TileMap::ClearObjectEntityPositions()
 			map[i] = Tile::AIR;
 	}
 }
-void TileMap::Update()
+void TileMap::Update(float deltaTime)
 {
-	laser->Update();
+	for (int y = 0; y < Height; ++y)
+	{
+		for (int x = 0; x < Width; ++x)
+		{
+			Tile tile = GetTile(x, y);
+			if (tile == Tile::ICEBREAK_1)
+			{
+				SetTile(x, y, Tile::AIR);
+			}
+		}
+	}
 }
 Tile TileMap::GetTileIndex(int x, int y) const
 {
@@ -432,6 +445,22 @@ bool TileMap::CheckDiamondLines() const
 
 	return false;
 }
+
+Tile TileMap::GetTile(int x, int y) const
+{
+	if (x < 0 || y < 0 || x >= Width || y >= Height)
+		return Tile::AIR;
+
+	return static_cast<Tile>(tiles[y * Width + x]);
+}
+
+void TileMap::SetTile(int x, int y, Tile tile)
+{
+	if (x < 0 || y < 0 || x >= Width || y >= Height)
+		return;
+	tiles[y * Width + x] = tile;
+}
+
 
 
 AABB TileMap::GetSweptAreaX(const AABB& hitbox) const
