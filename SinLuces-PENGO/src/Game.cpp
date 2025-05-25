@@ -72,9 +72,9 @@ AppStatus Game::Initialise(float scale)
     }
     musicStart_Menu = LoadMusicStream("Sounds/Act Clear.ogg");
     musicStage1 = LoadMusicStream("Sounds/Main BGM (Alternate).ogg");
-   /* musicStage2 = LoadMusicStream("sound/music/stage2.ogg");
-    musicWin = LoadMusicStream("sound/music/Win.ogg");
-    musicLose = LoadMusicStream("sound/music/Lose.ogg");*/
+   
+    musicWin = LoadMusicStream("Sounds/Diamond Blocks Lined Up.ogg");
+    musicLose = LoadMusicStream("Sounds/Touch Snow-Bee.ogg");
 
     PlayMusicStream(musicStart_Menu);
 
@@ -181,7 +181,7 @@ AppStatus Game::Update()
 
         StopMusicStream(musicStage1);
     }
-    /*if (state == GameState::YOU_WIN)
+    if (state == GameState::YOU_WIN)
     {
         PlayMusicStream(musicWin);
         UpdateMusicStream(musicWin);
@@ -189,14 +189,14 @@ AppStatus Game::Update()
     else {
         StopMusicStream(musicWin);
     }
-    if (state == GameState::YOU_LOSE)
+    if  (state == GameState::YOU_LOSE)
     {
         PlayMusicStream(musicLose);
         UpdateMusicStream(musicLose);
     }
     else {
         StopMusicStream(musicLose);
-    }*/
+    }
     if (WindowShouldClose()) return AppStatus::QUIT;
 
     const int totalFrames = 16;
@@ -248,6 +248,7 @@ AppStatus Game::Update()
         }
         break;
     }
+
 
     default:
         return AppStatus::ERROR;
