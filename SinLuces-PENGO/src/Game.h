@@ -2,7 +2,7 @@
 #include "Globals.h"
 #include "Scene.h"
 
-enum class GameState { MAIN_MENU, PLAYING, SETTINGS, CREDITS };
+enum class GameState { MAIN_MENU, PLAYING, SETTINGS, CREDITS,YOU_WIN };
 
 class Game
 {
@@ -15,7 +15,7 @@ public:
     void Render();
     void Cleanup();
 
-    Music musicStage1, musicStage2, musicStart_Menu, musicWin, musicLose;
+    Music musicStage1, musicStage2,musicdiadondslineup, musicStart_Menu, musicWin, musicLose;
 
 private:
     AppStatus BeginPlay();
