@@ -72,6 +72,7 @@ AppStatus Game::Initialise(float scale)
     }
     musicStart_Menu = LoadMusicStream("Sounds/Act Clear.ogg");
     musicStage1 = LoadMusicStream("Sounds/Main BGM (Alternate).ogg");
+    musicStage2 = LoadMusicStream("sound/Main BGM (Alternate).ogg");
    /* musicStage2 = LoadMusicStream("sound/music/stage2.ogg");
     musicWin = LoadMusicStream("sound/music/Win.ogg");
     musicLose = LoadMusicStream("sound/music/Lose.ogg");*/
