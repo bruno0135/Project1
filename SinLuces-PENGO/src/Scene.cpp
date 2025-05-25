@@ -475,7 +475,7 @@ void Scene::RenderObjectsDebug(const Color& col) const
 void Scene::RenderGUI() const
 {
 	// Puntuació
-	DrawText(TextFormat("SCORE : %d", player->GetScore()), 10, 10, 8, LIGHTGRAY);
+	DrawText(TextFormat("1P : %d", player->GetScore()), 100, 15, 8, SKYBLUE);
 
 	// Obtenir la textura del cor
 	const Texture2D* heartTex = ResourceManager::Instance().GetTexture(Resource::IMG_LIVES);
@@ -488,10 +488,10 @@ void Scene::RenderGUI() const
 	}
 
 	int currentHealth = player->GetHealth();
-	const int heartSize = 16; // Depenent de la mida real del teu PNG
-	const int spacing = 2;    // Espai entre cors
+	const int heartSize = 12; // Depenent de la mida real del teu PNG
+	const int spacing = 3;    // Espai entre cors
 	const int xStart = 10;
-	const int y = 20;
+	const int y = 10;
 
 	for (int i = 0; i < currentHealth; ++i)
 	{
