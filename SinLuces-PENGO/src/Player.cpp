@@ -3,6 +3,7 @@
 #include "Sprite.h"
 #include "TileMap.h"
 #include "Globals.h"
+#include "EnemyManager.h"
 #include <raymath.h>
 
 Player::Player(const Point& p, State s, Look view) :
@@ -165,11 +166,17 @@ void Player::ResumeMovement() {
 }
 void Player::TakeDamage(int amount)
 {
-	health -= amount;
-	if (health < 0) 
-		health = 0;
+	if (!CanTakeDamage())
+		return;
 
-	// Pots afegir aquí efectes com sons, animacions, etc.
+	health -= amount;
+	if (health < 0) health = 0;
+
+	// Comença el cooldown quan reps dany
+	isDamageCooldownActive = true;
+	damageCooldownTimer = 0.0f;
+
+	// Aquí pots posar so o animacions d'haver rebut dany
 }
 bool Player::CanTakeDamage() const {
 	return !isDamageCooldownActive;
@@ -189,6 +196,9 @@ void Player::UpdateDamageCooldown(float deltaTime) {
 int Player::GetHealth() const
 {
 	return health;
+}
+void Player::SetEnemyManager(EnemyManager* manager) {
+	enemyManager = manager;
 }
 AABB Player::GetHitbox() const {
 	int hitboxHeight = height; // alçada de la hitbox
@@ -351,7 +361,7 @@ void Player::Move()
 	}
 	else if (pushing) {
 		// Si volem empènyer i es pot moure el bloc
-		if (map->TryPushBlock(blockBox, dx, dy)) {
+		if (map->TryPushBlock(blockBox, dx, dy,enemyManager)) {
 			pos.x += dx * PLAYER_SPEED;
 			pos.y += dy * PLAYER_SPEED;
 			state = State::PUSH;

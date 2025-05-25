@@ -60,9 +60,6 @@
     <ClInclude Include="src\Enemy.h">
       <Filter>Entidades</Filter>
     </ClInclude>
-    <ClInclude Include="src\Player.h">
-      <Filter>Entidades</Filter>
-    </ClInclude>
     <ClInclude Include="src\Object.h">
       <Filter>Entidades</Filter>
     </ClInclude>
@@ -119,6 +116,9 @@
     </ClInclude>
     <ClInclude Include="src\ResourceManager.h">
       <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Player.h">
+      <Filter>Entidades</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

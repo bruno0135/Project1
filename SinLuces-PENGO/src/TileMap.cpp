@@ -1,6 +1,7 @@
 #include "TileMap.h"
 #include "Globals.h"
 #include "ResourceManager.h"
+#include "EnemyManager.h"
 #include <cstring>
 
 TileMap::TileMap()
@@ -186,25 +187,6 @@ bool TileMap::TestCollisionWallDown(const AABB& box) const
 {
 	return CollisionY(Point(box.pos.x, box.pos.y + box.height), box.width);
 }
-
-bool TileMap::TestCollisionGround(const AABB& box, int *py) const
-{
-	Point p(box.pos.x, *py);	//control point
-	int tile_y;
-
-	if (CollisionY(p, box.width))
-	{
-		tile_y = p.y / TILE_SIZE;
-
-		*py = tile_y * TILE_SIZE - 1;
-		return true;
-	}
-	return false;
-}
-bool TileMap::TestFalling(const AABB& box) const
-{
-	return !CollisionY(box.pos + Point(0, box.height), box.width);
-}
 bool TileMap::CollisionX(const Point& p, int distance) const
 {
 	int x = p.x / TILE_SIZE;
@@ -232,6 +214,25 @@ bool TileMap::CollisionY(const Point& p, int distance) const
 	}
 	return false;
 }
+bool TileMap::TestCollisionGround(const AABB& box, int *py) const
+{
+	Point p(box.pos.x, *py);	//control point
+	int tile_y;
+
+	if (CollisionY(p, box.width))
+	{
+		tile_y = p.y / TILE_SIZE;
+
+		*py = tile_y * TILE_SIZE - 1;
+		return true;
+	}
+	return false;
+}
+bool TileMap::TestFalling(const AABB& box) const
+{
+	return !CollisionY(box.pos + Point(0, box.height), box.width);
+}
+
 
 //moure un bloc solid
 bool TileMap::MoveSolidBlockInPixels(AABB& box, const Point& new_pixel_pos)
@@ -274,9 +275,10 @@ bool TileMap::MoveSolidBlockInPixels(AABB& box, const Point& new_pixel_pos)
 
 	return true;
 }
-bool TileMap::TryPushBlock(AABB blockBox, int directionX, int directionY)
+bool TileMap::TryPushBlock(AABB blockBox, int directionX, int directionY, EnemyManager* enemyManager)
 {
-	bool pushed = false; // Per saber si hem mogut el bloc almenys un cop
+	bool pushed = false;
+	std::vector<Point> path;
 
 	while (true) {
 		int blockX = blockBox.pos.x / TILE_SIZE;
@@ -284,30 +286,29 @@ bool TileMap::TryPushBlock(AABB blockBox, int directionX, int directionY)
 		int nextBlockX = blockX + directionX;
 		int nextBlockY = blockY + directionY;
 
-		// Si estem fora dels límits, parem i retornem
-		if (nextBlockX < 0 || nextBlockX >= width || nextBlockY < 0 || nextBlockY >= height) {
-			break; // Aturem el bucle, no podem moure més
-		}
+		if (nextBlockX < 0 || nextBlockX >= width || nextBlockY < 0 || nextBlockY >= height) break;
+		if (IsTileSolid(GetTileIndex(nextBlockX, nextBlockY))) break;
 
-		// Si la següent tile és sòlida, parem
-		if (IsTileSolid(GetTileIndex(nextBlockX, nextBlockY))) {
-			break; // Aturem el bucle, no podem moure més
-		}
+		if (!MoveSolidBlockInPixels(blockBox, Point(nextBlockX * TILE_SIZE, nextBlockY * TILE_SIZE))) break;
 
-		// Intentem moure el bloc a la següent posició
-		if (!MoveSolidBlockInPixels(blockBox, Point(nextBlockX * TILE_SIZE, nextBlockY * TILE_SIZE))) {
-			break; // Si no podem moure, parem
-		}
-
-		// Hem mogut el bloc almenys un cop
-		pushed = true;
-
-		// Actualitzem la posició de la caixa per a la següent iteració
 		blockBox.MoveTo(nextBlockX * TILE_SIZE, nextBlockY * TILE_SIZE);
+
+		pushed = true;
+		path.push_back(blockBox.pos);
 	}
 
-	return pushed; // Retornem si s'ha mogut o no
+	if (pushed && enemyManager != nullptr)
+	{
+		for (const Point& pos : path)
+		{
+			AABB boxAtPos(pos, blockBox.width, blockBox.height);
+			enemyManager->CheckBlockCrush(boxAtPos);
+		}
+	}
+
+	return pushed;
 }
+
 
 
 bool TileMap::TestOnLadder(const AABB& box, int* px) const

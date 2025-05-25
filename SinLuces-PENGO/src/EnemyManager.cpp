@@ -1,6 +1,6 @@
 #include "EnemyManager.h"
 #include "Snobee.h"
-
+#include "Player.h"
 
 void EnemyManager::SetTileMap(TileMap* m)
 {
@@ -74,26 +74,50 @@ AABB EnemyManager::GetEnemyHitBox(const Point& pos, EnemyType type) const
 	AABB hitbox(p, width, height);
 	return hitbox;
 }
-bool EnemyManager::CheckCollisionWithPlayer(AABB& playerHitbox, int& playerHealth)
+bool EnemyManager::CheckCollisionWithPlayer(AABB& playerHitbox, Player& player)
 {
 	for (Enemy* enemy : enemies)
 	{
-		// Suposem que Enemy té funció GetHitbox() que retorna AABB
 		if (playerHitbox.TestAABB(enemy->GetHitbox()))
 		{
-			// Resta una vida al jugador si en té encara
-			if (playerHealth > 0)
+			// Només si el jugador pot rebre dany
+			if (player.CanTakeDamage() && player.GetHealth() > 0)
 			{
-				playerHealth--;
-				LOG("Jugador ha perdut una vida. Vides restants: %d", playerHealth);
+				player.TakeDamage(1);
+				player.StartDamageCooldown();
+				LOG("Jugador ha perdut una vida. Vides restants: %d", player.GetHealth());
 			}
 			return true; // Col·lisió detectada
 		}
 	}
 	return false; // No hi ha col·lisió
 }
+void EnemyManager::CheckBlockCrush(const AABB& blockBox)
+{
+	for (auto it = enemies.begin(); it != enemies.end(); )
+	{
+		Enemy* enemy = *it;
+		if (!enemy)
+		{
+			++it;
+			continue;
+		}
 
+		AABB enemyBox = enemy->GetHitbox();
 
+		if (enemyBox.TestAABB(blockBox))
+		{
+			// Allibera memòria de l'enemic
+			delete enemy;
+			// Elimina l'enemic del vector i actualitza l'iterador
+			it = enemies.erase(it);
+		}
+		else
+		{
+			++it;
+		}
+	}
+}
 void EnemyManager::Update(const AABB& player_hitbox)
 {
 	for (Enemy* enemy : enemies)
