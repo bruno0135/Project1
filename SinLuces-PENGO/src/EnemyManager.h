@@ -39,6 +39,7 @@ public:
 	std::vector<Enemy*>& GetAll();
 	void CheckBlockCrush(const AABB& blockBox, Player* player);
 
+	void AddEnemy(const Point& position, TileMap* map);
 
 
 private:

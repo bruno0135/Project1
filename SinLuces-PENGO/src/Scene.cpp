@@ -146,7 +146,7 @@ AppStatus Scene::LoadLevel(int stage)
 	size = LEVEL_WIDTH * LEVEL_HEIGHT;
 
 	if (stage == 0) {
-		if (level->GenerateRandomMap(LEVEL_WIDTH, LEVEL_HEIGHT) != AppStatus::OK) {
+		if (level->GenerateRandomMap(LEVEL_WIDTH, LEVEL_HEIGHT, enemies) != AppStatus::OK) {
 			LOG("Failed to generate random map");
 			return AppStatus::ERROR;
 		}

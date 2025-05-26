@@ -9,6 +9,7 @@ public:
 
     AABB();
     AABB(const Point& point, int w, int h);
+    AABB(int x, int y, int w, int h);
 
     bool TestAABB(const AABB& box) const;
     bool TestPoint(const Point& q) const;

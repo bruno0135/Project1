@@ -128,6 +128,25 @@ void EnemyManager::CheckBlockCrush(const AABB& blockBox, Player* player)
 	
 }
 
+void EnemyManager::AddEnemy(const Point& position, TileMap* map)
+{
+	// Crea una nova instància de SNOBEE
+	SNOBEE* snobee = new SNOBEE(position, SNOBEE_FRAME_SIZE, SNOBEE_FRAME_SIZE, SNOBEE_FRAME_SIZE, SNOBEE_FRAME_SIZE);
+
+	// Defineix una àrea de visibilitat (pots ajustar-ho com vulguis)
+	AABB area = { position.x - 50, position.y - 50, 100, 100 };
+
+	// Inicialitza l'enemic
+	if (snobee->Initialise(position, EnemyType::SNOBEE, area, map) == AppStatus::OK)
+	{
+		enemies.push_back(snobee);  // Afegeix-lo a la llista
+	}
+	else
+	{
+		delete snobee;  // Si falla, allibera la memòria
+	}
+}
+
 void EnemyManager::Update(const AABB& player_hitbox)
 {
 	for (Enemy* enemy : enemies)

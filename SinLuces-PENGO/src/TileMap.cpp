@@ -557,7 +557,7 @@ bool TileMap::BreakBlockAt(int x, int y)
 }
 
 
-AppStatus TileMap::GenerateRandomMap(int width, int height)
+AppStatus TileMap::GenerateRandomMap(int width, int height, EnemyManager* enemies)
 {
 	if (map != nullptr) delete[] map;
 
@@ -568,13 +568,15 @@ AppStatus TileMap::GenerateRandomMap(int width, int height)
 	map = new Tile[size];
 	if (map == nullptr) return AppStatus::ERROR;
 
-	int playerX = width / 2 - 2;  // ligero desplazamiento hacia la izquierda
+	// Posició central del jugador
+	int playerX = width / 2;
 	int playerY = height / 2;
 
+	// Inicialitzar el mapa amb blocs i aire
 	for (int y = 0; y < height; ++y) {
 		for (int x = 0; x < width; ++x) {
 			if (x == 0 || x == width - 1 || y == 0 || y == height - 1) {
-				map[y * width + x] = Tile::BLUEB;
+				map[y * width + x] = Tile::BLUEB;  // Bordes
 			}
 			else {
 				int rnd = rand() % 100;
@@ -583,42 +585,37 @@ AppStatus TileMap::GenerateRandomMap(int width, int height)
 		}
 	}
 
-	struct Point { int x, y; };
-	std::vector<Point> diamonds;
-
-	while (diamonds.size() < 3) {
-		// Asegurar una dispersión principalmente hacia el centro e izquierda
-		int offsetX = (rand() % 7) - 5;  // rango [-5, 1], más izquierda
-		int offsetY = (rand() % 7) - 3;  // rango [-3, 3], centrado verticalmente
-
+	// Col·locar 3 diamants prop del jugador
+	int diamondsPlaced = 0;
+	while (diamondsPlaced < 3) {
+		int offsetX = (rand() % 5) - 2;
+		int offsetY = (rand() % 5) - 2;
 		int x = playerX + offsetX;
 		int y = playerY + offsetY;
 
-		if (x <= 1 || x >= width - 2 || y <= 1 || y >= height - 2) continue;
+		if (x <= 0 || x >= width - 1 || y <= 0 || y >= height - 1) continue;
 
-		bool positionUsed = false;
-
-		for (auto& d : diamonds) {
-			if (d.x == x && d.y == y) {
-				positionUsed = true;
-				break;
-			}
+		int idx = y * width + x;
+		if (map[idx] != Tile::DIAMONDBLUE) {
+			map[idx] = Tile::DIAMONDBLUE;
+			diamondsPlaced++;
 		}
+	}
 
-		if (positionUsed) continue;
+	
+	if (&enemies != nullptr) {
+		int enemiesPlaced = 0;
+		while (enemiesPlaced < 4) {
+			int x = rand() % (width - 2) + 1;
+			int y = rand() % (height - 2) + 1;
 
-		// Comprobar alineación horizontal o vertical
-		bool aligned = false;
-		if (diamonds.size() >= 2) {
-			if ((diamonds[0].x == diamonds[1].x && diamonds[0].x == x) ||
-				(diamonds[0].y == diamonds[1].y && diamonds[0].y == y)) {
-				aligned = true;
-			}
-		}
+			// No posar enemics damunt del jugador ni sobre parets o diamants
+			if ((x == playerX && y == playerY) || IsTileSolid(GetTileIndex(x, y)) || map[y * width + x] == Tile::DIAMONDBLUE)
+				continue;
 
-		if (!aligned) {
-			diamonds.push_back({ x, y });
-			map[y * width + x] = Tile::DIAMONDBLUE;
+			Point enemyPos = { x * TILE_SIZE, y * TILE_SIZE };
+			enemies->AddEnemy(enemyPos, this);  
+			enemiesPlaced++;
 		}
 	}
 
