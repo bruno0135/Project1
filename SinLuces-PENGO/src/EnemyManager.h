@@ -1,7 +1,7 @@
 #pragma once
 #include "Enemy.h"
 #include "ShotManager.h"
-
+#include "Player.h"
 class EnemyManager
 {
 public:
@@ -35,9 +35,9 @@ public:
 	TileMap* map = nullptr;
 
 	void SetTileMap(TileMap* m);
-	bool CheckCollisionWithPlayer(AABB& playerHitbox, int& playerHealth);
-
+	bool CheckCollisionWithPlayer(AABB& playerHitbox, Player& player);
 	std::vector<Enemy*>& GetAll();
+	void CheckBlockCrush(const AABB& blockBox);
 
 
 

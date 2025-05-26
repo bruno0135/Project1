@@ -1,5 +1,6 @@
 #pragma once
 #include <raylib.h>
+#include <vector>
 #include "Enemy.h"
 #include "AABB.h"
 #include "Snobee.h"
@@ -19,7 +20,7 @@ public:
 
     SceneState scene_state = SceneState::PLAYING;
 
-    Scene();
+    explicit Scene(ResourceManager& data);
     ~Scene();
 
     AppStatus Init();
@@ -29,7 +30,7 @@ public:
 
 private:
     AppStatus LoadLevel(int stage);
-
+    ResourceManager& resMan;
 
     void CheckObjectCollisions();
     void CheckPlayerEnemyCollisions();
@@ -59,8 +60,8 @@ private:
 
     bool godMode = false;
 
-    bool diamondLineDetected = false;   // Si s'ha detectat línia de diamants
-    float diamondCooldown = 0.5f;       // Temps de cooldown en segons (per exemple 2 segons)
-    float diamondTimer = 0.0f;          // Temporitzador acumulat
+    bool diamondLineDetected = false;
+    float diamondCooldown = 0.5f;
+    float diamondTimer = 0.0f;
 
 };

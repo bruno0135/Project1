@@ -6,6 +6,8 @@
 #include "Globals.h"
 #include <unordered_map>
 
+class EnemyManager;
+
 enum class Tile {
 
 	// -1: area covered by entity
@@ -72,7 +74,7 @@ public:
 
 	AABB GetSweptAreaX(const AABB& hitboxbox) const;
 	bool MoveSolidBlockInPixels(AABB& box, const Point& new_pixel_pos);
-	bool TryPushBlock(AABB blockBox, int directionX, int directionY);
+	bool TryPushBlock(AABB blockBox, int directionX, int directionY, EnemyManager* enemyManager);
 	bool CheckDiamondLines() const;
 	bool BreakBlockAt(int x, int y);
 

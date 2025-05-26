@@ -3,6 +3,7 @@
 #include "Sprite.h"
 #include "TileMap.h"
 #include "Globals.h"
+#include "EnemyManager.h"
 #include <raymath.h>
 
 Player::Player(const Point& p, State s, Look view) :
@@ -165,10 +166,13 @@ void Player::ResumeMovement() {
 }
 void Player::TakeDamage(int amount)
 {
+	if (!CanTakeDamage())
+		return;
 	health -= amount;
-	if (health < 0) 
-		health = 0;
+	if (health < 0) health = 0;
 
+	isDamageCooldownActive = true;
+	damageCooldownTimer = 0.0f;
 	// Pots afegir aquí efectes com sons, animacions, etc.
 }
 bool Player::CanTakeDamage() const {
@@ -189,6 +193,9 @@ void Player::UpdateDamageCooldown(float deltaTime) {
 int Player::GetHealth() const
 {
 	return health;
+}
+void Player::SetEnemyManager(EnemyManager* manager) {
+	enemyManager = manager;
 }
 AABB Player::GetHitbox() const {
 	int hitboxHeight = height; // alçada de la hitbox
@@ -359,7 +366,7 @@ void Player::Move()
 		}
 		else if (pushing) {
 			AABB blockBox(Point(frontTile.x * TILE_SIZE, frontTile.y * TILE_SIZE), TILE_SIZE, TILE_SIZE);
-			if (map->TryPushBlock(blockBox, dx, dy)) {
+			if (map->TryPushBlock(blockBox, dx, dy, enemyManager)) {
 				pos.x += dx * PLAYER_SPEED;
 				pos.y += dy * PLAYER_SPEED;
 				state = State::PUSH;

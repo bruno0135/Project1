@@ -43,6 +43,7 @@ enum class PlayerAnim {
 	NUM_ANIMATIONS, NONE
 };
 
+class EnemyManager;
 
 class Player : public Entity
 {
@@ -61,10 +62,7 @@ public:
 	void DrawDebug(const Color& col) const;
 	void Release();
 
-	/*void FreezeAnimationFrame();*/
-	void RestoreAnimationFrame();
-	void Stop();
-	void ResumeMovement();
+
 
 	/*Take Damage*/
 	void TakeDamage(int amount);
@@ -73,12 +71,15 @@ public:
 	void UpdateDamageCooldown(float deltaTime);
 	int GetHealth() const;	
 	void SetHealth(int newHealth) { health = newHealth; }
+	void SetEnemyManager(EnemyManager* manager);
 
 	// NEW: afegir la funció per saber si hem guanyat
 	bool HasWon() const { return hasWon; }
 	AABB GetHitbox() const;
 
-
+	void RestoreAnimationFrame();
+	void Stop();
+	void ResumeMovement();
 
 
 private:
@@ -111,6 +112,7 @@ private:
 	// NEW: Funció per cridar quan es guanya
 	void OnPlayerWin();
 
+	EnemyManager* enemyManager = nullptr;
 	State state;
 	Look look;
 	TileMap* map;

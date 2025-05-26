@@ -118,6 +118,11 @@ AppStatus Game::LoadResources()
         return AppStatus::ERROR;
     }
 
+    if (data.LoadTexture(Resource::IMG_LIVES, "images/miscelanios/vides.png") != AppStatus::OK)
+    {
+        return AppStatus::ERROR;
+    }
+
     sheet = LoadTexture("images/pantallas/spritesheet.png");
     Vector2 position = { 350.0f, 280.0f };
     Rectangle frameRec = { 0.0f, 0.0f, (float)sheet.width / 16, (float)sheet.height };
@@ -132,7 +137,7 @@ AppStatus Game::LoadResources()
 }
 AppStatus Game::BeginPlay()
 {
-    scene = new Scene();
+    scene = new Scene(ResourceManager::Instance());
     if (scene == nullptr)
     {
         LOG("Failed to allocate memory for Scene");
