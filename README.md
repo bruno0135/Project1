@@ -30,7 +30,7 @@ Crush the Sno-Bees, slide the ice, and survive the chill!
 - Score system
 
 ## 1 min video
-[VIDEO](https://www.youtube.com/watch?v=ud96en6W3ik&feature=youtu.be)
+[VIDEO](https://youtu.be/dZ21z15Mobk?si=uQKkgxln2M-HZkWq)
 
 ## Credits
 Sin Luces Team
