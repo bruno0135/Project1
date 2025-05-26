@@ -557,8 +557,13 @@ bool TileMap::BreakBlockAt(int x, int y)
 }
 
 
-AppStatus TileMap::GenerateRandomMap(int width, int height, EnemyManager* enemies)
+AppStatus TileMap::GenerateRandomMap(int windowWidth, int windowHeight, EnemyManager* enemies)
 {
+	// Calcular amplada i alçada del mapa basats en la mida de finestra i la mida de tile
+	int width = WINDOW_WIDTH / TILE_SIZE;
+	int height = WINDOW_HEIGHT / TILE_SIZE;
+
+	// Eliminar mapa anterior si n'hi ha
 	if (map != nullptr) delete[] map;
 
 	size = width * height;
@@ -575,12 +580,14 @@ AppStatus TileMap::GenerateRandomMap(int width, int height, EnemyManager* enemie
 	// Inicialitzar el mapa amb blocs i aire
 	for (int y = 0; y < height; ++y) {
 		for (int x = 0; x < width; ++x) {
+			int idx = y * width + x;
+
 			if (x == 0 || x == width - 1 || y == 0 || y == height - 1) {
-				map[y * width + x] = Tile::BLUEB;  // Bordes
+				map[idx] = Tile::BLUEB;  // Bordes dins la finestra
 			}
 			else {
 				int rnd = rand() % 100;
-				map[y * width + x] = (rnd < 50) ? Tile::BLUEB : Tile::AIR;
+				map[idx] = (rnd < 50) ? Tile::BLUEB : Tile::AIR;
 			}
 		}
 	}
@@ -596,25 +603,24 @@ AppStatus TileMap::GenerateRandomMap(int width, int height, EnemyManager* enemie
 		if (x <= 0 || x >= width - 1 || y <= 0 || y >= height - 1) continue;
 
 		int idx = y * width + x;
-		if (map[idx] != Tile::DIAMONDBLUE) {
+		if (map[idx] != Tile::DIAMONDBLUE && !IsTileSolid(map[idx])) {
 			map[idx] = Tile::DIAMONDBLUE;
 			diamondsPlaced++;
 		}
 	}
 
-	
-	if (&enemies != nullptr) {
+	// Col·locar 4 enemics si el gestor d'enemics és vàlid
+	if (enemies != nullptr) {
 		int enemiesPlaced = 0;
 		while (enemiesPlaced < 4) {
 			int x = rand() % (width - 2) + 1;
 			int y = rand() % (height - 2) + 1;
 
-			// No posar enemics damunt del jugador ni sobre parets o diamants
 			if ((x == playerX && y == playerY) || IsTileSolid(GetTileIndex(x, y)) || map[y * width + x] == Tile::DIAMONDBLUE)
 				continue;
 
 			Point enemyPos = { x * TILE_SIZE, y * TILE_SIZE };
-			enemies->AddEnemy(enemyPos, this);  
+			enemies->AddEnemy(enemyPos, this);
 			enemiesPlaced++;
 		}
 	}
