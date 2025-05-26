@@ -11,13 +11,19 @@ This game is a recreation of the original game [Pengo](https://www.youtube.com/w
 ### Controls
 - Arrows to move in different directions
 - F1 Debug mode
-- Press 1 to play level 1
-- Press 2 to play level 2
+- Press F8 to change random map
 - F2 Win Screen
 - F3 Lose Screen
+- KEY SPACE to move blocks
+- KEY X to destroy blocks
 
 ## Implemented Features
-- Enemies
+- Enemies can attack
+- Random position enemies
+- Random diamond position
+- Random blocks
+- Movable blocks
+- Destructible blocks
 - Debug mode
 - Change level function
 - Background music
