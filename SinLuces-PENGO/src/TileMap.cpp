@@ -1,4 +1,4 @@
-#include "TileMap.h"
+﻿#include "TileMap.h"
 #include "Globals.h"
 #include "ResourceManager.h"
 #include "EnemyManager.h"
@@ -276,43 +276,47 @@ bool TileMap::MoveSolidBlockInPixels(AABB& box, const Point& new_pixel_pos)
 
 	return true;
 }
-bool TileMap::TryPushBlock(AABB blockBox, int directionX, int directionY, EnemyManager* enemyManager) 
+bool TileMap::TryPushBlock(AABB blockBox, int directionX, int directionY, EnemyManager* enemyManager)
 {
 	bool pushed = false;
 	std::vector<Point> path;
+
 	while (true) {
 		int blockX = blockBox.pos.x / TILE_SIZE;
 		int blockY = blockBox.pos.y / TILE_SIZE;
 		int nextBlockX = blockX + directionX;
 		int nextBlockY = blockY + directionY;
 
-		if (nextBlockX < 0 || nextBlockX >= width || nextBlockY < 0 || nextBlockY >= height) break;
-		if (IsTileSolid(GetTileIndex(nextBlockX, nextBlockY))) break;
-
-		blockBox.MoveTo(nextBlockX * TILE_SIZE, nextBlockY * TILE_SIZE);
-
-
-		// Intentem moure el bloc a la seg�ent posici�
-		if (!MoveSolidBlockInPixels(blockBox, Point(nextBlockX * TILE_SIZE, nextBlockY * TILE_SIZE)))
-		{
-			break; // Si no podem moure, parem
+		if (nextBlockX < 0 || nextBlockX >= width || nextBlockY < 0 || nextBlockY >= height) {
+			break;
 		}
 
-		// Hem mogut el bloc almenys un cop
+		if (IsTileSolid(GetTileIndex(nextBlockX, nextBlockY))) {
+			break;
+		}
+
+		// Calculem la nova posició
+		Point nextPos(nextBlockX * TILE_SIZE, nextBlockY * TILE_SIZE);
+		AABB nextBox(nextPos, blockBox.width, blockBox.height);
+
+		// Comprovem si esclafa algun enemic abans de moure el bloc
+		if (enemyManager != nullptr) {
+			enemyManager->CheckBlockCrush(nextBox); // Aquesta funció ha de fer la comprovació i eliminar si cal
+		}
+
+		// Intentem moure el bloc
+		if (!MoveSolidBlockInPixels(blockBox, nextPos)) {
+			break;
+		}
+
 		pushed = true;
-		path.push_back(blockBox.pos);
+		path.push_back(nextPos);
 
-		if (pushed && enemyManager != nullptr)
-		{
-			for (const Point& pos : path)
-			{
-				AABB boxAtPos(pos, blockBox.width, blockBox.height);
-				enemyManager->CheckBlockCrush(boxAtPos);
-			}
-		}
+		// Actualitzem la posició del bloc per a la següent iteració
+		blockBox.MoveTo(nextPos.x, nextPos.y);
 	}
 
-	return pushed; // Retornem si s'ha mogut o no
+	return pushed;
 }
 
 
