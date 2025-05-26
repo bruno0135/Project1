@@ -27,6 +27,7 @@ public:
     void Update();
     void Render();
     void Release();
+    void SetFont(Font* font);
 
 private:
     AppStatus LoadLevel(int stage);
@@ -54,7 +55,7 @@ private:
 
     //Shots thrown by enemies
     ShotManager* shots;
-
+    Font* customFont;
     Camera2D camera;
     DebugMode debug;
 

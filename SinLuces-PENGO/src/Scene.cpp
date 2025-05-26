@@ -147,18 +147,18 @@ AppStatus Scene::LoadLevel(int stage)
 		map = new int[size] {
 
 		 	    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-				1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+				1, 200, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-				1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+				1, 0, 1, 0, 0, 0, 200, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-				1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+				1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 200, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-				1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+				1, 0, 1, 0, 0, 18, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-				1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+				1, 0, 18, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -470,11 +470,16 @@ void Scene::RenderObjectsDebug(const Color& col) const
 		obj->DrawDebug(col);
 	}
 }
-
+void Scene::SetFont(Font* font)
+{
+	customFont = font;
+}
 void Scene::RenderGUI() const
 {
-	//Temporal approach
-	DrawText(TextFormat("SCORE : %d", player->GetScore()), 10, 10, 8, LIGHTGRAY);
+	if (customFont != nullptr) {
+		DrawTextEx(*customFont, "1P", { 80, 12 }, 16, 1, SKYBLUE);
+		DrawTextEx(*customFont, TextFormat("%d", player->GetScore()), { 100, 12 }, 16, 1, LIGHTGRAY);
+	}
 	const Texture2D* heartTex = ResourceManager::Instance().GetTexture(Resource::IMG_LIVES);
 
 	if (heartTex == nullptr)
@@ -485,10 +490,10 @@ void Scene::RenderGUI() const
 	}
 
 	int currentHealth = player->GetHealth();
-	const int heartSize = 16; // Depenent de la mida real del teu PNG
+	const int heartSize = 12; // Depenent de la mida real del teu PNG
 	const int spacing = 2;    // Espai entre cors
 	const int xStart = 10;
-	const int y = 20;
+	const int y = 12;
 
 	for (int i = 0; i < currentHealth; ++i)
 	{

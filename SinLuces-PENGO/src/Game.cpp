@@ -124,6 +124,7 @@ AppStatus Game::LoadResources()
     }
 
     sheet = LoadTexture("images/pantallas/spritesheet.png");
+
     Vector2 position = { 350.0f, 280.0f };
     Rectangle frameRec = { 0.0f, 0.0f, (float)sheet.width / 16, (float)sheet.height };
 
@@ -132,12 +133,14 @@ AppStatus Game::LoadResources()
     img_credits = data.GetTexture(Resource::IMG_CREDITS);
     frameRec = { 0.0f, 0.0f, (float)sheet.width / 16, (float)sheet.height };
 
+    customFont = LoadFont("Fonts/Retro Gaming.ttf"); 
 
     return AppStatus::OK;
 }
 AppStatus Game::BeginPlay()
 {
     scene = new Scene(ResourceManager::Instance());
+    scene->SetFont(&customFont);
     if (scene == nullptr)
     {
         LOG("Failed to allocate memory for Scene");
@@ -343,4 +346,5 @@ void Game::UnloadResources() {
         UnloadRenderTexture(target);
         target.id = 0;  // Asegurarse de que el id se establezca en 0
     }
+    UnloadFont(customFont);
 }

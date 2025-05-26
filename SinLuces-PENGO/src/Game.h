@@ -32,6 +32,7 @@ private:
     const Texture2D* img_win;
     const Texture2D* img_lose;
     Texture2D sheet;
+    Font customFont;
     Rectangle frameRec;
 
     int frameIndex;
