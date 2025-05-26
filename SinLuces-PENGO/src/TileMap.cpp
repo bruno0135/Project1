@@ -524,3 +524,21 @@ void TileMap::Release()
 
 	dict_rect.clear();
 }
+bool TileMap::BreakBlockAt(int x, int y)
+{
+	if (x < 0 || x >= width || y < 0 || y >= height) {
+		LOG("Block position (%d,%d) out of bounds", x, y);
+		return false;
+	}
+
+	int index = y * width + x;
+	Tile tile = map[index];
+	if (!IsTileSolid(tile)) {
+		LOG("Tile at (%d,%d) is not breakable", x, y);
+		return false;
+	}
+
+	map[index] = Tile::AIR;
+	LOG("Block at (%d,%d) broken!", x, y);
+	return true;
+}
