@@ -568,15 +568,13 @@ AppStatus TileMap::GenerateRandomMap(int width, int height)
 	map = new Tile[size];
 	if (map == nullptr) return AppStatus::ERROR;
 
-	// Posición central del jugador (más o menos centro)
-	int playerX = width / 2;
+	int playerX = width / 2 - 2;  // ligero desplazamiento hacia la izquierda
 	int playerY = height / 2;
 
-	// Llena inicialmente el mapa con bloques normales y aire
 	for (int y = 0; y < height; ++y) {
 		for (int x = 0; x < width; ++x) {
 			if (x == 0 || x == width - 1 || y == 0 || y == height - 1) {
-				map[y * width + x] = Tile::BLUEB;  // Bordes sólidos
+				map[y * width + x] = Tile::BLUEB;
 			}
 			else {
 				int rnd = rand() % 100;
@@ -585,28 +583,44 @@ AppStatus TileMap::GenerateRandomMap(int width, int height)
 		}
 	}
 
-	// Ahora coloca exactamente 3 diamantes en posiciones aleatorias cerca del jugador
-	int diamondsPlaced = 0;
+	struct Point { int x, y; };
+	std::vector<Point> diamonds;
 
-	while (diamondsPlaced < 3) {
-		int offsetX = (rand() % 5) - 2;  // entre -2 y +2
-		int offsetY = (rand() % 5) - 2;  // entre -2 y +2
+	while (diamonds.size() < 3) {
+		// Asegurar una dispersión principalmente hacia el centro e izquierda
+		int offsetX = (rand() % 7) - 5;  // rango [-5, 1], más izquierda
+		int offsetY = (rand() % 7) - 3;  // rango [-3, 3], centrado verticalmente
 
 		int x = playerX + offsetX;
 		int y = playerY + offsetY;
 
-		// Evita posiciones fuera del mapa o repetidas
-		if (x <= 0 || x >= width - 1 || y <= 0 || y >= height - 1) continue;
+		if (x <= 1 || x >= width - 2 || y <= 1 || y >= height - 2) continue;
 
-		int idx = y * width + x;
+		bool positionUsed = false;
 
-		// Coloca diamante solo si no hay ya otro diamante
-		if (map[idx] != Tile::DIAMONDBLUE) {
-			map[idx] = Tile::DIAMONDBLUE;
-			diamondsPlaced++;
+		for (auto& d : diamonds) {
+			if (d.x == x && d.y == y) {
+				positionUsed = true;
+				break;
+			}
+		}
+
+		if (positionUsed) continue;
+
+		// Comprobar alineación horizontal o vertical
+		bool aligned = false;
+		if (diamonds.size() >= 2) {
+			if ((diamonds[0].x == diamonds[1].x && diamonds[0].x == x) ||
+				(diamonds[0].y == diamonds[1].y && diamonds[0].y == y)) {
+				aligned = true;
+			}
+		}
+
+		if (!aligned) {
+			diamonds.push_back({ x, y });
+			map[y * width + x] = Tile::DIAMONDBLUE;
 		}
 	}
 
 	return AppStatus::OK;
 }
-
