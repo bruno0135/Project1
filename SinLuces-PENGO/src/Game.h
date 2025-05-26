@@ -2,7 +2,7 @@
 #include "Globals.h"
 #include "Scene.h"
 
-enum class GameState { MAIN_MENU, PLAYING, SETTINGS, CREDITS };
+enum class GameState { MAIN_MENU, PLAYING, SETTINGS, CREDITS ,YOU_WIN,YOU_LOSE};
 
 class Game
 {

@@ -3,6 +3,7 @@
 #include "Sprite.h"
 #include "TileMap.h"
 #include "Globals.h"
+#include "EnemyManager.h"
 #include <raymath.h>
 
 Player::Player(const Point& p, State s, Look view) :
@@ -124,7 +125,7 @@ PlayerAnim Player::GetAnimation()
 }
 
 
-// Función para restaurar el delay original de la animación actual
+// Funciï¿½n para restaurar el delay original de la animaciï¿½n actual
 void Player::RestoreAnimationFrame() {
 	Sprite* sprite = dynamic_cast<Sprite*>(render);
 	int currentAnim = sprite->GetAnimation();
@@ -135,7 +136,7 @@ void Player::RestoreAnimationFrame() {
 	}
 }
 
-// Función Stop que congela la animación sin cambiar a la animación idle
+// Funciï¿½n Stop que congela la animaciï¿½n sin cambiar a la animaciï¿½n idle
 void Player::Stop() {
 	
 	dir = { 0, 0 }; // Detener movimiento
@@ -152,24 +153,30 @@ void Player::Stop() {
 		else if (look == Look::DOWN)
 			sprite->SetAnimation((int)PlayerAnim::IDLE_DOWN);
 
-		sprite->FreezeAnimationFrame(); // Detener animación
+		sprite->FreezeAnimationFrame(); // Detener animaciï¿½n
 	}
 }
 
-// Ejemplo de función para reanudar el movimiento
+// Ejemplo de funciï¿½n para reanudar el movimiento
 void Player::ResumeMovement() {
 	RestoreAnimationFrame();
-	// Aquí puedes definir la animación de movimiento que corresponda, por ejemplo:
+	// Aquï¿½ puedes definir la animaciï¿½n de movimiento que corresponda, por ejemplo:
 	SetAnimation((int)PlayerAnim::WALK_RIGHT);
-	// Se deben actualizar posición, dirección, etc.
+	// Se deben actualizar posiciï¿½n, direcciï¿½n, etc.
 }
 void Player::TakeDamage(int amount)
 {
-	health -= amount;
-	if (health < 0) 
-		health = 0;
+	if (!CanTakeDamage())
+		return;
 
-	// Pots afegir aquí efectes com sons, animacions, etc.
+	health -= amount;
+	if (health < 0) health = 0;
+
+	// Comenï¿½a el cooldown quan reps dany
+	isDamageCooldownActive = true;
+	damageCooldownTimer = 0.0f;
+
+	// Aquï¿½ pots posar so o animacions d'haver rebut dany
 }
 bool Player::CanTakeDamage() const {
 	return !isDamageCooldownActive;
@@ -190,8 +197,11 @@ int Player::GetHealth() const
 {
 	return health;
 }
+void Player::SetEnemyManager(EnemyManager* manager) {
+	enemyManager = manager;
+}
 AABB Player::GetHitbox() const {
-	int hitboxHeight = height; // alçada de la hitbox
+	int hitboxHeight = height; // alï¿½ada de la hitbox
 	Point hitboxPos(pos.x, pos.y - hitboxHeight + 1);	
 	return AABB(hitboxPos, width, hitboxHeight);
 }
@@ -239,8 +249,39 @@ void Player::StartWalkingUp()
 
 void Player::Update()
 {
+	// Intentem comenï¿½ar a destruir un bloc si es prem la tecla corresponent
+	TryDestroyBlock();
+
+	// Si estem en procï¿½s de destruir un bloc, actualitzem l'animaciï¿½ de destrucciï¿½
+	if (isDestroying)
+	{
+		const int totalFrames = 8;
+		int frameDuration = destroyAnimDurationFrames / totalFrames;
+
+		int frameIndex = destroyFrameCounter / frameDuration;
+		if (frameIndex >= totalFrames) frameIndex = totalFrames - 1;
+
+		// Posem el tile d'animaciï¿½ segons el frame actual
+		Tile tileFrame = static_cast<Tile>(static_cast<int>(Tile::ICEBREAK_1) + frameIndex);
+		map->SetTile(blockToDestroyTile.x, blockToDestroyTile.y, tileFrame);
+		destroyFrameCounter++;
+
+		// Quan acaba l'animaciï¿½, fem desaparï¿½ixer el bloc i tornem a l'estat IDLE
+		if (destroyFrameCounter >= destroyAnimDurationFrames)
+		{
+			map->SetTile(blockToDestroyTile.x, blockToDestroyTile.y, Tile::EMPTY);
+			isDestroying = false;
+			state = State::IDLE;
+		}
+
+		// No fer res mï¿½s mentre es trenca el bloc
+		return;
+	}
+
+	// Moviment i animacions normals quan no estem destruint
 	Move();
-	// Escollim animació segons estat i direcció
+
+	// Selecciï¿½ d'animaciï¿½ segons estat i direcciï¿½
 	switch (state)
 	{
 	case State::IDLE:
@@ -274,31 +315,57 @@ void Player::Update()
 		break;
 
 	case State::DEAD:
-		// Aquí podries posar una animació de mort si tens
+		// Opcional: animaciï¿½ de mort
 		break;
 	}
-	
-	// Important: crida a la funció base perquè l'animació es processi
-	Entity::Update();
-	if (map && !hasWon && map->CheckDiamondLines()) {
-		hasWon = true;
-		state = State::IDLE;  // Aturem el jugador
-		Stop();               // Congela animació i moviment
 
+	// Actualitza l'animaciï¿½ de l'entity base
+	Entity::Update();
+
+	// Comprovaciï¿½ si s'ha complert condiciï¿½ de victï¿½ria
+	if (map && !hasWon && map->CheckDiamondLines())
+	{
+		hasWon = true;
+		state = State::IDLE;
+		Stop(); // Atura moviment i animaciï¿½
 		LOG("HAS GUANYAT");
 	}
 }
 
 Point Player::GetFrontTilePos(int dx, int dy) const
 {
-	// Obtenim la hitbox actual del jugador
 	AABB box = GetHitbox();
 
-	// Calculem la posició (en píxels) davant segons la direcció
-	float frontX = box.pos.x + dx * TILE_SIZE;
-	float frontY = box.pos.y + dy * TILE_SIZE;
+	float frontX = 0.0f;
+	float frontY = 0.0f;
 
-	// Convertim la posició en píxels a posició en tile (coordenades enters)
+	if (dx > 0) // dreta
+	{
+		frontX = box.pos.x + PLAYER_PHYSICAL_WIDTH + dx * TILE_SIZE;
+		frontY = box.pos.y + PLAYER_PHYSICAL_HEIGHT / 2;
+	}
+	else if (dx < 0) // esquerra
+	{
+		frontX = box.pos.x - TILE_SIZE;
+		frontY = box.pos.y + PLAYER_PHYSICAL_HEIGHT / 2;
+	}
+	else if (dy > 0) // baix
+	{
+		frontX = box.pos.x + PLAYER_PHYSICAL_WIDTH / 2;
+		frontY = box.pos.y + PLAYER_PHYSICAL_HEIGHT + dy * TILE_SIZE;
+	}
+	else if (dy < 0) // amunt
+	{
+		frontX = box.pos.x + PLAYER_PHYSICAL_WIDTH / 2;
+		frontY = box.pos.y - TILE_SIZE;
+	}
+	else
+	{
+		// Si no hi ha direcciï¿½, centre del jugador
+		frontX = box.pos.x + PLAYER_PHYSICAL_WIDTH / 2;
+		frontY = box.pos.y + PLAYER_PHYSICAL_HEIGHT / 2;
+	}
+
 	int tileX = static_cast<int>(frontX) / TILE_SIZE;
 	int tileY = static_cast<int>(frontY) / TILE_SIZE;
 
@@ -315,7 +382,7 @@ void Player::Move()
 	bool pushing = IsKeyDown(KEY_SPACE);
 	bool breaking = IsKeyPressed(KEY_X); // NUEVO: Romper bloque al presionar X
 
-	// Detectar direcció
+	// Detectar direcciï¿½
 	if (IsKeyDown(KEY_LEFT)) { dx = -1; look = Look::LEFT;  currentDirection = PlayerAnim::WALK_LEFT;  isMoving = true; }
 	else if (IsKeyDown(KEY_RIGHT)) { dx = 1;  look = Look::RIGHT; currentDirection = PlayerAnim::WALK_RIGHT; isMoving = true; }
 	else if (IsKeyDown(KEY_UP)) { dy = -1; look = Look::UP;    currentDirection = PlayerAnim::WALK_UP;    isMoving = true; }
@@ -327,7 +394,7 @@ void Player::Move()
 		state = State::IDLE;
 	}
 
-	// Obtener posición del tile frente al jugador
+	// Obtener posiciï¿½n del tile frente al jugador
 	Point frontTile = GetFrontTilePos(dx, dy);
 
 	// NUEVO: romper bloque si se presiona X
@@ -370,6 +437,46 @@ void Player::Move()
 		}
 		else {
 			state = State::IDLE;
+		}
+	}
+}
+void Player::TryDestroyBlock()
+{
+	if (!map) return;
+
+	// No fer res si ja estem destruint, estem morts o hem guanyat
+	if (isDestroying || state == State::DEAD || hasWon)
+		return;
+
+	// Comprova si la tecla per trencar (E) estï¿½ pressionada
+	if (IsKeyPressed(KEY_E))
+	{
+		// Determina la direcciï¿½ que mira el jugador
+		int dx = 0, dy = 0;
+		switch (look)
+		{
+		case Look::RIGHT: dx = 1; dy = 0; break;
+		case Look::LEFT:  dx = -1; dy = 0; break;
+		case Look::UP:    dx = 0; dy = -1; break;
+		case Look::DOWN:  dx = 0; dy = 1; break;
+		}
+
+		// Obtï¿½ la posiciï¿½ del tile davant el jugador
+		Point frontTile = GetFrontTilePos(dx, dy);
+
+		// Obtï¿½ el tipus de tile que hi ha davant
+		Tile tileType = map->GetTile(frontTile.x, frontTile.y);
+
+		// Si ï¿½s un bloc BLUEB, comenï¿½a la destrucciï¿½
+		if (tileType == Tile::BLUEB)
+		{
+			// Canvia el tile a ICEBREAK_1 per iniciar l'animaciï¿½
+			map->SetTile(frontTile.x, frontTile.y, Tile::ICEBREAK_1);
+
+			isDestroying = true;
+			blockToDestroyTile = frontTile;
+			destroyFrameCounter = 0.5;  // Reinicia el comptador d'animaciï¿½
+			state = State::DESTROYING;
 		}
 	}
 }

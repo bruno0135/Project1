@@ -4,20 +4,21 @@
 #include <stdio.h>
 #include "Globals.h"
 
-Scene::Scene()
+Scene::Scene(ResourceManager& data)
+	: resMan(data),
+	player(nullptr),
+	level(nullptr),
+	enemies(nullptr),
+	shots(nullptr),
+	debug(DebugMode::OFF)
 {
-	player = nullptr;
-	level = nullptr;
-	enemies = nullptr;
-	shots = nullptr;
-
-	camera.target = { 0, 0 }; //Center of the screen
-	camera.offset = { 0, MARGIN_GUI_Y }; //Offset from the target (center of the screen)
-	camera.rotation = 0.0f; //No rotation
-	camera.zoom = 1.0f; //Default zoom
-
-	debug = DebugMode::OFF;
+	// Inicialitzem camera al cos del constructor
+	camera.target = { 0, 0 };
+	camera.offset = { 0, MARGIN_GUI_Y };
+	camera.rotation = 0.0f;
+	camera.zoom = 1.0f;
 }
+
 Scene::~Scene()
 {
 	if (player != nullptr)
@@ -118,8 +119,11 @@ AppStatus Scene::Init()
 	//Assign the tile map reference to the player to check collisions while navigating
 	player->SetTileMap(level);
 	enemies->SetTileMap(level);
+	player->SetEnemyManager(enemies);
 	return AppStatus::OK;
 }
+
+
 
 AppStatus Scene::LoadLevel(int stage)
 {
@@ -130,7 +134,8 @@ AppStatus Scene::LoadLevel(int stage)
 	}
 
 	int size;
-	int x, y, i;
+	int x, y;
+	int i = 0;
 	Tile tile;
 	Point pos;
 	int* map = nullptr;
@@ -146,10 +151,10 @@ AppStatus Scene::LoadLevel(int stage)
 
 		 	    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-				1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+				1, 0, 1, 200, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-				1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+				1, 0, 1, 0, 0, 200, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -190,15 +195,15 @@ AppStatus Scene::LoadLevel(int stage)
 	{
 		map = new int[size] {
 			    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-				1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-				1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+				1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+				1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+				1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+				1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+				1, 0, 0, 0, 0, 1, 0, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-				1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-				1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-				1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-				1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-				1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+				1, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+				1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1, 0, 0, 0, 0, 0,18, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 				1,18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -221,11 +226,8 @@ AppStatus Scene::LoadLevel(int stage)
 	Point debug_pos = { 5 * TILE_SIZE, 5 * TILE_SIZE };
 	Point debug_area_pos = debug_pos + Point(-48, -32);
 	AABB debug_area(debug_area_pos, 160, 96);
-	enemies->Add(debug_pos, EnemyType::SNOBEE, debug_area);
-	LOG("Snobee añadido manualmente para test");
-
+	
 	//Entities and objects
-	i = 0;
 	for (y = 0; y < LEVEL_HEIGHT; ++y)
 	{
 		for (x = 0; x < LEVEL_WIDTH; ++x)
@@ -252,6 +254,7 @@ AppStatus Scene::LoadLevel(int stage)
 				if (obj == nullptr) return AppStatus::ERROR;
 				objects.push_back(obj);
 			}
+
 			++i;
 		}
 	}
@@ -272,6 +275,7 @@ AppStatus Scene::LoadLevel(int stage)
 
 	void Scene::Update()
 	{
+		float deltaTime = GetFrameTime();
 		Point p1, p2;
 		AABB playerHitbox = player->GetHitbox();
 
@@ -298,7 +302,7 @@ AppStatus Scene::LoadLevel(int stage)
 		player->Update();
 
 		// Actualitza altres coses (nivell, enemics, etc.)
-		level->Update();
+		level->Update(GetFrameTime());
 		enemies->Update(player->GetHitbox());
 		shots->Update(player->GetHitbox());
 
@@ -312,15 +316,14 @@ AppStatus Scene::LoadLevel(int stage)
 		
 
 		// Check collisions between player and enemies
-		int currentHealth = player->GetHealth();
-		if (enemies->CheckCollisionWithPlayer(playerHitbox, currentHealth))
+		if (enemies->CheckCollisionWithPlayer(playerHitbox, *player))
 		{
-			player->SetHealth(currentHealth);
-			if (currentHealth <= 0)
+			if (player->GetHealth() <= 0)
 			{
 				scene_state = SceneState::LOSE;
 			}
 		}
+		player->UpdateDamageCooldown(GetFrameTime());
 
 		shots->Update(playerHitbox);
 
@@ -472,7 +475,28 @@ void Scene::RenderObjectsDebug(const Color& col) const
 
 void Scene::RenderGUI() const
 {
-	//Temporal approach
-	DrawText(TextFormat("SCORE : %d", player->GetScore()), 10, 10, 8, LIGHTGRAY);
-	DrawText(TextFormat("HEALTH : %d", player->GetHealth()), 10, 20, 8, RED);
+	// Puntuació
+	DrawText(TextFormat("1P : %d", player->GetScore()), 100, 15, 8, SKYBLUE);
+
+	// Obtenir la textura del cor
+	const Texture2D* heartTex = ResourceManager::Instance().GetTexture(Resource::IMG_LIVES);
+
+	if (heartTex == nullptr)
+	{
+		// Si la textura no està carregada, podem sortir o dibuixar un missatge d'error
+		DrawText("Error: Heart texture not loaded", 10, 20, 8, RED);
+		return;
+	}
+
+	int currentHealth = player->GetHealth();
+	const int heartSize = 12; // Depenent de la mida real del teu PNG
+	const int spacing = 3;    // Espai entre cors
+	const int xStart = 10;
+	const int y = 10;
+
+	for (int i = 0; i < currentHealth; ++i)
+	{
+		DrawTexture(*heartTex, xStart + i * (heartSize + spacing), y, WHITE);
+	}
 }
+

@@ -1,5 +1,6 @@
 #pragma once
 #include <raylib.h>
+#include <vector>
 #include "Enemy.h"
 #include "AABB.h"
 #include "Snobee.h"
@@ -10,7 +11,6 @@
 #include "ShotManager.h"
 
 enum class DebugMode { OFF, SPRITES_AND_HITBOXES, ONLY_HITBOXES, SIZE };
-
 enum class SceneState { PLAYING, WIN, LOSE };
 
 class Scene
@@ -19,7 +19,8 @@ public:
 
     SceneState scene_state = SceneState::PLAYING;
 
-    Scene();
+    // Constructor únic, obligatori passar ResourceManager
+    explicit Scene(ResourceManager& data);
     ~Scene();
 
     AppStatus Init();
@@ -29,7 +30,7 @@ public:
 
 private:
     AppStatus LoadLevel(int stage);
-
+    ResourceManager& resMan;
 
     void CheckObjectCollisions();
     void CheckPlayerEnemyCollisions();
@@ -41,17 +42,9 @@ private:
     void RenderGUI() const;
 
     Player* player;
-
-    //Level structure that contains all the static tiles
     TileMap* level;
-
-    //Dynamic objects of the level: items and collectables
     std::vector<Object*> objects;
-
-    //Enemies present in the level
     EnemyManager* enemies;
-
-    //Shots thrown by enemies
     ShotManager* shots;
 
     Camera2D camera;
@@ -59,8 +52,7 @@ private:
 
     bool godMode = false;
 
-    bool diamondLineDetected = false;   // Si s'ha detectat línia de diamants
-    float diamondCooldown = 0.5f;       // Temps de cooldown en segons (per exemple 2 segons)
-    float diamondTimer = 0.0f;          // Temporitzador acumulat
-
+    bool diamondLineDetected = false;
+    float diamondCooldown = 0.5f;
+    float diamondTimer = 0.0f;
 };

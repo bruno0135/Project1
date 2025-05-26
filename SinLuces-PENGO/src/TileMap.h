@@ -6,6 +6,9 @@
 #include "Globals.h"
 #include <unordered_map>
 
+
+class EnemyManager;
+
 enum class Tile {
 
 	// -1: area covered by entity
@@ -52,7 +55,7 @@ public:
 	AppStatus Load(int data[], int w, int h);
 	void ClearObjectEntityPositions();
 
-	void Update();
+	void Update(float deltaTime);
 	void Render();
 	void Release();
 
@@ -72,10 +75,12 @@ public:
 
 	AABB GetSweptAreaX(const AABB& hitboxbox) const;
 	bool MoveSolidBlockInPixels(AABB& box, const Point& new_pixel_pos);
-	bool TryPushBlock(AABB blockBox, int directionX, int directionY);
+	bool TryPushBlock(AABB blockBox, int directionX, int directionY, EnemyManager* enemyManager);
 	bool CheckDiamondLines() const;
 	bool BreakBlockAt(int x, int y);
 
+	Tile GetTile(int x, int y) const;// retorna l'ID del tile a la posició
+void SetTile(int x, int y, Tile tile);
 
 	// ðŸ”§ NUEVAS FUNCIONES PARA MOVIMIENTO DE BLOQUES
 	bool IsBlockAt(int x, int y) const;
@@ -106,6 +111,8 @@ private:
 
 	Sprite* laser;
 
+	int Width, Height;
+	std::vector<Tile> tiles;
 	//Tile sheet
 	const Texture2D* img_tiles;
 };
