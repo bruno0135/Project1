@@ -94,7 +94,7 @@ bool EnemyManager::CheckCollisionWithPlayer(AABB& playerHitbox, Player& player)
 	return false; // No hi ha col·lisió
 }
 
-void EnemyManager::CheckBlockCrush(const AABB& blockBox)
+void EnemyManager::CheckBlockCrush(const AABB& blockBox, Player* player)
 {
 	for (auto it = enemies.begin(); it != enemies.end(); )
 	{
@@ -109,7 +109,13 @@ void EnemyManager::CheckBlockCrush(const AABB& blockBox)
 
 		if (enemyBox.TestAABB(blockBox))
 		{
-			// Allibera mem�ria de l'enemic
+			// Suma 100 punts si el jugador és vàlid
+			if (player != nullptr)
+			{
+				player->IncrScore(100);
+			}
+
+			// Allibera memòria de l'enemic
 			delete enemy;
 			// Elimina l'enemic del vector i actualitza l'iterador
 			it = enemies.erase(it);
@@ -119,6 +125,7 @@ void EnemyManager::CheckBlockCrush(const AABB& blockBox)
 			++it;
 		}
 	}
+	
 }
 
 void EnemyManager::Update(const AABB& player_hitbox)

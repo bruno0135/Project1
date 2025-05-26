@@ -2,6 +2,7 @@
 #include "Globals.h"
 #include "ResourceManager.h"
 #include "EnemyManager.h"
+#include "Player.h" 
 #include <cstring>
 
 TileMap::TileMap()
@@ -276,7 +277,7 @@ bool TileMap::MoveSolidBlockInPixels(AABB& box, const Point& new_pixel_pos)
 
 	return true;
 }
-bool TileMap::TryPushBlock(AABB blockBox, int directionX, int directionY, EnemyManager* enemyManager)
+bool TileMap::TryPushBlock(AABB blockBox, int directionX, int directionY, EnemyManager* enemyManager, Player* player)
 {
 	bool pushed = false;
 	std::vector<Point> path;
@@ -301,7 +302,7 @@ bool TileMap::TryPushBlock(AABB blockBox, int directionX, int directionY, EnemyM
 
 		// Comprovem si esclafa algun enemic abans de moure el bloc
 		if (enemyManager != nullptr) {
-			enemyManager->CheckBlockCrush(nextBox); // Aquesta funció ha de fer la comprovació i eliminar si cal
+			enemyManager->CheckBlockCrush(nextBox, player); // Aquesta funció ha de fer la comprovació i eliminar si cal
 		}
 
 		// Intentem moure el bloc

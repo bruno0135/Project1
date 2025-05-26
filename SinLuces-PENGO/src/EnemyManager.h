@@ -37,7 +37,7 @@ public:
 	void SetTileMap(TileMap* m);
 	bool CheckCollisionWithPlayer(AABB& playerHitbox, Player& player);
 	std::vector<Enemy*>& GetAll();
-	void CheckBlockCrush(const AABB& blockBox);
+	void CheckBlockCrush(const AABB& blockBox, Player* player);
 
 
 

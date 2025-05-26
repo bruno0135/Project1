@@ -366,7 +366,7 @@ void Player::Move()
 		}
 		else if (pushing) {
 			AABB blockBox(Point(frontTile.x * TILE_SIZE, frontTile.y * TILE_SIZE), TILE_SIZE, TILE_SIZE);
-			if (map->TryPushBlock(blockBox, dx, dy, enemyManager)) {
+			if (map->TryPushBlock(blockBox, dx, dy, enemyManager, this)) {
 				pos.x += dx * PLAYER_SPEED;
 				pos.y += dy * PLAYER_SPEED;
 				state = State::PUSH;

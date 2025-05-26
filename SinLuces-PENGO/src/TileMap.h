@@ -7,6 +7,7 @@
 #include <unordered_map>
 
 class EnemyManager;
+class Player;
 
 enum class Tile {
 
@@ -74,7 +75,7 @@ public:
 
 	AABB GetSweptAreaX(const AABB& hitboxbox) const;
 	bool MoveSolidBlockInPixels(AABB& box, const Point& new_pixel_pos);
-	bool TryPushBlock(AABB blockBox, int directionX, int directionY, EnemyManager* enemyManager);
+	bool TryPushBlock(AABB blockBox, int directionX, int directionY, EnemyManager* enemyManager, Player* player);
 	bool CheckDiamondLines() const;
 	bool BreakBlockAt(int x, int y);
 
