@@ -82,8 +82,7 @@ AppStatus SNOBEE::Initialise(const Point& pos, EnemyType type, const AABB& area,
 
 void SNOBEE::InitPattern()
 {
-    // ...
-    // (mantinc el teu codi original de InitPattern sense canvis)
+   
 }
 
 bool SNOBEE::Update(const AABB& playerBox)
@@ -123,7 +122,7 @@ bool SNOBEE::Update(const AABB& playerBox)
     }
 
     case SNOBEEState::ATTACK:
-        // Pots implementar l�atac aqu�
+     
         break;
     }
 

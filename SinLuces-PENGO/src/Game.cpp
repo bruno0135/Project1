@@ -185,22 +185,7 @@ AppStatus Game::Update()
 
         StopMusicStream(musicStage1);
     }
-    /*if (state == GameState::YOU_WIN)
-    {
-        PlayMusicStream(musicWin);
-        UpdateMusicStream(musicWin);
-    }
-    else {
-        StopMusicStream(musicWin);
-    }
-    if (state == GameState::YOU_LOSE)
-    {
-        PlayMusicStream(musicLose);
-        UpdateMusicStream(musicLose);
-    }
-    else {
-        StopMusicStream(musicLose);
-    }*/
+   
     if (WindowShouldClose()) return AppStatus::QUIT;
 
     const int totalFrames = 16;

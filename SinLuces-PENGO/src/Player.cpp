@@ -173,7 +173,6 @@ void Player::TakeDamage(int amount)
 
 	isDamageCooldownActive = true;
 	damageCooldownTimer = 0.0f;
-	// Pots afegir aquí efectes com sons, animacions, etc.
 }
 bool Player::CanTakeDamage() const {
 	return !isDamageCooldownActive;
