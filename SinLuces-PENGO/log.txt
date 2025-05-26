@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Project executed on 25-05-2025 at 12:44:44.
+=======
+Project executed on 26-05-2025 at 03:44:29.
+>>>>>>> DestruirParets
 main.cpp(13): Application start
 Scene.cpp(225): Snobee añadido manualmente para test
 TileMap.cpp(135): Error: TileMap instance or map is null
@@ -175,6 +179,7 @@ TileMap.cpp(135): Error: TileMap instance or map is null
 TileMap.cpp(135): Error: TileMap instance or map is null
 TileMap.cpp(135): Error: TileMap instance or map is null
 TileMap.cpp(135): Error: TileMap instance or map is null
+<<<<<<< HEAD
 TileMap.cpp(135): Error: TileMap instance or map is null
 TileMap.cpp(135): Error: TileMap instance or map is null
 TileMap.cpp(135): Error: TileMap instance or map is null
@@ -247,5 +252,30 @@ TileMap.cpp(135): Error: TileMap instance or map is null
 TileMap.cpp(135): Error: TileMap instance or map is null
 TileMap.cpp(135): Error: TileMap instance or map is null
 Scene.cpp(225): Snobee añadido manualmente para test
+=======
+Scene.cpp(225): Snobee añadido manualmente para test
+TileMap.cpp(542): Block at (9,10) broken!
+Player.cpp(336): Bloque roto frente al jugador en (9, 10)
+TileMap.cpp(542): Block at (9,11) broken!
+Player.cpp(336): Bloque roto frente al jugador en (9, 11)
+TileMap.cpp(542): Block at (9,12) broken!
+Player.cpp(336): Bloque roto frente al jugador en (9, 12)
+TileMap.cpp(542): Block at (11,11) broken!
+Player.cpp(336): Bloque roto frente al jugador en (11, 11)
+TileMap.cpp(542): Block at (11,12) broken!
+Player.cpp(336): Bloque roto frente al jugador en (11, 12)
+TileMap.cpp(542): Block at (11,13) broken!
+Player.cpp(336): Bloque roto frente al jugador en (11, 13)
+TileMap.cpp(542): Block at (11,10) broken!
+Player.cpp(336): Bloque roto frente al jugador en (11, 10)
+TileMap.cpp(542): Block at (10,10) broken!
+Player.cpp(336): Bloque roto frente al jugador en (10, 10)
+TileMap.cpp(542): Block at (7,10) broken!
+Player.cpp(336): Bloque roto frente al jugador en (7, 10)
+TileMap.cpp(542): Block at (7,9) broken!
+Player.cpp(336): Bloque roto frente al jugador en (7, 9)
+TileMap.cpp(542): Block at (6,7) broken!
+Player.cpp(336): Bloque roto frente al jugador en (6, 7)
+>>>>>>> DestruirParets
 main.cpp(34): Application finish
 main.cpp(37): Bye :)

@@ -309,10 +309,11 @@ void Player::Move()
 {
 	AABB box = GetHitbox();
 
-	// Variables auxiliars
+	// Variables auxiliares
 	int dx = 0, dy = 0;
 	bool isMoving = false;
 	bool pushing = IsKeyDown(KEY_SPACE);
+	bool breaking = IsKeyPressed(KEY_X); // NUEVO: Romper bloque al presionar X
 
 	// Detectar direcció
 	if (IsKeyDown(KEY_LEFT)) { dx = -1; look = Look::LEFT;  currentDirection = PlayerAnim::WALK_LEFT;  isMoving = true; }
@@ -324,47 +325,55 @@ void Player::Move()
 	if (!isMoving) {
 		currentDirection = PlayerAnim::NONE;
 		state = State::IDLE;
-		return;
 	}
 
-	// Obtenim tile davant i el seu AABB
+	// Obtener posición del tile frente al jugador
 	Point frontTile = GetFrontTilePos(dx, dy);
-	AABB blockBox(Point(frontTile.x * TILE_SIZE, frontTile.y * TILE_SIZE), TILE_SIZE, TILE_SIZE);
 
-	// Calculem hitbox simulat
+	// NUEVO: romper bloque si se presiona X
+	if (breaking) {
+		if (map->BreakBlockAt(frontTile.x, frontTile.y)) {
+			LOG("Bloque roto frente al jugador en (%d, %d)", frontTile.x, frontTile.y);
+		}
+		else {
+			LOG("No se pudo romper el bloque en (%d, %d)", frontTile.x, frontTile.y);
+		}
+	}
+
+	// Calcular hitbox simulado
 	AABB newBox = box;
 	newBox.pos.x += dx * PLAYER_SPEED;
 	newBox.pos.y += dy * PLAYER_SPEED;
 
-	// Si no hi ha col·lisió
 	bool noCollision = true;
 	if (dx == -1) noCollision = !map->TestCollisionWallLeft(newBox);
 	else if (dx == 1) noCollision = !map->TestCollisionWallRight(newBox);
 	else if (dy == -1) noCollision = !map->TestCollisionWallUp(newBox);
 	else if (dy == 1) noCollision = !map->TestCollisionWallDown(newBox);
 
-	if (noCollision) {
-		// Moure sense empènyer
-		pos.x += dx * PLAYER_SPEED;
-		pos.y += dy * PLAYER_SPEED;
-		state = State::WALKING;
-	}
-	else if (pushing) {
-		// Si volem empènyer i es pot moure el bloc
-		if (map->TryPushBlock(blockBox, dx, dy)) {
+	if (isMoving) {
+		if (noCollision) {
 			pos.x += dx * PLAYER_SPEED;
 			pos.y += dy * PLAYER_SPEED;
-			state = State::PUSH;
+			state = State::WALKING;
+		}
+		else if (pushing) {
+			AABB blockBox(Point(frontTile.x * TILE_SIZE, frontTile.y * TILE_SIZE), TILE_SIZE, TILE_SIZE);
+			if (map->TryPushBlock(blockBox, dx, dy)) {
+				pos.x += dx * PLAYER_SPEED;
+				pos.y += dy * PLAYER_SPEED;
+				state = State::PUSH;
+			}
+			else {
+				state = State::IDLE;
+			}
 		}
 		else {
 			state = State::IDLE;
 		}
 	}
-	else {
-		// No podem moure ni empènyer
-		state = State::IDLE;
-	}
 }
+
 
 void Player::DrawDebug(const Color& col) const
 {
