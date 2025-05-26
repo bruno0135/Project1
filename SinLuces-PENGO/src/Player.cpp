@@ -281,7 +281,6 @@ void Player::Update()
 		break;
 
 	case State::DEAD:
-		// Aquí podries posar una animació de mort si tens
 		break;
 	}
 	
