@@ -583,7 +583,7 @@ AppStatus TileMap::GenerateRandomMap(int windowWidth, int windowHeight, EnemyMan
 				map[idx] = Tile::BLUEB;
 			}
 			else {
-				map[idx] = (rand() % 100 < 50) ? Tile::BLUEB : Tile::AIR;
+				map[idx] = (rand() % 100 < 30) ? Tile::BLUEB : Tile::AIR;
 			}
 		}
 	}

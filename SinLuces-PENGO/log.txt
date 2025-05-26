@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Project executed on 26-05-2025 at 22:46:26.
 main.cpp(13): Application start
 TileMap.cpp(408): Diamond at (1,7), count = 1
@@ -11192,5 +11193,1901 @@ TileMap.cpp(431): Diamond at (2,8), count = 1
 TileMap.cpp(439): Diamond line broken at (2,9), count reset
 TileMap.cpp(431): Diamond at (4,12), count = 1
 TileMap.cpp(439): Diamond line broken at (4,13), count reset
+=======
+Project executed on 26-05-2025 at 22:44:29.
+main.cpp(13): Application start
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+TileMap.cpp(408): Diamond at (5,1), count = 1
+TileMap.cpp(408): Diamond at (6,1), count = 2
+TileMap.cpp(416): Diamond line broken at (7,1), count reset
+TileMap.cpp(408): Diamond at (9,3), count = 1
+TileMap.cpp(416): Diamond line broken at (10,3), count reset
+TileMap.cpp(431): Diamond at (5,1), count = 1
+TileMap.cpp(439): Diamond line broken at (5,2), count reset
+TileMap.cpp(431): Diamond at (6,1), count = 1
+TileMap.cpp(439): Diamond line broken at (6,2), count reset
+TileMap.cpp(431): Diamond at (9,3), count = 1
+TileMap.cpp(439): Diamond line broken at (9,4), count reset
+>>>>>>> 7b845d24f4f2f7d359b5adee7eaf63f33e2eff11
 main.cpp(34): Application finish
 main.cpp(37): Bye :)

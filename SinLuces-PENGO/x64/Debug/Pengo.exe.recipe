@@ -2,7 +2,11 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
+<<<<<<< HEAD
       <FullPath>C:\Users\Pc\Documents\GitHub\Project1\SinLuces-PENGO\x64\Debug\Pengo.exe</FullPath>
+=======
+      <FullPath>C:\Users\marti\OneDrive\Documents\Project1\SinLuces-PENGO\x64\Debug\Pengo.exe</FullPath>
+>>>>>>> 7b845d24f4f2f7d359b5adee7eaf63f33e2eff11
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
