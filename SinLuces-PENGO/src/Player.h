@@ -3,9 +3,6 @@
 #include "TileMap.h"
 #include <unordered_map>
 
-// Forward declaration d'EnemyManager per evitar incloure tot el seu header
-class EnemyManager;
-
 //Representation model size: 32x32
 #define PLAYER_FRAME_SIZE		16
 
@@ -36,7 +33,7 @@ class EnemyManager;
 #define GRAVITY_FORCE			1
 
 //Logic states
-enum class State { IDLE, WALKING, PUSH, DESTROYING, DEAD };
+enum class State { IDLE, WALKING, PUSH, DEAD };
 
 //Rendering states
 enum class PlayerAnim {
@@ -45,6 +42,7 @@ enum class PlayerAnim {
 	PUSH_LEFT, PUSH_RIGHT, PUSH_DOWN, PUSH_UP,
 	NUM_ANIMATIONS, NONE
 };
+
 
 class Player : public Entity
 {
@@ -63,21 +61,25 @@ public:
 	void DrawDebug(const Color& col) const;
 	void Release();
 
+	/*void FreezeAnimationFrame();*/
+	void RestoreAnimationFrame();
+	void Stop();
+	void ResumeMovement();
+
+	/*Take Damage*/
 	void TakeDamage(int amount);
 	bool CanTakeDamage() const;
 	void StartDamageCooldown();
 	void UpdateDamageCooldown(float deltaTime);
-	int GetHealth() const;
+	int GetHealth() const;	
 	void SetHealth(int newHealth) { health = newHealth; }
-	void SetEnemyManager(EnemyManager* manager);
 
+	// NEW: afegir la funció per saber si hem guanyat
 	bool HasWon() const { return hasWon; }
 	AABB GetHitbox() const;
 
-	void RestoreAnimationFrame();
 
-	void Stop();
-	void ResumeMovement();
+
 
 private:
 
@@ -106,26 +108,18 @@ private:
 	void ChangeAnimUp();
 	void ChangeAnimDown();
 
-	//Funció per cridar quan es guanya
+	// NEW: Funció per cridar quan es guanya
 	void OnPlayerWin();
 
-	void TryDestroyBlock();
-
-
-	EnemyManager* enemyManager = nullptr;
 	State state;
 	Look look;
 	TileMap* map;
 	int score;
-	int health = 4; // Aqui se cambian las vidas 
+	/*Vida*/
+	int health = 4; //Aqui se cambian las vidas 
 	float damageCooldownTimer = 0.0f;
 	float damageCooldownTime = 1.0f; // 1 segon de cooldown
 	bool isDamageCooldownActive = false;
-
-	bool isDestroying = false;
-	Point blockToDestroyTile;
-	int destroyFrameCounter = 0;
-	const int destroyAnimDurationFrames = 48;
 
 	// indica que el jugador ha guanyat
 	bool hasWon = false;

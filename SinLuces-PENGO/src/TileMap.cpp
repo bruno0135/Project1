@@ -1,7 +1,6 @@
 #include "TileMap.h"
 #include "Globals.h"
 #include "ResourceManager.h"
-#include "EnemyManager.h"
 #include <cstring>
 
 TileMap::TileMap()
@@ -36,23 +35,20 @@ void TileMap::InitTileDictionary()
 	dict_rect[(int)Tile::YELLOWB_2] =  { n, 0, n, n   };
 	dict_rect[(int)Tile::YELLOWB_3] =  { 2*n, 0, n, n };
 	dict_rect[(int)Tile::BLUEB] =      { 3*n, 0, n, n };
-
-	dict_rect[(int)Tile::ICEBREAK_1] = { 5*n, 0, n, n };
 	dict_rect[(int)Tile::ICEBREAK_2] = { 4*n, 0, n, n };
+	dict_rect[(int)Tile::ICEBREAK_1] = { 5*n, 0, n, n };
 	dict_rect[(int)Tile::ICEBREAK_3] = { 6*n, 0, n, n };
 	dict_rect[(int)Tile::ICEBREAK_4] = { 7*n, 0, n, n };
 	dict_rect[(int)Tile::ICEBREAK_5] = { 0, n, n, n   };
 	dict_rect[(int)Tile::ICEBREAK_6] = { n, n, n, n   };
 	dict_rect[(int)Tile::ICEBREAK_7] = { 2*n, n, n, n };
 	dict_rect[(int)Tile::ICEBREAK_8] = { 3*n, n, n, n };
-
 	dict_rect[(int)Tile::LIGHTBLUEB] = { 4*n, n, n, n };
 	dict_rect[(int)Tile::ORANGEB] =    { 5*n, n, n, n };
 	dict_rect[(int)Tile::REDB] =	   { 6*n, n, n, n };
 	dict_rect[(int)Tile::PINKB] =      { 7*n, n, n, n };
 	dict_rect[(int)Tile::GREENB] =			{ 0, 2*n, n, n   };
 	dict_rect[(int)Tile::DIAMONDBLUE] =     { 7*n, 2*n, n, n };
-
 	dict_rect[(int)Tile::PURPLE_STAR] =		{ n,  5*n, n, n  };
 	dict_rect[(int)Tile::YELLOW_STAR] =		{ 2*n, 5*n, n, n };
 	dict_rect[(int)Tile::LIGHTYELLOW_STAR]= { 3*n, 5*n, n, n };
@@ -128,19 +124,9 @@ void TileMap::ClearObjectEntityPositions()
 			map[i] = Tile::AIR;
 	}
 }
-void TileMap::Update(float deltaTime)
+void TileMap::Update()
 {
-	for (int y = 0; y < Height; ++y)
-	{
-		for (int x = 0; x < Width; ++x)
-		{
-			Tile tile = GetTile(x, y);
-			if (tile == Tile::ICEBREAK_1)
-			{
-				SetTile(x, y, Tile::AIR);
-			}
-		}
-	}
+	laser->Update();
 }
 Tile TileMap::GetTileIndex(int x, int y) const
 {
@@ -200,6 +186,25 @@ bool TileMap::TestCollisionWallDown(const AABB& box) const
 {
 	return CollisionY(Point(box.pos.x, box.pos.y + box.height), box.width);
 }
+
+bool TileMap::TestCollisionGround(const AABB& box, int *py) const
+{
+	Point p(box.pos.x, *py);	//control point
+	int tile_y;
+
+	if (CollisionY(p, box.width))
+	{
+		tile_y = p.y / TILE_SIZE;
+
+		*py = tile_y * TILE_SIZE - 1;
+		return true;
+	}
+	return false;
+}
+bool TileMap::TestFalling(const AABB& box) const
+{
+	return !CollisionY(box.pos + Point(0, box.height), box.width);
+}
 bool TileMap::CollisionX(const Point& p, int distance) const
 {
 	int x = p.x / TILE_SIZE;
@@ -227,25 +232,6 @@ bool TileMap::CollisionY(const Point& p, int distance) const
 	}
 	return false;
 }
-bool TileMap::TestCollisionGround(const AABB& box, int *py) const
-{
-	Point p(box.pos.x, *py);	//control point
-	int tile_y;
-
-	if (CollisionY(p, box.width))
-	{
-		tile_y = p.y / TILE_SIZE;
-
-		*py = tile_y * TILE_SIZE - 1;
-		return true;
-	}
-	return false;
-}
-bool TileMap::TestFalling(const AABB& box) const
-{
-	return !CollisionY(box.pos + Point(0, box.height), box.width);
-}
-
 
 //moure un bloc solid
 bool TileMap::MoveSolidBlockInPixels(AABB& box, const Point& new_pixel_pos)
@@ -288,10 +274,9 @@ bool TileMap::MoveSolidBlockInPixels(AABB& box, const Point& new_pixel_pos)
 
 	return true;
 }
-bool TileMap::TryPushBlock(AABB blockBox, int directionX, int directionY, EnemyManager* enemyManager)
+bool TileMap::TryPushBlock(AABB blockBox, int directionX, int directionY)
 {
-	bool pushed = false;
-	std::vector<Point> path;
+	bool pushed = false; // Per saber si hem mogut el bloc almenys un cop
 
 	while (true) {
 		int blockX = blockBox.pos.x / TILE_SIZE;
@@ -299,29 +284,30 @@ bool TileMap::TryPushBlock(AABB blockBox, int directionX, int directionY, EnemyM
 		int nextBlockX = blockX + directionX;
 		int nextBlockY = blockY + directionY;
 
-		if (nextBlockX < 0 || nextBlockX >= width || nextBlockY < 0 || nextBlockY >= height) break;
-		if (IsTileSolid(GetTileIndex(nextBlockX, nextBlockY))) break;
-
-		if (!MoveSolidBlockInPixels(blockBox, Point(nextBlockX * TILE_SIZE, nextBlockY * TILE_SIZE))) break;
-
-		blockBox.MoveTo(nextBlockX * TILE_SIZE, nextBlockY * TILE_SIZE);
-
-		pushed = true;
-		path.push_back(blockBox.pos);
-	}
-
-	if (pushed && enemyManager != nullptr)
-	{
-		for (const Point& pos : path)
-		{
-			AABB boxAtPos(pos, blockBox.width, blockBox.height);
-			enemyManager->CheckBlockCrush(boxAtPos);
+		// Si estem fora dels límits, parem i retornem
+		if (nextBlockX < 0 || nextBlockX >= width || nextBlockY < 0 || nextBlockY >= height) {
+			break; // Aturem el bucle, no podem moure més
 		}
+
+		// Si la següent tile és sòlida, parem
+		if (IsTileSolid(GetTileIndex(nextBlockX, nextBlockY))) {
+			break; // Aturem el bucle, no podem moure més
+		}
+
+		// Intentem moure el bloc a la següent posició
+		if (!MoveSolidBlockInPixels(blockBox, Point(nextBlockX * TILE_SIZE, nextBlockY * TILE_SIZE))) {
+			break; // Si no podem moure, parem
+		}
+
+		// Hem mogut el bloc almenys un cop
+		pushed = true;
+
+		// Actualitzem la posició de la caixa per a la següent iteració
+		blockBox.MoveTo(nextBlockX * TILE_SIZE, nextBlockY * TILE_SIZE);
 	}
 
-	return pushed;
+	return pushed; // Retornem si s'ha mogut o no
 }
-
 
 
 bool TileMap::TestOnLadder(const AABB& box, int* px) const
@@ -445,22 +431,6 @@ bool TileMap::CheckDiamondLines() const
 
 	return false;
 }
-
-Tile TileMap::GetTile(int x, int y) const
-{
-	if (x < 0 || y < 0 || x >= Width || y >= Height)
-		return Tile::AIR;
-
-	return static_cast<Tile>(tiles[y * Width + x]);
-}
-
-void TileMap::SetTile(int x, int y, Tile tile)
-{
-	if (x < 0 || y < 0 || x >= Width || y >= Height)
-		return;
-	tiles[y * Width + x] = tile;
-}
-
 
 
 AABB TileMap::GetSweptAreaX(const AABB& hitbox) const
