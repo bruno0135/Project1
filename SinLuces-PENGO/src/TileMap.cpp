@@ -559,11 +559,11 @@ bool TileMap::BreakBlockAt(int x, int y)
 
 AppStatus TileMap::GenerateRandomMap(int windowWidth, int windowHeight, EnemyManager* enemies)
 {
-	// Calcular amplada i alçada del mapa basats en la mida de finestra i la mida de tile
+	// Calcular dimensiones del mapa
 	int width = WINDOW_WIDTH / TILE_SIZE;
 	int height = WINDOW_HEIGHT / TILE_SIZE;
 
-	// Eliminar mapa anterior si n'hi ha
+	// Eliminar mapa anterior si existe
 	if (map != nullptr) delete[] map;
 
 	size = width * height;
@@ -573,51 +573,76 @@ AppStatus TileMap::GenerateRandomMap(int windowWidth, int windowHeight, EnemyMan
 	map = new Tile[size];
 	if (map == nullptr) return AppStatus::ERROR;
 
-	// Posició central del jugador
-	int playerX = width / 2;
-	int playerY = height / 2;
-
-	// Inicialitzar el mapa amb blocs i aire
+	// Inicializar mapa con bordes sólidos y dos filas en la parte inferior
 	for (int y = 0; y < height; ++y) {
 		for (int x = 0; x < width; ++x) {
 			int idx = y * width + x;
 
-			if (x == 0 || x == width - 1 || y == 0 || y == height - 1) {
-				map[idx] = Tile::BLUEB;  // Bordes dins la finestra
+			// Bordes + 2 filas inferiores
+			if (x == 0 || x == width - 1 || y == 0 || y >= height - 2) {
+				map[idx] = Tile::BLUEB;
 			}
 			else {
-				int rnd = rand() % 100;
-				map[idx] = (rnd < 50) ? Tile::BLUEB : Tile::AIR;
+				map[idx] = (rand() % 100 < 50) ? Tile::BLUEB : Tile::AIR;
 			}
 		}
 	}
 
-	// Col·locar 3 diamants prop del jugador
+	// Generar posición segura para el jugador
+	int playerX, playerY;
+	int attempts = 0;
+	const int MAX_ATTEMPTS = 100;
+
+	do {
+		// Área segura: 1 tile de margen de los bordes y 2 tiles de la zona inferior
+		playerX = rand() % (width - 2) + 1;
+		playerY = rand() % (height - 4) + 1;  // -4 para dejar 2 tiles de bloques + 1 de margen
+
+		// Verificar que no estemos en un bloque sólido
+		int idx = playerY * width + playerX;
+		if (!IsTileSolid(map[idx])) {
+			break;
+		}
+
+		attempts++;
+		if (attempts >= MAX_ATTEMPTS) {
+			// Si no encontramos posición válida, usar posición por defecto
+			playerX = width / 2;
+			playerY = height / 2;
+			break;
+		}
+	} while (true);
+
+	// Colocar diamantes (3) cerca del jugador
 	int diamondsPlaced = 0;
 	while (diamondsPlaced < 3) {
-		int offsetX = (rand() % 5) - 2;
-		int offsetY = (rand() % 5) - 2;
+		int offsetX = (rand() % 7) - 3;  // Rango de ±3 tiles
+		int offsetY = (rand() % 7) - 3;
 		int x = playerX + offsetX;
 		int y = playerY + offsetY;
 
-		if (x <= 0 || x >= width - 1 || y <= 0 || y >= height - 1) continue;
+		// Verificar límites y que sea posición válida
+		if (x < 1 || x >= width - 1 || y < 1 || y >= height - 3) continue;
 
 		int idx = y * width + x;
-		if (map[idx] != Tile::DIAMONDBLUE && !IsTileSolid(map[idx])) {
+		if (map[idx] == Tile::AIR) {
 			map[idx] = Tile::DIAMONDBLUE;
 			diamondsPlaced++;
 		}
 	}
 
-	// Col·locar 4 enemics si el gestor d'enemics és vàlid
+	// Colocar enemigos (4)
 	if (enemies != nullptr) {
 		int enemiesPlaced = 0;
 		while (enemiesPlaced < 4) {
 			int x = rand() % (width - 2) + 1;
-			int y = rand() % (height - 2) + 1;
+			int y = rand() % (height - 3) + 1;  // Evitar zona inferior
 
-			if ((x == playerX && y == playerY) || IsTileSolid(GetTileIndex(x, y)) || map[y * width + x] == Tile::DIAMONDBLUE)
+			// Verificar que no esté en la posición del jugador, en un sólido o diamante
+			int idx = y * width + x;
+			if ((x == playerX && y == playerY) || IsTileSolid(map[idx]) || map[idx] == Tile::DIAMONDBLUE) {
 				continue;
+			}
 
 			Point enemyPos = { x * TILE_SIZE, y * TILE_SIZE };
 			enemies->AddEnemy(enemyPos, this);
