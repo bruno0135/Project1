@@ -107,11 +107,13 @@ AppStatus Scene::Init()
 		return AppStatus::ERROR;
 	}
 	//Load level
-	if (LoadLevel(1) != AppStatus::OK)
+	//Load level (0 = random map, 1–3 = fijos)
+	if (LoadLevel(0) != AppStatus::OK)
 	{
-		LOG("Failed to load Level 1");
+		LOG("Failed to load level");
 		return AppStatus::ERROR;
 	}
+
 
 
 
@@ -142,6 +144,16 @@ AppStatus Scene::LoadLevel(int stage)
 	ClearLevel();
 
 	size = LEVEL_WIDTH * LEVEL_HEIGHT;
+
+	if (stage == 0) {
+		if (level->GenerateRandomMap(LEVEL_WIDTH, LEVEL_HEIGHT) != AppStatus::OK) {
+			LOG("Failed to generate random map");
+			return AppStatus::ERROR;
+		}
+		player->InitScore();
+		return AppStatus::OK;
+	}
+
 	if (stage == 1)
 	{
 		map = new int[size] {
@@ -291,6 +303,10 @@ AppStatus Scene::LoadLevel(int stage)
 
 			}
 		}
+		if (IsKeyPressed(KEY_F8)) {
+			LoadLevel(0); // mapa aleatorio
+		}
+
 		if (!godMode) {
 			CheckPlayerEnemyCollisions();
 		}
@@ -414,7 +430,7 @@ void Scene::Release()
 }
 void Scene::CheckObjectCollisions()
 {
-	AABB playerHitbox = player->GetHitbox();
+	AABB playerHitbox = player->GetHitbox(); 
 
 	for (Enemy* enemy : enemies->GetAll())
 	{

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <raylib.h>
 #include <vector>
 #include "Enemy.h"
@@ -29,6 +29,12 @@ public:
     void Release();
     void SetFont(Font* font);
 
+    // ✅ AÑADIDO: Acceso al estado de la escena (para Game.cpp)
+    SceneState GetState() const { return scene_state; }
+
+    // ✅ AÑADIDO: Acceso al TileMap para poder usar GenerateRandomMap()
+    TileMap* GetTileMap() const { return level; }
+
 private:
     AppStatus LoadLevel(int stage);
     ResourceManager& resMan;
@@ -55,7 +61,8 @@ private:
 
     //Shots thrown by enemies
     ShotManager* shots;
-    Font* customFont;
+    Font* customFont = nullptr; // ✅ INICIALIZADA
+
     Camera2D camera;
     DebugMode debug;
 
@@ -64,5 +71,4 @@ private:
     bool diamondLineDetected = false;
     float diamondCooldown = 0.5f;
     float diamondTimer = 0.0f;
-
 };

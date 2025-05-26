@@ -53,6 +53,7 @@ public:
 
 	AppStatus Initialise();
 	AppStatus Load(int data[], int w, int h);
+	AppStatus GenerateRandomMap(int width, int height);
 	void ClearObjectEntityPositions();
 
 	void Update();
@@ -85,6 +86,8 @@ public:
 	bool IsWallAt(int x, int y) const;
 	void RemoveBlock(int x, int y);
 	void MoveBlock(int fromX, int fromY, int toX, int toY);
+	
+
 
 private:
 	void InitTileDictionary();

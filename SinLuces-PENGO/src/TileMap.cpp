@@ -4,6 +4,7 @@
 #include "EnemyManager.h"
 #include "Player.h" 
 #include <cstring>
+#include <set>
 
 TileMap::TileMap()
 {
@@ -554,3 +555,58 @@ bool TileMap::BreakBlockAt(int x, int y)
 	LOG("Block at (%d,%d) broken!", x, y);
 	return true;
 }
+
+
+AppStatus TileMap::GenerateRandomMap(int width, int height)
+{
+	if (map != nullptr) delete[] map;
+
+	size = width * height;
+	this->width = width;
+	this->height = height;
+
+	map = new Tile[size];
+	if (map == nullptr) return AppStatus::ERROR;
+
+	// Posición central del jugador (más o menos centro)
+	int playerX = width / 2;
+	int playerY = height / 2;
+
+	// Llena inicialmente el mapa con bloques normales y aire
+	for (int y = 0; y < height; ++y) {
+		for (int x = 0; x < width; ++x) {
+			if (x == 0 || x == width - 1 || y == 0 || y == height - 1) {
+				map[y * width + x] = Tile::BLUEB;  // Bordes sólidos
+			}
+			else {
+				int rnd = rand() % 100;
+				map[y * width + x] = (rnd < 50) ? Tile::BLUEB : Tile::AIR;
+			}
+		}
+	}
+
+	// Ahora coloca exactamente 3 diamantes en posiciones aleatorias cerca del jugador
+	int diamondsPlaced = 0;
+
+	while (diamondsPlaced < 3) {
+		int offsetX = (rand() % 5) - 2;  // entre -2 y +2
+		int offsetY = (rand() % 5) - 2;  // entre -2 y +2
+
+		int x = playerX + offsetX;
+		int y = playerY + offsetY;
+
+		// Evita posiciones fuera del mapa o repetidas
+		if (x <= 0 || x >= width - 1 || y <= 0 || y >= height - 1) continue;
+
+		int idx = y * width + x;
+
+		// Coloca diamante solo si no hay ya otro diamante
+		if (map[idx] != Tile::DIAMONDBLUE) {
+			map[idx] = Tile::DIAMONDBLUE;
+			diamondsPlaced++;
+		}
+	}
+
+	return AppStatus::OK;
+}
+
