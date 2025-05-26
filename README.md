@@ -5,9 +5,9 @@ This game is a recreation of the original game [Pengo](https://www.youtube.com/w
 
 
 
+Crush the Sno-Bees, slide the ice, and survive the chill!
 
 ## Instructions
-
 ### Controls
 - Arrows to move in different directions
 - F1 Debug mode
